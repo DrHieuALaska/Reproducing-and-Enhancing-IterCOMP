@@ -1,0 +1,2 @@
+# Invoke with --method raw. Same reader/prompt/tokenizer/generation as IterCOMP.
+extends: itercomp_llama_mistral.yaml

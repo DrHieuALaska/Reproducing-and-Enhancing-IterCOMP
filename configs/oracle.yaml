@@ -1,0 +1,2 @@
+# Invoke with --method oracle --oracle-gold PATH. Gold use is isolated.
+extends: itercomp_llama_mistral.yaml

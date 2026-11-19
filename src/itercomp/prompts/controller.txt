@@ -1,0 +1,11 @@
+Given the following Question and Information, your task is to determine whether the Information alone is sufficient to answer the Question.
+If the Information provides a clear and direct answer, or if answer to the Question can be logically derived by combining multiple statements within the Information, then output: "answerable".
+If the Information lacks the necessary content to fully answer the Question, then output: "unanswerable", and generate a follow-up question that identifies the most specific and essential piece of missing information required to answer the Question.
+Your response must strictly follow this JSON format:
+{"answer": "answerable or unanswerable", "follow_up_question": "a specific and detailed question that would help retrieve the missing information"}
+Use null for follow_up_question when answer is "answerable".
+Do not include any explanation or reasoning outside of this format.
+
+Question: $question
+Information:
+$context

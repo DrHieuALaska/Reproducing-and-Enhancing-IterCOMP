@@ -1,0 +1,2 @@
+# Alias for the default paper-oriented profile.
+extends: itercomp_llama_mistral.yaml

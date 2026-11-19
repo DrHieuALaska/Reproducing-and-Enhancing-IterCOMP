@@ -1,0 +1,23 @@
+{
+  "source_archive_sha256": "8c514b46d840b7b0b4c7a31eb964bd1b661478c690215766b6d6c6a011325a57",
+  "cases": [
+    {
+      "id": "3hop1__10879_10446_10423",
+      "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"In which geographical portion of the country, along with Arabia and the country they migrated from, do Somalis live that has songs similar to those from Somalia?\"}",
+      "input_tokens": 476,
+      "output_tokens": 51
+    },
+    {
+      "id": "4hop1__233309_727246_158589_81091",
+      "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"Who is the spouse of Karin Larsson?\"}",
+      "input_tokens": 603,
+      "output_tokens": 27
+    },
+    {
+      "id": "4hop3__393686_620110_61746_261712",
+      "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"Which US state is Tuolumne County, where Jamestown and Deadwood are located, part of?\"}",
+      "input_tokens": 424,
+      "output_tokens": 40
+    }
+  ]
+}

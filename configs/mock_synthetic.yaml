@@ -1,0 +1,26 @@
+# SOFTWARE TEST ONLY. Never use mock outputs as experimental evidence.
+profile: synthetic mock software validation; no pretrained inference
+embedding:
+  backend: mock
+  device: cpu
+  dtype: float32
+  mock_representations:
+    "The author of Book X is Alice.": {dense: [1.0, 0.0], lexical: {}}
+    "Alice was born in Paris.": {dense: [0.0, 1.0], lexical: {}}
+    "The sky is blue.": {dense: [0.0, 0.0], lexical: {}}
+    "Where was the author of Book X born?": {dense: [1.0, 0.0], lexical: {}}
+    "Where was Alice born?": {dense: [0.0, 1.0], lexical: {}}
+controller:
+  backend: mock
+  device: cpu
+  dtype: float32
+  quantization: none
+  mock_responses:
+    - '{"answer":"unanswerable","follow_up_question":"Where was Alice born?"}'
+    - '{"answer":"answerable","follow_up_question":null}'
+reader:
+  backend: mock
+  device: cpu
+  dtype: float32
+  quantization: none
+  mock_responses: [Paris]

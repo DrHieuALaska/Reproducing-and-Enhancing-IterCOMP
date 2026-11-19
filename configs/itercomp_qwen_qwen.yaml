@@ -1,0 +1,6 @@
+extends: itercomp_llama_mistral.yaml
+profile: adapted reader and controller; Qwen for both
+controller:
+  model_id: Qwen/Qwen3-4B-Instruct-2507
+reader:
+  model_id: Qwen/Qwen3-4B-Instruct-2507

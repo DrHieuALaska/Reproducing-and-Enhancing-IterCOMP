@@ -1,0 +1,7 @@
+Answer the question using only the provided information. Return only a concise answer, without explanation. If the information is insufficient, return exactly INSUFFICIENT_INFORMATION.
+
+Information:
+$context
+
+Question: $question
+Answer:

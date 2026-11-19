@@ -1,0 +1,58 @@
+# Reader then controller. Checkpoint variants/quantization are reproduction assumptions.
+profile: paper-oriented; instruction-tuned Llama reader and Mistral controller are assumptions
+seed: 42
+embedding:
+  backend: bge_m3
+  model_id: BAAI/bge-m3
+  revision: null
+  dtype: float16
+  device: cuda:0
+  batch_size: 16
+  max_length: 8192
+  normalize_embeddings: true
+  include_titles: false
+  truncation_policy: error
+  local_files_only: false
+controller:
+  backend: transformers
+  model_id: mistralai/Mistral-7B-Instruct-v0.3
+  revision: null
+  device: cuda:0
+  dtype: float16
+  quantization: nf4
+  compute_dtype: float16
+  double_quantization: true
+  attention_implementation: sdpa
+  max_new_tokens: 256
+  do_sample: false
+  temperature: 0.0
+reader:
+  backend: transformers
+  model_id: meta-llama/Meta-Llama-3-8B-Instruct
+  revision: null
+  device: cuda:0
+  dtype: float16
+  quantization: nf4
+  compute_dtype: float16
+  double_quantization: true
+  attention_implementation: sdpa
+  max_new_tokens: 64
+  do_sample: false
+  temperature: 0.0
+itercomp:
+  semantic_weight: 0.6
+  percentile: 90
+  percentile_method: linear
+  max_iterations: 5
+  controller_retries: 0
+  # Preserve an explicit answerable label; log and discard its unused follow-up.
+  # Set strict to reproduce the previous null-only validation behavior.
+  answerable_follow_up_policy: normalize_unused
+  full_rankings: true
+decomposition:
+  strategy: spacy_sentencizer
+  language: en
+context:
+  include_titles: false
+  order: source
+  separator: "\n"

@@ -1,0 +1,4 @@
+# CPU-only software tests; no model weights or GPU libraries.
+numpy>=1.26,<3
+PyYAML>=6.0.2,<7
+spacy>=3.8.7,<3.9
