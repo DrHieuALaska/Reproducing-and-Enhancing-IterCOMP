@@ -229,6 +229,8 @@ For an OpenAI-compatible serving endpoint, set `backend: openai_compatible`, `ap
 
 ## Cloud-only smoke, calibration and evaluation runs
 
+For the six reader calibration conditions, use [run_reader_calibration_6_conditions_kaggle.ipynb](notebooks/run_reader_calibration_6_conditions_kaggle.ipynb). Attach this repository directory (including the prepared calibration inputs/gold) and `itercomp_runs_export_calibration.zip` (or its automatically extracted Kaggle dataset folder), enable a GPU and the approved account's `HF_TOKEN` secret, and run the cells in order. It verifies and reuses the 150 saved IterCOMP contexts, constructs Raw/Oracle contexts on CPU, and runs both reader prompts for each context (900 reader calls). It pins the archived reader revision, resumes interrupted conditions, and exports per-condition reports plus paired comparisons. It never reruns BGE or the controller.
+
 Start manually with a small real smoke subset on a GPU. Compression loads BGE-M3 plus the controller, then releases them:
 
 ```bash

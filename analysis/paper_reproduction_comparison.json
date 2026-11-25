@@ -1,0 +1,185 @@
+{
+  "paper": "https://aclanthology.org/2026.acl-long.1559.pdf",
+  "paper_dev_table_3": {
+    "raw": {
+      "em": 9.69,
+      "f1": 19.92,
+      "ratio": 1.0
+    },
+    "oracle": {
+      "em": 21.53,
+      "f1": 37.51,
+      "ratio": 0.15
+    },
+    "itercomp": {
+      "em": 16.67,
+      "f1": 27.36,
+      "ratio": 0.14
+    }
+  },
+  "paper_table_4": [
+    {
+      "hop": 2,
+      "mean_iterations": 1.98,
+      "compressed_tokens": 228
+    },
+    {
+      "hop": 3,
+      "mean_iterations": 2.45,
+      "compressed_tokens": 348
+    },
+    {
+      "hop": 4,
+      "mean_iterations": 3.08,
+      "compressed_tokens": 403
+    }
+  ],
+  "calibration_train_subset": {
+    "n": 150,
+    "by_hop": [
+      50,
+      50,
+      50
+    ],
+    "conditions": [
+      {
+        "context": "raw",
+        "calibration_original_em": 5.333333333333334,
+        "calibration_original_f1": 7.035497835497835,
+        "calibration_revised_em": 17.333333333333336,
+        "calibration_revised_f1": 26.9266343408158,
+        "calibration_context_tokens": 2222.64,
+        "calibration_reader_context_ratio_token_weighted": 1.0
+      },
+      {
+        "context": "oracle",
+        "calibration_original_em": 26.666666666666668,
+        "calibration_original_f1": 34.534045584045586,
+        "calibration_revised_em": 37.333333333333336,
+        "calibration_revised_f1": 52.7930404663913,
+        "calibration_context_tokens": 350.7,
+        "calibration_reader_context_ratio_token_weighted": 0.15778533635676492
+      },
+      {
+        "context": "itercomp",
+        "calibration_original_em": 10.0,
+        "calibration_original_f1": 13.962962962962964,
+        "calibration_revised_em": 17.333333333333336,
+        "calibration_revised_f1": 26.75984585836267,
+        "calibration_context_tokens": 439.46666666666664,
+        "calibration_reader_context_ratio_token_weighted": 0.19772282810831562
+      }
+    ]
+  },
+  "full_dev_original_reader": {
+    "n": 2417,
+    "em": 12.78444352503103,
+    "f1": 17.80278904177069,
+    "macro_ratio": 0.18330444446377153,
+    "token_weighted_ratio": 0.18494791059376614,
+    "mean_compressed_context_tokens": 419.3496069507654,
+    "mean_compression_seconds": 14.214488855721978,
+    "mean_context_tokens_by_hop": {
+      "2": 379.71246006389777,
+      "3": 463.5486842105263,
+      "4": 458.94074074074075
+    }
+  },
+  "full_dev_revised_reader": null,
+  "verified_compression_sha256": "416ff26ed2df56f5823f7bd4f95206e3f092ba370599938601cbd13499a036c6",
+  "full_dev_successful_compression_traces": {
+    "all": {
+      "n_successful": 2415,
+      "mean_iterations": 4.239337474120083,
+      "n_iterations": 10238,
+      "n_refinements": 7823,
+      "hit_cap": 1913,
+      "first_all_support": 802,
+      "final_all_support": 1248,
+      "repeats": 3398,
+      "no_new_evidence": 4303
+    },
+    "2": {
+      "n_successful": 1250,
+      "mean_iterations": 3.9976,
+      "n_iterations": 4997,
+      "n_refinements": 3747,
+      "hit_cap": 911,
+      "first_all_support": 582,
+      "final_all_support": 784,
+      "repeats": 1723,
+      "no_new_evidence": 2178
+    },
+    "3": {
+      "n_successful": 760,
+      "mean_iterations": 4.397368421052631,
+      "n_iterations": 3342,
+      "n_refinements": 2582,
+      "hit_cap": 632,
+      "first_all_support": 200,
+      "final_all_support": 358,
+      "repeats": 1074,
+      "no_new_evidence": 1376
+    },
+    "4": {
+      "n_successful": 405,
+      "mean_iterations": 4.688888888888889,
+      "n_iterations": 1899,
+      "n_refinements": 1494,
+      "hit_cap": 370,
+      "first_all_support": 20,
+      "final_all_support": 106,
+      "repeats": 601,
+      "no_new_evidence": 749
+    }
+  },
+  "compression_errors": [
+    {
+      "id": "2hop__66149_85990",
+      "iteration": 2,
+      "output_tokens": 71,
+      "controller_raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who were the leaders of the anti-slavery party that was created as a result of the Kansas-Nebraska Act in 1854, specifically in the context of the 'general \"anti-Nebraska\" movement'?\"}",
+      "parser_error": "Controller did not return valid JSON",
+      "json_decode_error": "Expecting ',' delimiter: line 1 column 208 (char 207)",
+      "reader_calls": 0
+    },
+    {
+      "id": "2hop__17508_17335",
+      "iteration": 3,
+      "output_tokens": 57,
+      "controller_raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the person referred to in the statement 'What remains is \"a photo of a painting of a person, and the real person hidden somewhere underneath.\"' and when did this person die?\"}",
+      "parser_error": "Controller did not return valid JSON",
+      "json_decode_error": "Expecting ',' delimiter: line 1 column 116 (char 115)",
+      "reader_calls": 0
+    }
+  ],
+  "max_score_gain_from_correcting_only_two_failures_points": 0.08274720728175423,
+  "notes": [
+    "Calibration and the paper use different splits. Revised-reader full dev performance has not been measured.",
+    "Local iteration counts include the initial pass. Local token counts are context-only. Exact paper tokenizer, aggregation and prompt formatting were not established.",
+    "The saved compression stages are read-only. Neither paper numbers nor QA scores are substituted for missing metrics."
+  ],
+  "dev_context_growth": {
+    "all_successful": {
+      "n": 2415,
+      "mean_first_pass_context_tokens": 277.5031055900621,
+      "mean_final_context_tokens": 419.37349896480333,
+      "weighted_first_pass_context_ratio": 0.12238560715894715,
+      "weighted_final_context_ratio": 0.18495389515748037
+    },
+    "max_iterations": {
+      "n": 1913,
+      "mean_first_pass_context_tokens": 277.0810245687402,
+      "mean_final_context_tokens": 444.97386304234186,
+      "weighted_first_pass_context_ratio": 0.12201489299158347,
+      "weighted_final_context_ratio": 0.19594787614080506
+    },
+    "answerable": {
+      "n": 502,
+      "mean_first_pass_context_tokens": 279.1115537848606,
+      "mean_final_context_tokens": 321.8167330677291,
+      "weighted_first_pass_context_ratio": 0.12380864859706388,
+      "weighted_final_context_ratio": 0.14275186489681876
+    }
+  }
+}

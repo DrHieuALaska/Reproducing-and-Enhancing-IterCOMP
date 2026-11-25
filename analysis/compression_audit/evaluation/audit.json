@@ -1,0 +1,1139 @@
+{
+  "split": "evaluation",
+  "archive_sha256": "c0d1e8107936bc8786aab58ea5e8b584732f50361d60e6d50e318fdb0fddfc09",
+  "verified_compression_sha256": "416ff26ed2df56f5823f7bd4f95206e3f092ba370599938601cbd13499a036c6",
+  "gold_sha256": "212d768120cf2e57781e85bac7d9ffd7796af49d661a431b3a6b0e4c5eb446db",
+  "compression_contract": {
+    "settings": {
+      "method": "itercomp",
+      "seed": 42,
+      "embedding": {
+        "backend": "bge_m3",
+        "model_id": "BAAI/bge-m3",
+        "revision": null,
+        "device": "cuda:0",
+        "dtype": "float16",
+        "batch_size": 16,
+        "max_length": 8192,
+        "normalize_embeddings": true,
+        "include_titles": false,
+        "truncation_policy": "error",
+        "cache_dir": null,
+        "local_files_only": false,
+        "mock_representations": {}
+      },
+      "controller": {
+        "backend": "transformers",
+        "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+        "revision": null,
+        "device": "cuda:0",
+        "dtype": "float16",
+        "quantization": "nf4",
+        "compute_dtype": "float16",
+        "double_quantization": true,
+        "attention_implementation": "sdpa",
+        "max_new_tokens": 256,
+        "max_context_tokens": null,
+        "do_sample": false,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "seed": 42,
+        "cache_dir": null,
+        "local_files_only": false,
+        "api_base": "http://localhost:8000/v1",
+        "api_key_env": "ITERCOMP_API_KEY",
+        "timeout": 120.0,
+        "api_send_seed": false,
+        "tokenizer_id": null,
+        "tokenizer_revision": null,
+        "chat_template_kwargs": {},
+        "mock_responses": []
+      },
+      "itercomp": {
+        "semantic_weight": 0.6,
+        "percentile": 90,
+        "percentile_method": "linear",
+        "max_iterations": 5,
+        "controller_retries": 0,
+        "answerable_follow_up_policy": "normalize_unused",
+        "full_rankings": true
+      },
+      "decomposition": {
+        "strategy": "spacy_sentencizer",
+        "language": "en"
+      },
+      "context": {
+        "include_titles": false,
+        "separator": "\n",
+        "order": "source"
+      },
+      "controller_prompt_sha256": "f3767d1993f9235d4053a232ba7fb85ad95696cfbb184d32d08727b0d35ebd96"
+    },
+    "algorithm_source_sha256": "87e22047c2c976e4cbfceca8a09638bf05eaf1a5ca4a1133297b814c9b726a5f",
+    "schema_version": 1
+  },
+  "component_initialization": {
+    "encoder": {
+      "model_initialization_seconds": 26.937617602000046,
+      "weight_loading_seconds": 18.834447614000055,
+      "resolved_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "dense_normalized_by_flagembedding": true,
+      "adapter": "official M3 forward; weighted max-per-token sparse extraction; fixed batches, no hidden retry"
+    },
+    "controller": {
+      "model_initialization_seconds": 114.85051462899997,
+      "weight_loading_seconds": 113.81231564300003,
+      "resolved_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "resolved_tokenizer_revision": null,
+      "quantization_runtime": {
+        "bitsandbytes_version": "0.49.2",
+        "torch_cuda": "13.0",
+        "native_cuda_backend": true
+      },
+      "device": "cuda:0"
+    }
+  },
+  "failed": [
+    {
+      "id": "2hop__66149_85990",
+      "error": {
+        "type": "ValueError",
+        "message": "Controller did not return valid JSON"
+      }
+    },
+    {
+      "id": "2hop__17508_17335",
+      "error": {
+        "type": "ValueError",
+        "message": "Controller did not return valid JSON"
+      }
+    }
+  ],
+  "groups": {
+    "all": {
+      "n": 2415,
+      "stop_reasons": {
+        "max_iterations": 1913,
+        "answerable": 502
+      },
+      "means": {
+        "iterations": 4.239337474120083,
+        "first_sentences": 7.753623188405797,
+        "final_sentences": 12.076604554865424,
+        "first_controller_context_tokens": 328.60910973084884,
+        "final_controller_context_tokens": 496.6712215320911
+      },
+      "totals": {
+        "hops": 6400,
+        "iterations": 10238,
+        "first_sentences": 18725,
+        "final_sentences": 29165,
+        "first_controller_context_tokens": 793591,
+        "final_controller_context_tokens": 1199461,
+        "first_complete_paragraph_coverage": 802,
+        "final_complete_paragraph_coverage": 1248,
+        "eligible_annotated_hop_spans": 6290,
+        "annotated_hops_with_body_span": 6290,
+        "annotated_hops_with_title_span_only": 4,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 3595,
+        "final_retained_annotated_hop_spans": 4336,
+        "first_dense_only_annotated_hop_spans_equal_count": 3582,
+        "first_dense_only_selection_differs": 2025,
+        "all_hops_have_candidate_spans": 2307,
+        "first_all_annotated_hop_spans_retained": 548,
+        "final_all_annotated_hop_spans_retained": 936,
+        "missing_span_from_already_retained_paragraph": 477,
+        "followup_sentences_added": 10440,
+        "followup_sentences_from_gold_paragraphs": 2657,
+        "retrieval_followup_passes": 7823,
+        "followup_passes_no_new_evidence": 4303,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 4303,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 14350.354328529957,
+        "exact_repeated_query_and_selection": 3289,
+        "candidate_sentences": 176466,
+        "initial_selected_above_rounded_top_decile": 19,
+        "encoder_truncations": 0
+      }
+    },
+    "2_hop": {
+      "n": 1250,
+      "stop_reasons": {
+        "max_iterations": 911,
+        "answerable": 339
+      },
+      "means": {
+        "iterations": 3.9976,
+        "first_sentences": 7.5448,
+        "final_sentences": 10.9048,
+        "first_controller_context_tokens": 323.5152,
+        "final_controller_context_tokens": 449.4152
+      },
+      "totals": {
+        "hops": 2500,
+        "iterations": 4997,
+        "first_sentences": 9431,
+        "final_sentences": 13631,
+        "first_controller_context_tokens": 404394,
+        "final_controller_context_tokens": 561769,
+        "first_complete_paragraph_coverage": 582,
+        "final_complete_paragraph_coverage": 784,
+        "eligible_annotated_hop_spans": 2433,
+        "annotated_hops_with_body_span": 2433,
+        "annotated_hops_with_title_span_only": 2,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 1514,
+        "final_retained_annotated_hop_spans": 1752,
+        "first_dense_only_annotated_hop_spans_equal_count": 1541,
+        "first_dense_only_selection_differs": 1021,
+        "all_hops_have_candidate_spans": 1184,
+        "first_all_annotated_hop_spans_retained": 403,
+        "final_all_annotated_hop_spans_retained": 604,
+        "missing_span_from_already_retained_paragraph": 200,
+        "followup_sentences_added": 4200,
+        "followup_sentences_from_gold_paragraphs": 861,
+        "retrieval_followup_passes": 3747,
+        "followup_passes_no_new_evidence": 2178,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 2178,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 6862.882006020949,
+        "exact_repeated_query_and_selection": 1676,
+        "candidate_sentences": 88792,
+        "initial_selected_above_rounded_top_decile": 11,
+        "encoder_truncations": 0
+      }
+    },
+    "3_hop": {
+      "n": 760,
+      "stop_reasons": {
+        "max_iterations": 632,
+        "answerable": 128
+      },
+      "means": {
+        "iterations": 4.397368421052631,
+        "first_sentences": 7.964473684210526,
+        "final_sentences": 12.964473684210526,
+        "first_controller_context_tokens": 347.2157894736842,
+        "final_controller_context_tokens": 550.5723684210526
+      },
+      "totals": {
+        "hops": 2280,
+        "iterations": 3342,
+        "first_sentences": 6053,
+        "final_sentences": 9853,
+        "first_controller_context_tokens": 263884,
+        "final_controller_context_tokens": 418435,
+        "first_complete_paragraph_coverage": 200,
+        "final_complete_paragraph_coverage": 358,
+        "eligible_annotated_hop_spans": 2259,
+        "annotated_hops_with_body_span": 2259,
+        "annotated_hops_with_title_span_only": 2,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 1353,
+        "final_retained_annotated_hop_spans": 1606,
+        "first_dense_only_annotated_hop_spans_equal_count": 1334,
+        "first_dense_only_selection_differs": 644,
+        "all_hops_have_candidate_spans": 739,
+        "first_all_annotated_hop_spans_retained": 134,
+        "final_all_annotated_hop_spans_retained": 256,
+        "missing_span_from_already_retained_paragraph": 182,
+        "followup_sentences_added": 3800,
+        "followup_sentences_from_gold_paragraphs": 1021,
+        "retrieval_followup_passes": 2582,
+        "followup_passes_no_new_evidence": 1376,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 1376,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 4900.197642490983,
+        "exact_repeated_query_and_selection": 1035,
+        "candidate_sentences": 57082,
+        "initial_selected_above_rounded_top_decile": 4,
+        "encoder_truncations": 0
+      }
+    },
+    "4_hop": {
+      "n": 405,
+      "stop_reasons": {
+        "answerable": 35,
+        "max_iterations": 370
+      },
+      "means": {
+        "iterations": 4.688888888888889,
+        "first_sentences": 8.00246913580247,
+        "final_sentences": 14.02716049382716,
+        "first_controller_context_tokens": 309.4148148148148,
+        "final_controller_context_tokens": 541.3753086419753
+      },
+      "totals": {
+        "hops": 1620,
+        "iterations": 1899,
+        "first_sentences": 3241,
+        "final_sentences": 5681,
+        "first_controller_context_tokens": 125313,
+        "final_controller_context_tokens": 219257,
+        "first_complete_paragraph_coverage": 20,
+        "final_complete_paragraph_coverage": 106,
+        "eligible_annotated_hop_spans": 1598,
+        "annotated_hops_with_body_span": 1598,
+        "annotated_hops_with_title_span_only": 0,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 728,
+        "final_retained_annotated_hop_spans": 978,
+        "first_dense_only_annotated_hop_spans_equal_count": 707,
+        "first_dense_only_selection_differs": 360,
+        "all_hops_have_candidate_spans": 384,
+        "first_all_annotated_hop_spans_retained": 11,
+        "final_all_annotated_hop_spans_retained": 76,
+        "missing_span_from_already_retained_paragraph": 95,
+        "followup_sentences_added": 2440,
+        "followup_sentences_from_gold_paragraphs": 775,
+        "retrieval_followup_passes": 1494,
+        "followup_passes_no_new_evidence": 749,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 749,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 2587.274680018025,
+        "exact_repeated_query_and_selection": 578,
+        "candidate_sentences": 30592,
+        "initial_selected_above_rounded_top_decile": 4,
+        "encoder_truncations": 0
+      }
+    },
+    "answerable": {
+      "n": 502,
+      "stop_reasons": {
+        "answerable": 502
+      },
+      "means": {
+        "iterations": 1.340637450199203,
+        "first_sentences": 7.693227091633466,
+        "final_sentences": 8.860557768924302,
+        "first_controller_context_tokens": 330.2410358565737,
+        "final_controller_context_tokens": 381.9521912350598
+      },
+      "totals": {
+        "hops": 1202,
+        "iterations": 673,
+        "first_sentences": 3862,
+        "final_sentences": 4448,
+        "first_controller_context_tokens": 165781,
+        "final_controller_context_tokens": 191740,
+        "first_complete_paragraph_coverage": 223,
+        "final_complete_paragraph_coverage": 270,
+        "eligible_annotated_hop_spans": 1182,
+        "annotated_hops_with_body_span": 1182,
+        "annotated_hops_with_title_span_only": 1,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 751,
+        "final_retained_annotated_hop_spans": 820,
+        "first_dense_only_annotated_hop_spans_equal_count": 744,
+        "first_dense_only_selection_differs": 400,
+        "all_hops_have_candidate_spans": 482,
+        "first_all_annotated_hop_spans_retained": 158,
+        "final_all_annotated_hop_spans_retained": 204,
+        "missing_span_from_already_retained_paragraph": 90,
+        "followup_sentences_added": 586,
+        "followup_sentences_from_gold_paragraphs": 203,
+        "retrieval_followup_passes": 171,
+        "followup_passes_no_new_evidence": 0,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 0,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 0.0,
+        "exact_repeated_query_and_selection": 0,
+        "candidate_sentences": 36398,
+        "initial_selected_above_rounded_top_decile": 4,
+        "encoder_truncations": 0
+      }
+    },
+    "max_iterations": {
+      "n": 1913,
+      "stop_reasons": {
+        "max_iterations": 1913
+      },
+      "means": {
+        "iterations": 5.0,
+        "first_sentences": 7.769472033455306,
+        "final_sentences": 12.920543648719288,
+        "first_controller_context_tokens": 328.18086774699424,
+        "final_controller_context_tokens": 526.7752221641401
+      },
+      "totals": {
+        "hops": 5198,
+        "iterations": 9565,
+        "first_sentences": 14863,
+        "final_sentences": 24717,
+        "first_controller_context_tokens": 627810,
+        "final_controller_context_tokens": 1007721,
+        "first_complete_paragraph_coverage": 579,
+        "final_complete_paragraph_coverage": 978,
+        "eligible_annotated_hop_spans": 5108,
+        "annotated_hops_with_body_span": 5108,
+        "annotated_hops_with_title_span_only": 3,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 2844,
+        "final_retained_annotated_hop_spans": 3516,
+        "first_dense_only_annotated_hop_spans_equal_count": 2838,
+        "first_dense_only_selection_differs": 1625,
+        "all_hops_have_candidate_spans": 1825,
+        "first_all_annotated_hop_spans_retained": 390,
+        "final_all_annotated_hop_spans_retained": 732,
+        "missing_span_from_already_retained_paragraph": 387,
+        "followup_sentences_added": 9854,
+        "followup_sentences_from_gold_paragraphs": 2454,
+        "retrieval_followup_passes": 7652,
+        "followup_passes_no_new_evidence": 4303,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 4303,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 14350.354328529957,
+        "exact_repeated_query_and_selection": 3289,
+        "candidate_sentences": 140068,
+        "initial_selected_above_rounded_top_decile": 15,
+        "encoder_truncations": 0
+      }
+    }
+  },
+  "examples": {
+    "cap_with_all_annotated_spans": [
+      {
+        "id": "2hop__460946_294723",
+        "question": "Who is the spouse of the Green performer?",
+        "answer": "Miquette Giraudy",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the spouse of the Green performer?",
+          "Who is the performer Debbie Allen is married to?",
+          "Who is the performer with the stage name Green?",
+          "Is there any information about the spouse of the jazz guitarist Grant Green in this data?",
+          "Is there any information about the spouse of the jazz guitarist Grant Green in this data?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          4,
+          2,
+          3,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "Grant's First Stand is the debut album by American jazz guitarist Grant Green featuring performances by Green recorded and released on the Blue Note label in 1961.\nEarlier recordings made by Green for Blue Note were released as \"First Session\" in 2001.\nActress / director / singer Phylicia Rashād is the older sister of performer Debbie Allen, who is married to former NBA basketball player, Norm Nixon.\nPhylicia Rashād is the former spouse of both Victor Willis, former lead singer of the group Village People, and former NFL football player turned sportscaster, Ahmad Rashād.\nGreen Lake is a lake in Chisago City, Minnesota, United States.\nMiquette Giraudy (born 9 February 1953, Nice, France) is a keyboard player and vocalist, best known for her work in Gong and with her partner Steve Hillage.\nIn addition to her performances in music, she has also worked as an actress, film editor and writer.\nIn each role, she has used different stage names.\nGreen animals include, especially, amphibians, reptiles, and some fish, birds and insects.\nGooden's Corner is an album by American jazz guitarist Grant Green featuring performances recorded in 1961 and released on the Japanese Blue Note label in 1980.\nGreen is the fourth studio album by British progressive rock musician Steve Hillage.\n\"Little Green\" is a song composed and performed by Joni Mitchell.\nThe Main Attraction is an album by American jazz guitarist Grant Green featuring performances recorded in 1976 and released on the Kudu label.\nThe series' release led to record subscriptions for All Access, and positive reviews from critics who highlighted Martin - Green's performance.\nThe Odd Life of Timothy Green is a 2012 American fantasy comedy-drama film starring Jennifer Garner, Joel Edgerton, Dianne Wiest, CJ Adams, Rosemarie DeWitt, Ron Livingston, David Morse and Common, written and directed by Peter Hedges and produced by Walt Disney Pictures.\nThe Latin Bit is an album by American jazz guitarist Grant Green featuring performances recorded in 1962 and released on the Blue Note label."
+      },
+      {
+        "id": "2hop__701895_752697",
+        "question": "What administrative territorial entity is the owner of Ciudad Deportiva located?",
+        "answer": "Tamaulipas",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What administrative territorial entity is the owner of Ciudad Deportiva located?",
+          "In which administrative territorial entity is Nuevo Laredo located?",
+          "In which administrative territorial entity is the Ciudad Deportiva located in Mexico?",
+          "In which administrative territorial entity is the Ciudad Deportiva located in Mexico?",
+          "In which administrative territorial entity is the Ciudad Deportiva located in Mexico?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          5,
+          3,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "The 1969 Gran Premio de Mexico (Mexican Grand Prix) was a Formula One motor race held at the Ciudad Deportiva Magdalena Mixhuca, Mexico City on October 19, 1969, two weeks after the United States Grand Prix at Watkins Glen.\nThe Municipality of Nuevo Laredo is located in the Mexican state of Tamaulipas.\nIts municipal seat is Nuevo Laredo.\nThe municipality contains more than 60 localities which the most important ones are Nuevo Laredo, El Campanario y Oradel, and Álvarez, the last two being suburbs of the city of Nuevo Laredo.\nThe Nuevo Laredo municipality is the northernmost in Tamaulipas, lying at the extreme northwestern tip of its narrow strip of land along the Río Grande.\nThe city of Nuevo Laredo contains approximately 97.5% of the total population of the municipality.\nThe Buenos Aires Argentina Temple is the 39th operating temple of The Church of Jesus Christ of Latter-day Saints (LDS Church), located in Ciudad Evita, near Buenos Aires, Argentina.\nMexico is an intermediate case, in that municipalities are granted full-autonomy by the federal constitution and their existence as autonomous entities (municipio libre, \"free municipality\") is established by the federal government and cannot be revoked by the states' constitutions.\nClub Sportivo Italiano is an Argentine football club located in Ciudad Evita, La Matanza Partido, Greater Buenos Aires.\nIt is named for the former Ciudad del Niño Presidente Juan Antonio Ríos.\nThe Ciudad Deportiva (\"Sports City\") is a sports complex in Nuevo Laredo, Mexico.\nIt is home to the Tecolotes de Nuevo Laredo Mexican Baseball League team and the Toros de Nuevo Laredo Mexican professional basketball team from the Liga Nacional de Baloncesto Profesional.\nThe Ciudad Deportiva's Estadio Nuevo Laredo (baseball park) can seat up to 12,000 fans at a baseball game and the Nuevo Laredo Multidisciplinary Gymnasium can seat 4,000 fans at a basketball game.\nIt is currently used mostly for football matches and is the home stadium of Asociación Deportiva Tarma of the Copa Perú.\nBy 1881, the Central Mexican Railroad was completed which connected Mexico City to Ciudad Juárez.\nIt is located just outside the capital city Montevideo on the east, and over one of the most important access streets to Montevideo, Giannattasio Avenue, which connects Montevideo with the so call Ciudad de la Costa, the fastest growing area in Uruguay in the recent years.\nIts administrative center is Minsk, although it is a separate administrative territorial entity of Belarus."
+      },
+      {
+        "id": "2hop__390947_232243",
+        "question": "What is the goal of the group that European Movement Germany is a member of?",
+        "answer": "European integration",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What is the goal of the group that European Movement Germany is a member of?",
+          "Which specific group or alliance is European Movement Germany a member of, that promotes the goal of European integration?",
+          "Which specific European Movement or group is European Movement Germany a member of?",
+          "Which specific European Movement or group is European Movement Germany a member of?",
+          "Which specific European Movement or group is European Movement Germany a member of?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "He is a member of the parliamentary group European Democratic and Social Rally in the French Senate.\nBernd Hüttemann (born December 8, 1970 in Paderborn) is Vice President of the European Movement International and Secretary General of the European Movement Germany.\nSince 3 December 2011 he is president of the European Movement France.\nHe is a member of the Union for a Popular Movement.\nShe is a member of the National Movement Simeon II, part of the Alliance of Liberals and Democrats for Europe, and became an MEP on 1 January 2007 with the accession of Bulgaria to the European Union.\nThe European Movement International is a lobbying association that coordinates the efforts of associations and national councils with the goal of promoting European integration, and disseminating information about it.\nHe is a member of the Union for a Popular Movement."
+      },
+      {
+        "id": "2hop__402530_774333",
+        "question": "What other county does the county where Imperial is located share a border with?",
+        "answer": "Crockett County",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What other county does the county where Imperial is located share a border with?",
+          "Which U.S. state does Pecos County, Texas, where Imperial is located, share a border with?",
+          "Which county in Texas does Imperial, a census-designated place in Pecos County, share a border with, other than the state of Tamil Nadu?",
+          "Which county in Texas does Imperial, a census-designated place in Pecos County, share a border with, other than the state of Tamil Nadu?",
+          "Which county in Texas does Imperial, a census-designated place in Pecos County, share a border with, other than the state of Tamil Nadu?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          3,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "It shares borders with the city in two areas, but is surrounded mostly by other suburbs.\nEight Canadian provinces and territories (Yukon, British Columbia, Alberta, Saskatchewan, Manitoba, Ontario, Quebec, and New Brunswick), and thirteen U.S. states (Alaska, Washington, Idaho, Montana, North Dakota, Minnesota, Michigan, Ohio, Pennsylvania, New York, Vermont, New Hampshire, and Maine) are located along the border.\nIt is located in the south of the district where it borders Abbottabad District.\nEight Canadian provinces and territories (Yukon, British Columbia, Alberta, Saskatchewan, Manitoba, Ontario, Quebec, and New Brunswick), and thirteen U.S. states (Alaska, Washington, Idaho, Montana, North Dakota, Minnesota, Michigan, Ohio, Pennsylvania, New York, Vermont, New Hampshire, and Maine) are located along the border.\nIt is bordered by the state of Tamil Nadu both to the east and west.\nLancaster Crossing, also known as Indian Ford, Pecos Crossing, Solomon's Ford, Crossing of the Pecos, Crossing Rio Pecos, Ferry of the Pecos, and Ford Canyon Crossing, is an historic ford and ferry on the Pecos River, between Crockett County and Pecos County just southeast of Sheffield, Texas.\nNamed after nearby Fort Lancaster, it is one of the few natural fords on the Pecos River, otherwise known for its steep banks that made crossing difficult.\nThe town shares a small border with Lake Biwa to the northwest.\nVirginia is located in Lempira Honduras and shares a border with El Salvador.\nImperial is a census-designated place (CDP) in Pecos County, Texas, United States."
+      },
+      {
+        "id": "2hop__683835_709167",
+        "question": "What award did the author of The Red Tree receive?",
+        "answer": "Academy Award for Best Animated Short Film",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What award did the author of The Red Tree receive?",
+          "What awards has the author Shaun Tan received?",
+          "Who is the author of The Red Tree?",
+          "Which author is associated with The Red Tree?",
+          "Which author is associated with The Red Tree?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          6,
+          4,
+          1,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "The Red Ochre Award was established in 1993 by the Australia Council for the Arts.\nThe Nobel Prize in Literature (Swedish: Nobelpriset i litteratur) is a Swedish literature prize that is awarded annually, since 1901, to an author from any country who has, in the words of the will of Swedish industrialist Alfred Nobel, produced ``in the field of literature the most outstanding work in an ideal direction ''(original Swedish:`` den som inom litteraturen har producerat det mest framstående verket i en idealisk riktning'').\nThough individual works are sometimes cited as being particularly noteworthy, the award is based on an author's body of work as a whole.\nIt will not be awarded in 2018, but two names will be awarded in 2019.\nThe award was founded by PEN Member and author Barbaralee Diamonstein and Carl Spielvogel, former \"New York Times\" columnist, \"to preserve the dignity and esteem that the essay form imparts to literature.\"\nThe winner receives a cash award of $10,000.\nPassion Australia produced \"The Lost Thing\", directed by Andrew Ruhemann and Shaun Tan, which won an Academy Award for Best Animated Short Film in 2011.\nHalfway Tree is the second album by Jamaican reggae artist Damian \"Jr. Gong\" Marley.\nThe name \"Halfway Tree\" comes from his mother, Cindy Breakspeare, being from the rich part of town, and his father, Bob Marley, coming from the poor part of town, thus him being \"a tree halfway in between the 'rich' world and 'poor' world.\"\nAdditionally, Halfway Tree is a well-known landmark that marks the cultural center of Half-Way-Tree, the clock tower that stands where the historical eponymous cotton tree once stood is featured prominently behind Marley on the cover of the album.\nChildress has received numerous awards, prizes, and accolades for his writing and poetry, and is regarded as one of the foremost poets of the Korean War by at least two critics.\nHe has received a range of awards including the 1999 and 1996 ASCAP (American Society of Composers, Authors & Publishers) and First Prize for his Piano Quartet in the European Region’s Young Composers’ Competition in 2000.\nIn 2008, she received the Chicago Public Library Foundation's 21st Century Award for achievement in writing by an author with ties to Chicago.\nHe is a four - time All - Star and an American League (AL) Most Valuable Player award winner, who has also received four Gold Glove Awards and a single Silver Slugger award.\nIt follows \"The Summer Tree\".\nThe Red Tree (2001), written and illustrated by Shaun Tan, is a picture book that presents a fragmented journey through a dark world.\nIt is based on the 1938 novel \"Die Kapuzinergruft\" (\"The Emperor's Tomb\") by Austrian author Joseph Roth.\nPenelope Tree is the only child of Ronald, a British journalist, investor and Conservative MP, and Marietta Peabody Tree, a U.S. socialite and political activist.\nShe is the half-sister of both the racehorse trainer Jeremy Tree and the author Frances FitzGerald and a niece of former Massachusetts governor Endicott Peabody.\nThe song was released as the lead single from Red on August 13, 2012, by Big Machine Records."
+      },
+      {
+        "id": "2hop__197470_271394",
+        "question": "Where was Tyler MacDuff's child educated?",
+        "answer": "Blair High School",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Where was Tyler MacDuff's child educated?",
+          "What educational institution or institutions did Tyler MacDuff attend for his child's education?",
+          "What schools did Tyler MacDuff attend?",
+          "What schools did Tyler MacDuff attend?",
+          "What schools did Tyler MacDuff attend?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          1,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "Ralph W. Tyler (1902–1994) was an American educator who worked in the field of assessment and evaluation.\nTyler chaired the committee that developed the National Assessment of Educational Progress (NAEP).\nHe and his older brother, Brandon R. MacDuff (born 1954), a 1972 graduate of Blair High School, have formed Oakdale Pictures, a production company in Reno.\nTyler was born in Brooklyn, New York.\nTyler completed his Ph.D. studies on reproductive biology and was appointed to the faculty at Caltech.\nHe was born in Pasadena, California, to the actor Tyler MacDuff and the former Beverlie May Anderson (born 1930), who divorced in 1961.\nLike his father, Dana MacDuff served in the United States Navy, having been on active duty from 1974–1977.\nDavid Gardiner Tyler (July 12, 1846 – September 5, 1927), was a U.S. Democratic Party politician and the ninth child and fourth son of John Tyler, the tenth President of the United States.\nHe chooses instead to fight Macduff to the death."
+      },
+      {
+        "id": "2hop__299142_347613",
+        "question": "Who is the child of Sigrid Eskilsdotter's child?",
+        "answer": "Svante Stensson Sture",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the child of Sigrid Eskilsdotter's child?",
+          "Who is Sigrid Eskilsdotter's child?",
+          "Who is Sigrid Eskilsdotter's child?",
+          "Who is Sigrid Eskilsdotter's child?",
+          "Who is Sigrid Eskilsdotter's child?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "She was the daughter of Svante Stensson Sture and Märta (\"king Martha\") Erikdotter Leijonhufvud, thereby the niece of queen Margaret Leijonhufvud and the granddaughter of regent Christina Gyllenstierna.\nShe married to Ture Pedersson Bielke and became the mother of Svante Turesson Bielke.\nLoekman is the third child of five siblings.\nLoekman married Rika Nurhayati and have two child.\nA toddler is a child 12 to 36 months old.\nAt age 15 years 9 months HM Revenue and Customs (HMRC) notifies each child of their NI number.\nSigrid Eskilsdotter (Banér) (died 1527), was a Swedish noble, the mother of the Swedish regent Christina Gyllenstierna and the maternal grandmother of King Gustav Vasa of Sweden."
+      },
+      {
+        "id": "2hop__569582_304416",
+        "question": "What record label is the performer of Almost Made Ya signed to?",
+        "answer": "Derrty Entertainment",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What record label is the performer of Almost Made Ya signed to?",
+          "Which record label is Almost Made Ya, the R&B song by Ali & Gipp, signed to?",
+          "What record label is Ali & Gipp's debut album 'Kinfolk' (2007) released on?",
+          "What is the record label of Ali & Gipp, the American rap duo?",
+          "What is the record label of Ali & Gipp's debut album 'Kinfolk'?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          2,
+          2,
+          4,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "label.\nThe album was also released in the UK on the HMV label as CLP3541.\nThe label was formed in 2007 and is owned by Playground Music Scandinavia .\nThe label is mostly active on the Swedish market, but with former signed artists such as Agnes Carlsson and Erik Hassle, they have made an international leap.\nAlmost Made Ya is an R&B song by American duo Ali & Gipp, for the debut album, \"Kinfolk\" (2007).\nThe song was written by LeToya Luckett, Jermaine Dupri, Ali Vaskabi-Waski-Jones, Cameron Gipp, Shelly Peiken and Guy Roche\nThree for Shepp is the debut album by American saxophonist Marion Brown featuring performances recorded in 1966 for the Impulse!\nlabel.\nKinfolk is the debut and only album by American rap duo Ali & Gipp, released on August 14, 2007, through Derrty Entertainment and Universal Records.\nThe fourth and final single is \"Almost Made Ya\" featuring LeToya Luckett.\nlabel.\nAlmost Seventeen\" eventually sold over 400,000 copies and was certified platinum by the Recording Industry Association of Japan.\nlabel.\nLook What I Almost Stepped In... is the eighth studio album by the southern California punk rock band The Vandals, released in 2000 by Nitro Records."
+      }
+    ],
+    "stalled_with_missing_spans": [
+      {
+        "id": "2hop__697790_864352",
+        "question": "Who is the child of Caroline LeRoy's spouse?",
+        "answer": "Fletcher Webster",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the child of Caroline LeRoy's spouse?",
+          "Who is the spouse of Caroline LeRoy's (September 28, 1797 - February 26, 1882)?",
+          "Who is the spouse of Caroline LeRoy's (September 28, 1797 - February 26, 1882)?",
+          "Who is the spouse of Caroline LeRoy's (September 28, 1797 - February 26, 1882)?",
+          "Who is the spouse of Caroline LeRoy's (September 28, 1797 - February 26, 1882)?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          0,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> child",
+            "hop_answer": "Fletcher Webster",
+            "support_title": "Fletcher Webster",
+            "best_rank": 35,
+            "iteration": 2,
+            "cutoff_at_best_rank": 6,
+            "candidate_sentences": [
+              "Daniel Fletcher Webster, commonly known as Fletcher Webster (July 25, 1813 in Portsmouth, New Hampshire – August 30, 1862) was the son of renowned politician Daniel Webster and Grace Fletcher Webster."
+            ]
+          }
+        ],
+        "retained_context": "He married Caroline Boeck, daughter of captain Cæsar Boeck.\nCaroline LeRoy Webster (September 28, 1797 in New York City – February 26, 1882) was the second wife of 19th Century statesman Daniel Webster.\nHer father was Herman LeRoy, who was once head of the commercial house of Leroy, Bayard, McKiven & Co., a large trading company that operated in different parts of the world.\nCaroline's mother was Hannah Cornell, daughter of the last Royal Attorney General of the State of North Carolina.\nCaroline was a descendant of Thomas Cornell.\nLeroy (/ ləˈrɔɪ / lə - ROY), also Leeroy, LeeRoy, Lee Roy, LeRoy or Le Roy, is both a male given name in English - speaking countries and a family name of French origin."
+      },
+      {
+        "id": "2hop__207476_625987",
+        "question": "Who is the grandmother of Philippe, Duke of Orléans?",
+        "answer": "Marie de' Medici",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the grandmother of Philippe, Duke of Orléans?",
+          "Who is the mother of Louise Élisabeth d'Orléans?",
+          "Who is the mother of Philippe, Duke of Orléans?",
+          "Who is the mother of Philippe, Duke of Orléans?",
+          "Who is the mother of Philippe, Duke of Orléans?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          3,
+          1,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 of France >> mother",
+            "hop_answer": "Marie de' Medici",
+            "support_title": "Leonora Dori",
+            "best_rank": 13,
+            "iteration": 2,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "Leonora Dori Galigaï (19 May 1568 – 8 July 1617) was a French courtier of Italian origin, an influential favourite of the French regent Marie de' Medici, mother of King Louis XIII of France."
+            ]
+          }
+        ],
+        "retained_context": "She was the granddaughter of King Robert II of France, the second monarch of the French Capetian dynasty.\nPhilippe, Duke of Orléans (21 September 1640 – 9 June 1701) was the younger son of Louis XIII of France and his wife, Anne of Austria.\nStyled Duke of Anjou from birth, Philippe became Duke of Orléans upon the death of his uncle Gaston in 1660.\nFrançois-Ferdinand-Philippe-Louis-Marie d'Orléans, prince de Joinville (14 August 1818 – 16 June 1900) was the third son of Louis Philippe, Duke of Orléans, afterwards king of the French and his wife Marie Amalie of Bourbon-Sicilies.\nMaria de las Mercedes of Orléans (24 June 1860 – 26 June 1878) was Queen of Spain as the first wife of King Alfonso XII.\nShe was born in Madrid, the daughter of Antoine of Orléans, Duke of Montpensier, and of Infanta Luisa Fernanda of Spain.\nLouis Philippe I (6 October 1773 – 26 August 1850) was King of the French from 1830 to 1848.\nHis father Louis Philippe II, Duke of Orléans had taken the name \"Philippe Égalité\" because he initially supported the French Revolution.\nLouise Élisabeth d'Orléans was one of the seven daughters of Philippe II, Duke of Orléans, and his wife, Françoise Marie de Bourbon.\nHer mother was a legitimised daughter of Louis XIV of France and his mistress, Madame de Montespan.\nShe was known as Élisabeth."
+      },
+      {
+        "id": "2hop__354635_174222",
+        "question": "What company succeeded the owner of Empire Sports Network?",
+        "answer": "Time Warner Cable",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What company succeeded the owner of Empire Sports Network?",
+          "Who currently owns the company that succeeded the owner of Empire Sports Network?",
+          "Who currently owns the NBC Sports Group unit of NBCUniversal?",
+          "Who is the current owner of the NBC Sports Network after it was owned by the NBC Sports Group unit of NBCUniversal?",
+          "Who is the current owner of the NBC Sports Network after it was owned by the NBC Sports Group unit of NBCUniversal?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          1,
+          3,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> followed by",
+            "hop_answer": "Time Warner Cable",
+            "support_title": "Windjammer Communications",
+            "best_rank": 17,
+            "iteration": 1,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "Windjammer Cable is a small cable company formed by the sale of 25 systems that served 80,000 customers in rural areas that Time Warner Cable acquired from the bankrupt Adelphia."
+            ]
+          }
+        ],
+        "retained_context": "Empire Sports Network was an American regional sports network that was owned by the Adelphia Communications Corporation.\nHer other current roles include correspondent for HBO's \"Real Sports with Bryant Gumbel\" as well as co-host of \"We Need To Talk\", the first ever all-female nationally televised weekly sports show on CBS.\nIt was owned by the NBC Sports Group unit of NBCUniversal.\nNova Sports is a premium Sports service in Greece and is owned by Forthnet Group, a subsidiary of Greek Telecommunications company Forthnet.\nNBCSN Launched July 1, 1995; 22 years ago (July 1, 1995) Owned by NBC Sports Group Picture format 1080i (HDTV) Downconverted to letterboxed 480i for SDTV feed Slogan Believe Country United States Language English Broadcast area Nationwide Headquarters Stamford, Connecticut Formerly called Outdoor Life Network (1995 -- 2006) Versus (2006 -- 11) NBC Sports Network (2012 -- 13) Sister channel (s) NBC Golf Channel NBC Sports Regional Networks Olympic Channel Website NBC Sports Availability Satellite Dish Network 159 DirecTV 220 1220 (On Demand) Cable Available on most cable systems check local listings IPTV AT&T U-verse 1640 640 (SD) Google Fiber NBCSN Verizon Fios 590 90 (SD) Streaming media DirecTV Now Internet Protocol television fuboTV Internet Protocol television Hulu Live TV Internet Protocol television PlayStation Vue Internet Protocol television Sling TV Internet Protocol television YouTube TV Internet Protocol television\nFox Sports 1 Launched August 17, 2013 (2013 - 08 - 17) Network Fox Sports Owned by Fox Entertainment Group (21st Century Fox) Picture format 720p (HDTV) (HD feed downgraded to letterboxed 480i for SD feed) Slogan The 1 Country United States Language English Broadcast area United States Puerto Rico Caribbean Headquarters Los Angeles, California Replaced Speed (2005 -- 2013) Sister channel (s) Fox Sports 2 Fox Soccer Plus Fox Deportes Fox Sports Networks Fox College Sports Big Ten Network Fox Sports Website www.foxsports.com/watch/fs1 www.foxsports.com Availability Satellite DirecTV Channel 219 (HD / SD) Dish Network Channel 150 (HD / SD) Cable Available on most U.S. cable systems Consult your local cable provider for channel availability IPTV AT&T U-verse Channel 1652 (HD) Channel 652 (SD) Verizon FiOS Channel 583 (HD) Channel 83 (SD) Google Fiber Channel 208 (HD) Streaming media Fox Sports Go Watch live (U.S. cable internet subscribers only; requires login to stream content) PlayStation Vue Internet Protocol television Sling TV Internet Protocol television DirecTV Now Internet Protocol television FuboTV Internet Protocol television\nFox Sports West and Prime Ticket are American regional sports networks owned by The Walt Disney Company, and operate as Fox Sports Networks affiliates.\nIn India, the matches are broadcast live on STAR Sports.\nFormerly a marketing gimmick of Electronic Arts, in which they tried to imitate real - life sports networks by calling themselves the ``EA Sports Network ''(EASN) with pictures or endorsements with real commentators such as John Madden, it soon grew up to become a sub-label on its own, releasing game series such as NBA Live, FIFA, NHL, Madden NFL, and NASCAR.\nThe best selling EA Sports series is the FIFA series with over 100 million units sold.\nFox Sports 1 Launched August 17, 2013 (2013 - 08 - 17) Network Fox Sports Owned by Fox Entertainment Group (21st Century Fox) Picture format 720p (HDTV) (HD feed downgraded to letterboxed 480i for SD feed) Slogan The 1 Country United States Language English Broadcast area United States Puerto Rico Caribbean Headquarters Los Angeles, California Replaced Speed (2005 -- 2013) Sister channel (s) Fox Sports 2 Fox Soccer Plus Fox Deportes Fox Sports Networks Fox College Sports Big Ten Network Fox Sports Website www.foxsports.com/watch/fs1 www.foxsports.com Availability Satellite DirecTV Channel 219 (HD / SD) Dish Network Channel 150 (HD / SD) Cable Available on most U.S. cable systems Consult your local cable provider for channel availability IPTV AT&T U-verse Channel 1652 (HD) Channel 652 (SD) Verizon FiOS Channel 583 (HD) Channel 83 (SD) Google Fiber Channel 208 (HD) Streaming media Fox Sports Go Watch live (U.S. cable internet subscribers only; requires login to stream content) DirecTV Now Internet Protocol television fuboTV Internet Protocol television Hulu Live TV Internet Protocol television PlayStation Vue Internet Protocol television Sling TV Internet Protocol television YouTube TV Internet Protocol television"
+      },
+      {
+        "id": "2hop__166824_185403",
+        "question": "What league does the team that plays in Stadio Ciro Vigorito play for?",
+        "answer": "Lega Pro Prima Divisione",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What league does the team that plays in Stadio Ciro Vigorito play for?",
+          "Which team plays in Stadio Ciro Vigorito?",
+          "Which team plays in Stadio Ciro Vigorito?",
+          "Which team plays in Stadio Ciro Vigorito?",
+          "Which team plays in Stadio Ciro Vigorito?"
+        ],
+        "new_sentences_per_pass": [
+          5,
+          2,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "Stadio Ciro Vigorito >> occupant",
+            "hop_answer": "Benevento Calcio",
+            "support_title": "Stadio Ciro Vigorito",
+            "best_rank": 19,
+            "iteration": 1,
+            "cutoff_at_best_rank": 5,
+            "candidate_sentences": [
+              "It is currently used mostly for football matches and is the home stadium of Benevento Calcio."
+            ]
+          },
+          {
+            "hop_question": "#1 >> league",
+            "hop_answer": "Lega Pro Prima Divisione",
+            "support_title": "Carmelo Imbriani",
+            "best_rank": 37,
+            "iteration": 2,
+            "cutoff_at_best_rank": 5,
+            "candidate_sentences": [
+              "Carmelo Imbriani (10 February 1976 – 15 February 2013) was an Italian footballer and former coach of Benevento in Lega Pro Prima Divisione."
+            ]
+          }
+        ],
+        "retained_context": "Piacenza Calcio 1919 and Piacenza Calcio play their home matches at the 21,668 capacity, Stadio Leonardo Garilli, located in the city of Piacenza.\nThe stadium is currently under renovation after Cagliari relocated out of their former home venue, Stadio Sant'Elia, in order to make it comply with Serie A league standards in time for the new season.\nIt is mainly used mostly for football matches and hosts the home matches of Isola Liri in Serie D. The stadium has a capacity of 3,000 spectators and meets Lega Pro criteria.\nStadio Ciro Vigorito (formerly Stadio Santa Colomba) is a multi-use stadium in Benevento, Italy.\nFounded in 1910, holding home games at Stadio Ezio Scida, which has a 16,547 - seat capacity.\nStadio San Paolo () is a stadium in the western suburb of Fuorigrotta in Naples, Italy, and is the third largest football stadium in Italy after the San Siro and Stadio Olimpico.\nThe stadium holds 5,000 people."
+      },
+      {
+        "id": "2hop__698577_851686",
+        "question": "What is a notable work written by the author of The Timothy files?",
+        "answer": "Anderson Tapes",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What is a notable work written by the author of The Timothy files?",
+          "Which book among Martine Blanc's children's books is a notable work?",
+          "Which book among the ten books for children written by Martine Blanc is 'The Timothy Files'?",
+          "Which book among the ten books for children written by Martine Blanc is a notable work?",
+          "Which book among the ten books for children written by Martine Blanc is a notable work?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          4,
+          2,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> notable work",
+            "hop_answer": "Anderson Tapes",
+            "support_title": "The Anderson Tapes (novel)",
+            "best_rank": 10,
+            "iteration": 3,
+            "cutoff_at_best_rank": 8,
+            "candidate_sentences": [
+              "The Anderson Tapes is the debut crime fiction novel by Lawrence Sanders, published in 1970."
+            ]
+          }
+        ],
+        "retained_context": "Martine Blanc (born 16 September 1944 in Clermont-Ferrand, Puy-de-Dôme) is a French author and illustrator of ten books for children including \"The story of Timothy\", the \"Two Hoots\" series in collaboration with Helen Cresswell, and \"All about Jesus\".\nHer most notable work includes research on vinca alkaloids, the development of anti-epileptic drugs, and development of anti-malarial drugs.\nShe also authored a considerable volume of work on medicinal plants of the Indian subcontinent.\nThe Timothy Files is a 1987 best selling work of fiction by Lawrence Sanders.\nIt consists of linked stories featuring Timothy Cone, who works as a hard-boiled type investigator.\nThe stories in the book deal with his successful attempts to find out the truth and put villains behind bars.\nHe is notable for his novel \"The Celestine Prophecy\".\nHer most notable work has revolved around the life and works of the Finnish composer, Jean Sibelius.\nHe is the author of numerous articles and books, including \"A different existence\" and \"The changing nature of man\".\nIt is notable for its use of imagery, irony, symbolism, and the exploration of such themes as survival, solidarity, and the conflict between man and nature.\nEllen Steiber is an American novelist and author of books for young readers, including some based on single episodes of \"The X-Files\" and \"Full House\" series.\nThe book earned Sanders the Mystery Writers of America Edgar Award for best first mystery novel.\nThe township may be named for its Timothy-grass.\nThe Boys on the Bus (1973) is author Timothy Crouse's seminal non-fiction book detailing life on the road for reporters covering the 1972 United States presidential campaign."
+      },
+      {
+        "id": "2hop__362107_652514",
+        "question": "In which borough was Callum McManaman born?",
+        "answer": "Knowsley",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "In which borough was Callum McManaman born?",
+          "What is the birthplace of Callum McManaman?",
+          "What is the birthplace of Callum McManaman?",
+          "What is the birthplace of Callum McManaman?",
+          "What is the birthplace of Callum McManaman?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          3,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> located in the administrative territorial entity",
+            "hop_answer": "Knowsley",
+            "support_title": "Whiston, Merseyside",
+            "best_rank": 20,
+            "iteration": 1,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Whiston is a large village and civil parish within the Metropolitan Borough of Knowsley in Merseyside, England."
+            ]
+          }
+        ],
+        "retained_context": "This article covers the conflicts from 1820, just before Mexico gained independence from Spain, until 1875, when the last free band of Plains Indians, the Comanches led by Quahadi warrior Quanah Parker, surrendered and moved to the Fort Sill reservation in Oklahoma.\nThe Dunbar Hospital was the first hospital for the black community in Detroit, Michigan.\nCallum Kane is a fictional character from the British Channel 4 soap opera, \"Hollyoaks\", played by Laurie Duncan.\nThe character and Duncan's casting was announced on 25 August 2011.\nCallum was introduced to the show along with five other regular characters.\nWhile appearing in the sixth series of \"Hollyoaks Later\" in October 2013, Callum was killed off.\nDuncan's departure from the show was kept secret to ensure viewers would be surprised.\nThe headquarters is the town of Pangi.\nAs of 2011, the region's population is 1,411,500.\nBorn in Whiston, Merseyside, lived and brought up in Rainhill, Merseyside, McManaman began his youth career at Everton before being released in 2007 and joining Wigan Athletic.\nIn January 2015, he joined West Bromwich Albion for £4.75 million.\nAt the 2001 Census the population was recorded as 13,629, (6,560 males and 7,069 females), increasing to 14,263 at the 2011 Census."
+      },
+      {
+        "id": "2hop__195917_575657",
+        "question": "In what county is William W. Blair's birthplace located?",
+        "answer": "Orleans County",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "In what county is William W. Blair's birthplace located?",
+          "Who is William W. Blair and where was he born?",
+          "Who is William W. Blair and in which country was he born?",
+          "Who is William W. Blair and in which country was he born?",
+          "Who is William W. Blair and in which country was he born?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          1,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> located in the administrative territorial entity",
+            "hop_answer": "Orleans County",
+            "support_title": "Holley, New York",
+            "best_rank": 23,
+            "iteration": 1,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "Holley is a village in the town of Murray in Orleans County, New York, United States."
+            ]
+          }
+        ],
+        "retained_context": "Port Blair (pronunciation (help info)) is the capital of the Andaman and Nicobar Islands, a union territory of India situated in the Bay of Bengal.\nBlair Athol is a suburb of Sydney, in the state of New South Wales, Australia.\nBlair Athol is located 57 kilometres south-west of the Sydney central business district, in the local government area of the City of Campbelltown and is part of the Macarthur region.\nJohn Blair Smith Todd (April 4, 1814 – January 5, 1872) was a Delegate from Dakota Territory to the United States House of Representatives and a general in the Union Army during the American Civil War.\nBlair was born in Holley, New York.\nIn 1851, Blair encountered missionaries from the Latter Day Saint movement.\nOn October 8, 1851, Blair was baptized by William Smith, the younger brother of Joseph Smith, the founder of the Latter Day Saint movement.\nThe show was hosted by Linda Blair, with narration by Zelda Rubinstein."
+      },
+      {
+        "id": "2hop__458131_174974",
+        "question": "Who is the spouse of the Rabbit Hole's producer?",
+        "answer": "Keith Urban",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the spouse of the Rabbit Hole's producer?",
+          "Who is the producer of the Rabbit Hole (the 2010 American tragedy film)?",
+          "Who is the producer of the Rabbit Hole (2010) film?",
+          "Who is the producer of the Rabbit Hole (2010) film?",
+          "Who is the producer of the Rabbit Hole (2010) film?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          3,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> spouse",
+            "hop_answer": "Keith Urban",
+            "support_title": "Planet Cake",
+            "best_rank": 35,
+            "iteration": 1,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "Planet Cake has created over 12000 couture cakes, including cakes for A-list celebrities such as Nicole Kidman, Celine Dion, Rihanna, Katy Perry, Keith Urban, John Travolta and Lady Gaga to name a few, as well as for television and many magazines."
+            ]
+          }
+        ],
+        "retained_context": "Rekkit Rabbit (known as Rekkit in France) is a French-American animated TV series created by David Michel and produced by Marathon Media, Zodiak Kids, Disney XD.\nDown The Rabbit Hole is the first book in the Echo Falls mystery series by best selling crime novelist Peter Abrahams.\nRabbit, Run is a 1970 American independent film directed by Jack Smight.\nThe film was adapted from John Updike's 1960 novel by screenplay writer Howard B. Kreitsek, who also served as producer.\nThe film starred James Caan as Rabbit Angstrom, Carrie Snodgress as Rabbit's wife Janice, and Anjanette Comer as his girlfriend Ruth.\nThe movie co-starred Jack Albertson as Coach Marty Tothero, Arthur Hill as Rev. Jack Eccles, and Henry Jones and Josephine Hutchinson as Rabbit's parents.\nHoles is a 2003 American adventure comedy - drama film directed by Andrew Davis, produced by Lowell D. Blank, Mike Medavoy and Teresa Tucker - Davies with music by Joel McNeely and based on the 1998 eponymous novel by Louis Sachar (who also wrote the screenplay).\nRabbit Hole is a 2010 American tragedy film starring Nicole Kidman, Aaron Eckhart, and Dianne Wiest, and directed by John Cameron Mitchell; the screenplay is an adaptation by David Lindsay-Abaire of his 2006 play of the same name.\nLionsgate distributed the film.\nAlice follows him down the rabbit hole into Wonderland."
+      }
+    ],
+    "all_gold_paragraphs_but_missing_candidate_span": [
+      {
+        "id": "2hop__698577_851686",
+        "question": "What is a notable work written by the author of The Timothy files?",
+        "answer": "Anderson Tapes",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What is a notable work written by the author of The Timothy files?",
+          "Which book among Martine Blanc's children's books is a notable work?",
+          "Which book among the ten books for children written by Martine Blanc is 'The Timothy Files'?",
+          "Which book among the ten books for children written by Martine Blanc is a notable work?",
+          "Which book among the ten books for children written by Martine Blanc is a notable work?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          4,
+          2,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> notable work",
+            "hop_answer": "Anderson Tapes",
+            "support_title": "The Anderson Tapes (novel)",
+            "best_rank": 10,
+            "iteration": 3,
+            "cutoff_at_best_rank": 8,
+            "candidate_sentences": [
+              "The Anderson Tapes is the debut crime fiction novel by Lawrence Sanders, published in 1970."
+            ]
+          }
+        ],
+        "retained_context": "Martine Blanc (born 16 September 1944 in Clermont-Ferrand, Puy-de-Dôme) is a French author and illustrator of ten books for children including \"The story of Timothy\", the \"Two Hoots\" series in collaboration with Helen Cresswell, and \"All about Jesus\".\nHer most notable work includes research on vinca alkaloids, the development of anti-epileptic drugs, and development of anti-malarial drugs.\nShe also authored a considerable volume of work on medicinal plants of the Indian subcontinent.\nThe Timothy Files is a 1987 best selling work of fiction by Lawrence Sanders.\nIt consists of linked stories featuring Timothy Cone, who works as a hard-boiled type investigator.\nThe stories in the book deal with his successful attempts to find out the truth and put villains behind bars.\nHe is notable for his novel \"The Celestine Prophecy\".\nHer most notable work has revolved around the life and works of the Finnish composer, Jean Sibelius.\nHe is the author of numerous articles and books, including \"A different existence\" and \"The changing nature of man\".\nIt is notable for its use of imagery, irony, symbolism, and the exploration of such themes as survival, solidarity, and the conflict between man and nature.\nEllen Steiber is an American novelist and author of books for young readers, including some based on single episodes of \"The X-Files\" and \"Full House\" series.\nThe book earned Sanders the Mystery Writers of America Edgar Award for best first mystery novel.\nThe township may be named for its Timothy-grass.\nThe Boys on the Bus (1973) is author Timothy Crouse's seminal non-fiction book detailing life on the road for reporters covering the 1972 United States presidential campaign."
+      },
+      {
+        "id": "2hop__362107_652514",
+        "question": "In which borough was Callum McManaman born?",
+        "answer": "Knowsley",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "In which borough was Callum McManaman born?",
+          "What is the birthplace of Callum McManaman?",
+          "What is the birthplace of Callum McManaman?",
+          "What is the birthplace of Callum McManaman?",
+          "What is the birthplace of Callum McManaman?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          3,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> located in the administrative territorial entity",
+            "hop_answer": "Knowsley",
+            "support_title": "Whiston, Merseyside",
+            "best_rank": 20,
+            "iteration": 1,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Whiston is a large village and civil parish within the Metropolitan Borough of Knowsley in Merseyside, England."
+            ]
+          }
+        ],
+        "retained_context": "This article covers the conflicts from 1820, just before Mexico gained independence from Spain, until 1875, when the last free band of Plains Indians, the Comanches led by Quahadi warrior Quanah Parker, surrendered and moved to the Fort Sill reservation in Oklahoma.\nThe Dunbar Hospital was the first hospital for the black community in Detroit, Michigan.\nCallum Kane is a fictional character from the British Channel 4 soap opera, \"Hollyoaks\", played by Laurie Duncan.\nThe character and Duncan's casting was announced on 25 August 2011.\nCallum was introduced to the show along with five other regular characters.\nWhile appearing in the sixth series of \"Hollyoaks Later\" in October 2013, Callum was killed off.\nDuncan's departure from the show was kept secret to ensure viewers would be surprised.\nThe headquarters is the town of Pangi.\nAs of 2011, the region's population is 1,411,500.\nBorn in Whiston, Merseyside, lived and brought up in Rainhill, Merseyside, McManaman began his youth career at Everton before being released in 2007 and joining Wigan Athletic.\nIn January 2015, he joined West Bromwich Albion for £4.75 million.\nAt the 2001 Census the population was recorded as 13,629, (6,560 males and 7,069 females), increasing to 14,263 at the 2011 Census."
+      },
+      {
+        "id": "2hop__528263_865831",
+        "question": "In which county is Kimbrough Memorial Stadium located?",
+        "answer": "Randall County",
+        "stop_reason": "answerable",
+        "queries": [
+          "In which county is Kimbrough Memorial Stadium located?"
+        ],
+        "new_sentences_per_pass": [
+          9
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> located in the administrative territorial entity",
+            "hop_answer": "Randall County",
+            "support_title": "Canyon, Texas",
+            "best_rank": 14,
+            "iteration": 1,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Canyon is a city in, and the county seat of, Randall County, Texas, United States."
+            ]
+          }
+        ],
+        "retained_context": "Kimbrough Memorial Stadium is a stadium in Canyon, Texas.\nIt is owned by Canyon Independent School District, and is primarily primarily used for American football.\nIt is the home stadium for Canyon High School and Randall High School of Canyon Independent School District, and is the former home of West Texas A&M University.\nThe stadium holds 20,000 people and was built in 1959.\nIt was originally called Buffalo Bowl on Canyon Hill but was renamed Kimbrough Memorial Stadium in 1971 in honor of the late West Texas State University football coach and athletic director Frank Kimbrough.\nHistoric Broken Bow Memorial Stadium has served as the home of the Broken Bow Savages, since it was constructed in 1936 by the National Youth Administration, a part of the Works Progress Administration.\nThe headquarters is the town of Kiri.\nIt is part of the Amarillo, Texas, metropolitan statistical area.\nIn 1940, the team moved from Philadelphia Municipal Stadium to Shibe Park."
+      },
+      {
+        "id": "2hop__702496_430061",
+        "question": "What county was Tim Dubois born in?",
+        "answer": "McDonald County",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What county was Tim Dubois born in?",
+          "Which individual is the question about, Tim Dubois or Allison DuBois?",
+          "What is the birthplace of Tim Dubois, who is a Nashville, Tennessee-based music executive?",
+          "What is the birthplace of Tim Dubois, who is a Nashville, Tennessee-based music executive?",
+          "What is the birthplace of Tim Dubois, who is a Nashville, Tennessee-based music executive?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          2,
+          1,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> located in the administrative territorial entity",
+            "hop_answer": "McDonald County",
+            "support_title": "Southwest City, Missouri",
+            "best_rank": 11,
+            "iteration": 1,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Southwest City is a city in McDonald County, Missouri, United States."
+            ]
+          }
+        ],
+        "retained_context": "Allison DuBois (born January 24, 1972) is an American author and purported medium.\nDuBois has used her psychic abilities to assist U.S. law enforcement officials in solving crimes, forming the basis of the TV series Medium.\nTim DuBois (born May 4, 1948 in Southwest City, Missouri) is a Nashville, Tennessee-based music executive.\nHe then entered into the music business and has taken part in multiple aspects of the industry including songwriting, record labels, management, and production.\nDuBois has been recognized for numerous honors and awards for his contributions to the music industry.\nThe Queen is represented in each state by a governor; and in the Northern Territory, the Administrator.\nThe Dunbar Hospital was the first hospital for the black community in Detroit, Michigan.\nIt stands across the canal from the Palazzo Querini Dubois.\nDubois (also spelled DuBois or Du Bois, from the French \"of the woods/forest\") is a surname.\nIt is part of the Fayetteville–Springdale–Rogers, AR-MO Metropolitan Statistical Area and is located in the southwestern corner of the state of Missouri.\nIt was written by Gill and Tim DuBois.\nIt was the county seat until 1079 Empúries moved to Castelló d'Empúries place less exposed to attack."
+      },
+      {
+        "id": "2hop__647996_551681",
+        "question": "What is another notable work made by the author of Miss Sara Sampson?",
+        "answer": "Emilia Galotti",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What is another notable work made by the author of Miss Sara Sampson?",
+          "What is the field of work for the author of Miss Sara Sampson, as mentioned in the information?",
+          "Who is the author of Miss Sara Sampson among the provided information?",
+          "Which author among the provided information is the one who wrote Miss Sara Sampson?",
+          "Which author, among those mentioned, is known for works other than Miss Sara Sampson and those related to Jean Sibelius?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          3,
+          3,
+          1,
+          2
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> notable work",
+            "hop_answer": "Emilia Galotti",
+            "support_title": "Emilia Galotti",
+            "best_rank": 32,
+            "iteration": 4,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Emilia Galotti is a play in five acts by Gotthold Ephraim Lessing (1729–1781), which premiered on 8 March 1772 in Brunswick (\"Braunschweig\" in German)."
+            ]
+          }
+        ],
+        "retained_context": "These works include material from Sulami's books plus the author's contributions.\nMiss Amory and Sir Francis Clavering are somewhat reminiscent of Becky Sharp and Sir Pitt from \"Vanity Fair\".\nDuring the trial, the testimony of former Secret Service agent Paul Kellerman, who used to work for The Company-controlled President, exonerates Lincoln and Sara.\nJason Sampson (born February 21, 1982) is an American professional mixed martial artist currently competing in the flyweight division of Legacy FC.\nA professional competitor since 2009, Sampson has previously competed for Bellator and Shark Fights.\nSampson made over 400 appearances for Castleford between 1987 and 2005.\nHe is the author of numerous articles and books, including \"A different existence\" and \"The changing nature of man\".\nIt stars Walter Matthau, Tony Curtis, Julie Andrews, Bob Newhart and new arrival Sara Stimson.\nSara Sidner (born May 31, 1972) is an American journalist.\nShe currently works in CNN's Los Angeles bureau.\nMiss Sara Sampson (original spelling \"Miß Sara Sampson\") is a play by the Enlightenment philosopher, Gotthold Ephraim Lessing.\nHer most notable work has revolved around the life and works of the Finnish composer, Jean Sibelius.\nOther works in this category include Schiller's \"Kabale und Liebe\" and Hebbel's \"Maria Magdalene\".\nMary Ann Sampson is an American artist living and working in Ragland, Alabama.\nSampson is a book artist, specializing in miniatures and broadsides most of which are \"uniques\" or \"one-of-a-kinds.\"\nShe explores the book as a means of expressing visual ideas that stem from recollections of personal events and experiences that have been derived from living in her rural environment of Alabama.\nHer most notable work includes research on vinca alkaloids, the development of anti-epileptic drugs, and development of anti-malarial drugs.\nShe also authored a considerable volume of work on medicinal plants of the Indian subcontinent."
+      },
+      {
+        "id": "2hop__310456_846599",
+        "question": "Who is the child of the person who followed Tihomir of Serbia?",
+        "answer": "Saint Sava",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the child of the person who followed Tihomir of Serbia?",
+          "Who is the parent of Tihomir of Serbia?",
+          "Who is the child of Stefan Nemanja, the person who overthrew Tihomir of Serbia?",
+          "Who is the child of Stefan Nemanja, the person who overthrew Tihomir of Serbia?",
+          "Who is the child of Stefan Nemanja, the person who overthrew Tihomir of Serbia?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          1,
+          1,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> child",
+            "hop_answer": "Saint Sava",
+            "support_title": "Saint Sava",
+            "best_rank": 12,
+            "iteration": 1,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "Saint Sava is venerated by the Serbian Orthodox Church as its founder on .",
+              "The Church of Saint Sava in Belgrade is dedicated to him, built where the Ottomans burnt his remains in 1594 during an uprising in which the Serbs used icons of Sava as their war flags; the church is one of the largest church buildings in the world."
+            ]
+          }
+        ],
+        "retained_context": "In 1166 Stefan Nemanja overthrew Tihomir in a coup and had him and his brothers, Stracimir and Miroslav, expelled to Byzantium in 1167/1168.\nStefan Nemanja defeated Tihomir and his Byzantine army.\nTihomir drowned in a river and the other brothers were stripped of their titles, with Nemanja becoming ruler of All Serbia.\nWhen Stefan Nemanja besieged and retook control of Duklja in the 1180s, Stracimir and Miroslav attacked the forces of Doclean ruler and kinsman Mihailo.\nIt is an ethnic minority party of Romani people in Serbia.\nShe is the child of Mita Reljin, a basketball player and coach, and Vukosava Milanović-Reljin, a basketball player for Radnički and later, Partizan.\nBoris Tadić (, ; born 15 January 1958) is a Serbian politician who served as President of Serbia from 2004 to 2012.\nHe is widely considered as one of the most important figures of Serbian history.\nHe is the patron saint of Serbia, Serbs, and Serbian education."
+      },
+      {
+        "id": "2hop__411091_625230",
+        "question": "In which county is Mark Dismore's birthplace located?",
+        "answer": "Hancock County",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "In which county is Mark Dismore's birthplace located?",
+          "What is the birthplace of Mark Dismore?",
+          "What is the birthplace of Mark Dismore?",
+          "What is the birthplace of Mark Dismore?",
+          "What is the birthplace of Mark Dismore?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          4,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> located in the administrative territorial entity",
+            "hop_answer": "Hancock County",
+            "support_title": "Greenfield, Indiana",
+            "best_rank": 13,
+            "iteration": 1,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Greenfield is a city in and the county seat of Hancock County, Indiana, United States, and a part of the Indianapolis metropolitan area."
+            ]
+          }
+        ],
+        "retained_context": "Its administrative center is Minsk, although it is a separate administrative territorial entity of Belarus.\nAs of 2011, the region's population is 1,411,500.\nThe Essex County Park Commission Administration Building is located in Newark, Essex County, New Jersey, United States.\nIt lies in Center Township.\nMark Dismore (born October 12, 1956 in Greenfield, Indiana) is a former driver in the Indy Racing League and the 1990 Toyota Pacific champion as well as the winner of the 1993 24 Hours of Daytona with Dan Gurney's All American Racers in a Toyota GTP car with co-drivers Rocky Moran and P. J. Jones.\nHe made 3 CART starts in 1991 but was badly injured in a practice crash for the Indianapolis 500, when his car veered sharply towards the entrance of pit road at the exit of Turn 4 and back-ended the fence, only to careen across the pit lane and smash virtually head on at sizeable speed against the edge of pit wall; this second impact tore off the front of the car leaving Mark's legs exposed.\nAmongst the injuries he suffered, the most severe was a broken neck.\nDismore has a single IRL win coming in the fall 1999 Texas Motor Speedway race and also finished a career-best third in points that season.\nAmong his 62 career IRL starts he won four poles.\nHe also represented the IRL in the International Race of Champions in 2000 and 2001.\nIt was the county seat until 1079 Empúries moved to Castelló d'Empúries place less exposed to attack.\nThe Dunbar Hospital was the first hospital for the black community in Detroit, Michigan.\nIt is located at 580 Frederick Street, and is currently the administrative headquarters of the Detroit Medical Society."
+      },
+      {
+        "id": "2hop__709357_136043",
+        "question": "The Move Ya Body song's band is named after who?",
+        "answer": "Natalie Albino",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "The Move Ya Body song's band is named after who?",
+          "What is the name of the band that is named after the Move Ya Body song?",
+          "Who is the band named after in the Move Ya Body song?",
+          "Who is the band named after in the Move Ya Body song?",
+          "Who is the band named after in the Move Ya Body song?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          1,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "What is #1 named after?",
+            "hop_answer": "Natalie Albino",
+            "support_title": "Nina Sky",
+            "best_rank": 42,
+            "iteration": 1,
+            "cutoff_at_best_rank": 8,
+            "candidate_sentences": [
+              "Nina Sky is an American female duo composed of identical twins Nicole and Natalie Albino (were born on March 13, 1984 in Puerto Rico)."
+            ]
+          }
+        ],
+        "retained_context": "Harrison Tare Okiri, better known by his stage name Harrysong, is a Nigerian singer, songwriter and instrumentalist who rose to fame after his tribute song to Nelson Mandela won the \"Most Downloaded Callertune Award\" at The Headies 2013.\n\"Move Ya Body\" is a song recorded by American duo Nina Sky.\nThe song features rapper Jabba.\nThere is a remix to the song with Jamaican deejay Vybz Kartel.\nThe song ranked at number 250 on \"Blender\"s 500 Greatest Songs Since You Were Born.\nTheir debut single \"Move Ya Body\", released from their self-titled debut album in 2004, was a success, reaching number 4 on the \"Billboard\" Hot 100.\nBody Pressure is a 1974 performance piece by American artist Bruce Nauman.\n``Shake Ya Ass ''Single by Mystikal from the album Let's Get Ready B - side`` Shake It Fast'' Released July 18, 2000 (2000 - 07 - 18) Format Vinyl, CD Recorded Master Sound Studios (Virginia Beach, Virginia) Genre Hip hop Length 4: 20 Label Jive Songwriter (s) Michael Tyler, Pharrell Williams, Chad Hugo Producer (s) The Neptunes Mystikal singles chronology ``Live or Die ''(1999)`` Shake Ya Ass'' (2000) ``Danger (Been So Long) ''(2000)`` Live or Die'' (1999) ``Shake Ya Ass ''(2000)`` Danger (Been So Long)'' (2000)\nThe Incredible Sound Machine\" featured new member, vocalist Jade Trini, who replaced D.J. D. Trini joined rapper Bryce \"Luvah\" Wilson (who made his debut on Mantronix's previous album, 1990's \"This Should Move Ya\"), and founding member, DJ Kurtis Mantronik."
+      }
+    ]
+  },
+  "notes": [
+    "A hop is eligible if its normalized reference sub-answer occurs as a whole phrase in an individual sentence from its annotated supporting paragraph.",
+    "Span coverage and gold paragraph coverage are diagnostics. They do not establish sufficiency, reasoning quality, or entailment, and may miss aliases or evidence elsewhere.",
+    "Repeated controller contexts imply the same user prompt within a sample because the original question and template stay fixed.",
+    "The dense-only replay uses the same initial sentence count and saved first-query scores. It cannot measure a changed compression loop.",
+    "The first/final context lengths in this audit use the saved controller tokenizer, not the reader tokenizer."
+  ]
+}

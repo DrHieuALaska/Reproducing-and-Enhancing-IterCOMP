@@ -1,0 +1,1112 @@
+{
+  "split": "calibration",
+  "archive_sha256": "8c67ce4a0afb8f607e3177a73339d5d5d95c519278a82193b5c086b50e552856",
+  "verified_compression_sha256": "c7c736d0d0f8ad3c71a4111491119744e15b7ab3859cf38c9f0824f189e4eea2",
+  "gold_sha256": "dc20ff955d00cb5f79b955abe1cb34c3f916297a9aac4fbeea9ab517d81c57f3",
+  "compression_contract": {
+    "settings": {
+      "method": "itercomp",
+      "seed": 42,
+      "embedding": {
+        "backend": "bge_m3",
+        "model_id": "BAAI/bge-m3",
+        "revision": null,
+        "device": "cuda:0",
+        "dtype": "float16",
+        "batch_size": 16,
+        "max_length": 8192,
+        "normalize_embeddings": true,
+        "include_titles": false,
+        "truncation_policy": "error",
+        "cache_dir": null,
+        "local_files_only": false,
+        "mock_representations": {}
+      },
+      "controller": {
+        "backend": "transformers",
+        "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+        "revision": null,
+        "device": "cuda:0",
+        "dtype": "float16",
+        "quantization": "nf4",
+        "compute_dtype": "float16",
+        "double_quantization": true,
+        "attention_implementation": "sdpa",
+        "max_new_tokens": 256,
+        "max_context_tokens": null,
+        "do_sample": false,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "seed": 42,
+        "cache_dir": null,
+        "local_files_only": false,
+        "api_base": "http://localhost:8000/v1",
+        "api_key_env": "ITERCOMP_API_KEY",
+        "timeout": 120.0,
+        "api_send_seed": false,
+        "tokenizer_id": null,
+        "tokenizer_revision": null,
+        "chat_template_kwargs": {},
+        "mock_responses": []
+      },
+      "itercomp": {
+        "semantic_weight": 0.6,
+        "percentile": 90,
+        "percentile_method": "linear",
+        "max_iterations": 5,
+        "controller_retries": 0,
+        "answerable_follow_up_policy": "normalize_unused",
+        "full_rankings": true
+      },
+      "decomposition": {
+        "strategy": "spacy_sentencizer",
+        "language": "en"
+      },
+      "context": {
+        "include_titles": false,
+        "separator": "\n",
+        "order": "source"
+      },
+      "controller_prompt_sha256": "f3767d1993f9235d4053a232ba7fb85ad95696cfbb184d32d08727b0d35ebd96"
+    },
+    "algorithm_source_sha256": "87e22047c2c976e4cbfceca8a09638bf05eaf1a5ca4a1133297b814c9b726a5f",
+    "schema_version": 1
+  },
+  "component_initialization": {
+    "encoder": {
+      "model_initialization_seconds": 17.08581786800005,
+      "weight_loading_seconds": 12.328808367999954,
+      "resolved_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "dense_normalized_by_flagembedding": true,
+      "adapter": "official M3 forward; weighted max-per-token sparse extraction; fixed batches, no hidden retry"
+    },
+    "controller": {
+      "model_initialization_seconds": 60.65021323500014,
+      "weight_loading_seconds": 60.253611027000034,
+      "resolved_revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+      "resolved_tokenizer_revision": null,
+      "quantization_runtime": {
+        "bitsandbytes_version": "0.49.2",
+        "torch_cuda": "13.0",
+        "native_cuda_backend": true
+      },
+      "device": "cuda:0"
+    }
+  },
+  "failed": [],
+  "groups": {
+    "all": {
+      "n": 150,
+      "stop_reasons": {
+        "max_iterations": 129,
+        "answerable": 21
+      },
+      "means": {
+        "iterations": 4.466666666666667,
+        "first_sentences": 7.68,
+        "final_sentences": 12.926666666666666,
+        "first_controller_context_tokens": 323.35333333333335,
+        "final_controller_context_tokens": 517.74
+      },
+      "totals": {
+        "hops": 450,
+        "iterations": 670,
+        "first_sentences": 1152,
+        "final_sentences": 1939,
+        "first_controller_context_tokens": 48503,
+        "final_controller_context_tokens": 77661,
+        "first_complete_paragraph_coverage": 29,
+        "final_complete_paragraph_coverage": 59,
+        "eligible_annotated_hop_spans": 439,
+        "annotated_hops_with_body_span": 439,
+        "annotated_hops_with_title_span_only": 0,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 216,
+        "final_retained_annotated_hop_spans": 278,
+        "first_dense_only_annotated_hop_spans_equal_count": 219,
+        "first_dense_only_selection_differs": 125,
+        "all_hops_have_candidate_spans": 140,
+        "first_all_annotated_hop_spans_retained": 15,
+        "final_all_annotated_hop_spans_retained": 33,
+        "missing_span_from_already_retained_paragraph": 45,
+        "followup_sentences_added": 787,
+        "followup_sentences_from_gold_paragraphs": 213,
+        "retrieval_followup_passes": 520,
+        "followup_passes_no_new_evidence": 277,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 277,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 946.4797306930034,
+        "exact_repeated_query_and_selection": 222,
+        "candidate_sentences": 10801,
+        "initial_selected_above_rounded_top_decile": 1,
+        "encoder_truncations": 0
+      }
+    },
+    "2_hop": {
+      "n": 50,
+      "stop_reasons": {
+        "max_iterations": 41,
+        "answerable": 9
+      },
+      "means": {
+        "iterations": 4.32,
+        "first_sentences": 7.34,
+        "final_sentences": 11.32,
+        "first_controller_context_tokens": 316.64,
+        "final_controller_context_tokens": 461.72
+      },
+      "totals": {
+        "hops": 100,
+        "iterations": 216,
+        "first_sentences": 367,
+        "final_sentences": 566,
+        "first_controller_context_tokens": 15832,
+        "final_controller_context_tokens": 23086,
+        "first_complete_paragraph_coverage": 21,
+        "final_complete_paragraph_coverage": 29,
+        "eligible_annotated_hop_spans": 96,
+        "annotated_hops_with_body_span": 96,
+        "annotated_hops_with_title_span_only": 0,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 57,
+        "final_retained_annotated_hop_spans": 66,
+        "first_dense_only_annotated_hop_spans_equal_count": 62,
+        "first_dense_only_selection_differs": 36,
+        "all_hops_have_candidate_spans": 46,
+        "first_all_annotated_hop_spans_retained": 12,
+        "final_all_annotated_hop_spans_retained": 19,
+        "missing_span_from_already_retained_paragraph": 9,
+        "followup_sentences_added": 199,
+        "followup_sentences_from_gold_paragraphs": 46,
+        "retrieval_followup_passes": 166,
+        "followup_passes_no_new_evidence": 96,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 96,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 298.34585623000225,
+        "exact_repeated_query_and_selection": 78,
+        "candidate_sentences": 3435,
+        "initial_selected_above_rounded_top_decile": 0,
+        "encoder_truncations": 0
+      }
+    },
+    "3_hop": {
+      "n": 50,
+      "stop_reasons": {
+        "max_iterations": 43,
+        "answerable": 7
+      },
+      "means": {
+        "iterations": 4.48,
+        "first_sentences": 7.66,
+        "final_sentences": 12.72,
+        "first_controller_context_tokens": 315.22,
+        "final_controller_context_tokens": 499.46
+      },
+      "totals": {
+        "hops": 150,
+        "iterations": 224,
+        "first_sentences": 383,
+        "final_sentences": 636,
+        "first_controller_context_tokens": 15761,
+        "final_controller_context_tokens": 24973,
+        "first_complete_paragraph_coverage": 6,
+        "final_complete_paragraph_coverage": 17,
+        "eligible_annotated_hop_spans": 146,
+        "annotated_hops_with_body_span": 146,
+        "annotated_hops_with_title_span_only": 0,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 71,
+        "final_retained_annotated_hop_spans": 92,
+        "first_dense_only_annotated_hop_spans_equal_count": 71,
+        "first_dense_only_selection_differs": 44,
+        "all_hops_have_candidate_spans": 46,
+        "first_all_annotated_hop_spans_retained": 3,
+        "final_all_annotated_hop_spans_retained": 8,
+        "missing_span_from_already_retained_paragraph": 15,
+        "followup_sentences_added": 253,
+        "followup_sentences_from_gold_paragraphs": 65,
+        "retrieval_followup_passes": 174,
+        "followup_passes_no_new_evidence": 97,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 97,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 327.1651988150006,
+        "exact_repeated_query_and_selection": 80,
+        "candidate_sentences": 3593,
+        "initial_selected_above_rounded_top_decile": 1,
+        "encoder_truncations": 0
+      }
+    },
+    "4_hop": {
+      "n": 50,
+      "stop_reasons": {
+        "max_iterations": 45,
+        "answerable": 5
+      },
+      "means": {
+        "iterations": 4.6,
+        "first_sentences": 8.04,
+        "final_sentences": 14.74,
+        "first_controller_context_tokens": 338.2,
+        "final_controller_context_tokens": 592.04
+      },
+      "totals": {
+        "hops": 200,
+        "iterations": 230,
+        "first_sentences": 402,
+        "final_sentences": 737,
+        "first_controller_context_tokens": 16910,
+        "final_controller_context_tokens": 29602,
+        "first_complete_paragraph_coverage": 2,
+        "final_complete_paragraph_coverage": 13,
+        "eligible_annotated_hop_spans": 197,
+        "annotated_hops_with_body_span": 197,
+        "annotated_hops_with_title_span_only": 0,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 88,
+        "final_retained_annotated_hop_spans": 120,
+        "first_dense_only_annotated_hop_spans_equal_count": 86,
+        "first_dense_only_selection_differs": 45,
+        "all_hops_have_candidate_spans": 48,
+        "first_all_annotated_hop_spans_retained": 0,
+        "final_all_annotated_hop_spans_retained": 6,
+        "missing_span_from_already_retained_paragraph": 21,
+        "followup_sentences_added": 335,
+        "followup_sentences_from_gold_paragraphs": 102,
+        "retrieval_followup_passes": 180,
+        "followup_passes_no_new_evidence": 84,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 84,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 320.9686756480005,
+        "exact_repeated_query_and_selection": 64,
+        "candidate_sentences": 3773,
+        "initial_selected_above_rounded_top_decile": 0,
+        "encoder_truncations": 0
+      }
+    },
+    "answerable": {
+      "n": 21,
+      "stop_reasons": {
+        "answerable": 21
+      },
+      "means": {
+        "iterations": 1.1904761904761905,
+        "first_sentences": 7.761904761904762,
+        "final_sentences": 8.523809523809524,
+        "first_controller_context_tokens": 332.57142857142856,
+        "final_controller_context_tokens": 363.6666666666667
+      },
+      "totals": {
+        "hops": 59,
+        "iterations": 25,
+        "first_sentences": 163,
+        "final_sentences": 179,
+        "first_controller_context_tokens": 6984,
+        "final_controller_context_tokens": 7637,
+        "first_complete_paragraph_coverage": 7,
+        "final_complete_paragraph_coverage": 8,
+        "eligible_annotated_hop_spans": 58,
+        "annotated_hops_with_body_span": 58,
+        "annotated_hops_with_title_span_only": 0,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 31,
+        "final_retained_annotated_hop_spans": 34,
+        "first_dense_only_annotated_hop_spans_equal_count": 34,
+        "first_dense_only_selection_differs": 16,
+        "all_hops_have_candidate_spans": 20,
+        "first_all_annotated_hop_spans_retained": 4,
+        "final_all_annotated_hop_spans_retained": 5,
+        "missing_span_from_already_retained_paragraph": 3,
+        "followup_sentences_added": 16,
+        "followup_sentences_from_gold_paragraphs": 8,
+        "retrieval_followup_passes": 4,
+        "followup_passes_no_new_evidence": 0,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 0,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 0.0,
+        "exact_repeated_query_and_selection": 0,
+        "candidate_sentences": 1540,
+        "initial_selected_above_rounded_top_decile": 0,
+        "encoder_truncations": 0
+      }
+    },
+    "max_iterations": {
+      "n": 129,
+      "stop_reasons": {
+        "max_iterations": 129
+      },
+      "means": {
+        "iterations": 5.0,
+        "first_sentences": 7.666666666666667,
+        "final_sentences": 13.643410852713178,
+        "first_controller_context_tokens": 321.85271317829455,
+        "final_controller_context_tokens": 542.8217054263566
+      },
+      "totals": {
+        "hops": 391,
+        "iterations": 645,
+        "first_sentences": 989,
+        "final_sentences": 1760,
+        "first_controller_context_tokens": 41519,
+        "final_controller_context_tokens": 70024,
+        "first_complete_paragraph_coverage": 22,
+        "final_complete_paragraph_coverage": 51,
+        "eligible_annotated_hop_spans": 381,
+        "annotated_hops_with_body_span": 381,
+        "annotated_hops_with_title_span_only": 0,
+        "annotated_hops_with_body_span_but_no_segment_span": 0,
+        "first_retained_annotated_hop_spans": 185,
+        "final_retained_annotated_hop_spans": 244,
+        "first_dense_only_annotated_hop_spans_equal_count": 185,
+        "first_dense_only_selection_differs": 109,
+        "all_hops_have_candidate_spans": 120,
+        "first_all_annotated_hop_spans_retained": 11,
+        "final_all_annotated_hop_spans_retained": 28,
+        "missing_span_from_already_retained_paragraph": 42,
+        "followup_sentences_added": 771,
+        "followup_sentences_from_gold_paragraphs": 205,
+        "retrieval_followup_passes": 516,
+        "followup_passes_no_new_evidence": 277,
+        "growth_resumed_after_no_new_evidence": 0,
+        "controller_prompt_repeats": 277,
+        "controller_replies_changed_on_repeat": 0,
+        "duplicate_prompt_generation_seconds": 946.4797306930034,
+        "exact_repeated_query_and_selection": 222,
+        "candidate_sentences": 9261,
+        "initial_selected_above_rounded_top_decile": 1,
+        "encoder_truncations": 0
+      }
+    }
+  },
+  "examples": {
+    "stalled_with_missing_spans": [
+      {
+        "id": "2hop__716272_134827",
+        "question": "Who is the mother of the performer of Love Party?",
+        "answer": "Alberta Gay",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the mother of the performer of Love Party?",
+          "Who is the mother of Namie Amuro?",
+          "Who is the mother of Namie Amuro?",
+          "Who is the mother of Namie Amuro?",
+          "Who is the mother of Namie Amuro?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          4,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "Who is the mother of #1 ?",
+            "hop_answer": "Alberta Gay",
+            "support_title": "Marvin Gaye",
+            "best_rank": 15,
+            "iteration": 2,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "and domestic worker Alberta Gay (née Cooper)."
+            ]
+          }
+        ],
+        "retained_context": "\"Respect the Power of Love\" is Namie Amuro's 12th single on the Avex Trax label.\nHer second single to be released after her hiatus.\nThe single was released on the same day that Amuro's mother was murdered.\nAmuro cancelled promotion for this single and flew to Okinawa to identify her mother's body.\n\"Love Party\" is a 1980 song recorded by singer Marvin Gaye, issued on his 1981 album, \"In Our Lifetime\".\n``Through the Eyes of Love (Theme from Ice Castles) ''(sometimes incorrectly referred to as`` Looking Through the Eyes of Love''), is an Academy Award and Golden Globe Award - nominated ballad performed by American singer Melissa Manchester, from the soundtrack of the 1978 film Ice Castles.\nIt features a group of people partying at a rave, with Guetta performing the track in the background.\nNewborn Peter (Levi Miller) is left by his mother Mary (Amanda Seyfried) on the steps of an orphanage in London, an establishment under the care of Mother Barnabas (Kathy Burke).\nThe film also won the Nastro d'Argento for best script and the Ciak d'oro for best supporting actress (to Marina Confalone).\nThe film, which she directed and produced herself, featured footage from her childhood, her as a mother and businesswoman, recording, rehearsing for live performances, and her return to the spotlight following Blue Ivy's birth.\nShe is best known for her performance as Frida in \"Games of Love and Chance\"."
+      },
+      {
+        "id": "2hop__259056_160978",
+        "question": "What subject was studied in the place where Jean-Selim Kanaan died?",
+        "answer": "Islamic mathematics",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What subject was studied in the place where Jean-Selim Kanaan died?",
+          "In which city or country did Jean-Selim Kanaan study the subject where he died?",
+          "In which university did Jean-Selim Kanaan study after his death?",
+          "In which university did Jean-Selim Kanaan study after his death?",
+          "In which university did Jean-Selim Kanaan study after his death?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "What subject was studied in #1 ?",
+            "hop_answer": "Islamic mathematics",
+            "support_title": "History of mathematics",
+            "best_rank": 15,
+            "iteration": 2,
+            "cutoff_at_best_rank": 6,
+            "candidate_sentences": [
+              "Later under the Arab Empire, Mesopotamia, especially Baghdad, once again became an important center of study for Islamic mathematics."
+            ]
+          }
+        ],
+        "retained_context": "Jean-Sélim Kanaan (July 28, 1970 – August 19, 2003) was a United Nations (UN) diplomat, Egyptian, Italian and French national, who was killed in the Canal Hotel bombing in Baghdad, Iraq, along with Sérgio Vieira de Mello and other members of his staff.\nHe studied at the Schola Cantorum with Charles Koechlin and at the Conservatoire de Paris with Jean Roger-Ducasse and Olivier Messiaen.\nHe also studied privately with René Leibowitz.\nHe studied art under Eugène Delacroix and also experimented in various other subjects, including geology and biology.\nGhazi Kanaan (1942 – 12 October 2005) (; transliterations vary), also known as Abu Yo'roub, was Syria's Interior Minister from 2004 to 2005, and long-time head of Syria's security apparatus in Lebanon.\nHe studied law and mathematics, and, after travelling in France, was for five years professor of eloquence in the university of his native city.\nTradition asserts that he studied at the University of Paris."
+      },
+      {
+        "id": "2hop__179924_333904",
+        "question": "Who is the sibling of the director of Faun?",
+        "answer": "Zoltan Korda",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the sibling of the director of Faun?",
+          "Which of the given individuals is the director of Faun?",
+          "Who is the 'she' referred to in the Information?",
+          "Who is the 'she' referred to in the Information?",
+          "Who is the 'she' referred to in the Information?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          4,
+          5,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> sibling",
+            "hop_answer": "Zoltan Korda",
+            "support_title": "Men of Tomorrow",
+            "best_rank": 19,
+            "iteration": 2,
+            "cutoff_at_best_rank": 8,
+            "candidate_sentences": [
+              "Men of Tomorrow is a 1932 British drama film, directed by Zoltan Korda and Leontine Sagan, produced by Alexander Korda and written by Anthony Gibbs and Arthur Wimperis."
+            ]
+          }
+        ],
+        "retained_context": "They are siblings, and are both trans women.\nShe was the sister of actor and film director René Mugica.\nHer mother was the actress Emilia Rosales (Emilia Mugica).\nShe was born in Neve Ne'eman in the Hod HaSharon municipality.\nShe is the third of four siblings.\nShe is a frequent key speaker on parent and sibling training, supported employment opportunities for people with developmental disabilities, inclusion and distance education.\nAt a lamppost oddly located in the forest, she meets Tumnus, a faun, who invites her to tea in his home.\nThere the faun confesses that he invited her not out of hospitality, but with the intention of betraying her to the White Witch.\nShe has ordered all Narnians to turn in any humans (``Sons of Adam ''or`` Daughters of Eve'') they come across.\nFaun is a 1918 Hungarian silent drama film directed by Alexander Korda and starring Gábor Rajnay, Dezsõ Gyárfás and Artúr Somlay.\nIn the 2017 TV series, she is portrayed by Malina Weissman.\nFaun Fables is an American band from Oakland, California.\nFaun Fables is a concept and vehicle for Dawn McCarthy, who was inspired to write the original material while traveling after leaving the New York City music scene in 1997.\nFaun Fables also covers 20th century compositions by other songwriters and traditional folk songs.\nAll albums except for the first are collaborations with Nils Frykdahl, inspired by McCarthy's previous work and \"Dawn the Faun\" stage persona.\nHis siblings are Dylan and Andrew Lauren.\nBacchanal: A Faun Teased by Children is a marble sculpture by Italian artists Gian Lorenzo Bernini and his father Pietro Bernini."
+      },
+      {
+        "id": "2hop__534137_180414",
+        "question": "What is the capital of the county where Grayson Valley is located?",
+        "answer": "Charles Town",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What is the capital of the county where Grayson Valley is located?",
+          "In which county is Grayson Valley located in the United States?",
+          "In which county is Grayson Valley located in the United States?",
+          "In which county is Grayson Valley located in the United States?",
+          "In which county is Grayson Valley located in the United States?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          4,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> capital",
+            "hop_answer": "Charles Town",
+            "support_title": "WMRE",
+            "best_rank": 40,
+            "iteration": 2,
+            "cutoff_at_best_rank": 6,
+            "candidate_sentences": [
+              "WMRE is a Sports formatted broadcast radio station licensed to Charles Town, West Virginia, serving Charles Town and Jefferson County, West Virginia."
+            ]
+          }
+        ],
+        "retained_context": "The capital of the county was Szolnok.\nIts administrative seat and only town is Zakopane, which lies south of the regional capital Kraków.\nThe county takes its name from the Tatra mountain range, which covers most of its territory.\nIts territory is now in southern Hungary (the present county Baranya) and northeastern Croatia (part of the Osijek-Baranja county).\nThe capital of the county was Pécs.\nThe capital of the county was Nagybecskerek (Serbian: , , ), the current Zrenjanin.\nGrayson Valley is an unincorporated community and census-designated place in Jefferson County, Alabama, United States.\nIt is northwest from the Birmingham suburb of Trussville.\nWill Grayson, Will Grayson is a novel by John Green and David Levithan, published in April 2010 by Dutton Juvenile.\nThe book's narrative is divided evenly between two boys named Will Grayson, with Green having written all of the chapters for one and Levithan having written the chapters for the other, presented in an alternating chapter fashion."
+      },
+      {
+        "id": "2hop__141877_472011",
+        "question": "Who is part of the band that performed the song English Settlement?",
+        "answer": "Andy Partridge",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is part of the band that performed the song English Settlement?",
+          "Which band is being referred to in the statement 'The song is mainly a McCartney composition'?",
+          "Who is the band that performed the song English Settlement?",
+          "Who is the band that performed the song English Settlement?",
+          "Who is the band that performed the song English Settlement?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          4,
+          2,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> has part",
+            "hop_answer": "Andy Partridge",
+            "support_title": "The Official Fuzzy Warbles Collector's Album",
+            "best_rank": 25,
+            "iteration": 1,
+            "cutoff_at_best_rank": 8,
+            "candidate_sentences": [
+              "The Official Fuzzy Warbles Collector's Album is a CD box set of rarities from XTC guitarist and frontman Andy Partridge."
+            ]
+          }
+        ],
+        "retained_context": "The song is a critical profile of a self - absorbed lover about whom Simon asserts`` You're so vain, you probably think this song is about you.''\nThe title subject's identity has long been a matter of speculation, with Simon stating that the song refers to three men, only one of whom she has named publicly, actor Warren Beatty.\nThe settlement forms part of the municipality of Qızıldaş in Qaradağ raion.\nThe Koman Hydroelectric Power Station has taken the name of the settlement.\nsic) The song was nominated for the Brit Award for Best British Single at the 2013 BRIT Awards.\nThe English Settlement School is a school building in Oakland, Oregon, in the United States.\n\"It's for You\" is a song written by John Lennon and Paul McCartney of the Beatles for Cilla Black for whom it was a UK Top Ten hit in 1964.\nThe song is mainly a McCartney composition.\nEnglish Settlement is the fifth studio album and first double album by the English band XTC, released 12 February 1982 on Virgin Records.\nIn 1620, the Pilgrim Fathers departed Plymouth for the New World and established Plymouth Colony – the second English settlement in what is now the United States of America.\nIt was the second American territory which the English attempted to colonize.\nThe song tells of ``Bennie and the Jets '', a fictional band of whom the song's narrator is a fan.\nThe song is written in the key of G major.\nIn interviews, Taupin has said that the song's lyrics are a satire on the music industry of the 1970s."
+      },
+      {
+        "id": "2hop__819531_694982",
+        "question": "What genre of music did the composer of Triple Quartet compose?",
+        "answer": "opera",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What genre of music did the composer of Triple Quartet compose?",
+          "Who is the composer of Triple Quartet?",
+          "Who is the composer of Triple Quartet?",
+          "Who is the composer of Triple Quartet?",
+          "Who is the composer of Triple Quartet?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          2,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "#1 >> genre",
+            "hop_answer": "opera",
+            "support_title": "The Cave (opera)",
+            "best_rank": 17,
+            "iteration": 2,
+            "cutoff_at_best_rank": 6,
+            "candidate_sentences": [
+              "The Cave is a multimedia opera in three acts by Steve Reich to an English libretto by his wife Beryl Korot."
+            ]
+          }
+        ],
+        "retained_context": "He also composed music for films.\nAmong his compositions were orchestral works, including a symphony and a violin concerto, and much chamber music, including a string quartet.\nHe is a conductor, composer, and pianist.\nThe composer wanted to use Paul Celan's poem \"Todesfuge\" in his third string quartet, but found it difficult to set, so kept the title but used Dylan Thomas's \"Elegy\" instead.)\nEach painting in the series is based on a particular symphony or quartet by the Russian composer Dmitri Shostakovich, whom Williams regarded as \"the greatest composer of [his] time\".\nHuman Chain is a British jazz quartet led by composer and keyboard virtuoso Django Bates.\nJoseph Linke (also spelled Joseph Lincke, Josef Linke; 8 June 1783 – 26 March 1837) was a cellist and composer who had a distinguished career in Vienna, as a soloist and as a member of the Schuppanzigh Quartet.\nTriple Quartet is a piece written by Steve Reich in 1998."
+      },
+      {
+        "id": "2hop__144563_131909",
+        "question": "Which body of water is by the Ulrike Folkerts' birth place?",
+        "answer": "Fulda",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Which body of water is by the Ulrike Folkerts' birth place?",
+          "What is the birth place of Ulrike Folkerts?",
+          "What is the birth place of Ulrike Folkerts?",
+          "What is the birth place of Ulrike Folkerts?",
+          "What is the birth place of Ulrike Folkerts?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          3,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "Which is the body of water by #1 ?",
+            "hop_answer": "Fulda",
+            "support_title": "Kassel",
+            "best_rank": 15,
+            "iteration": 2,
+            "cutoff_at_best_rank": 6,
+            "candidate_sentences": [
+              "Kassel (; spelled Cassel until 1928) is a city located on the Fulda River in northern Hesse, Germany."
+            ]
+          }
+        ],
+        "retained_context": "He was born in Solund as the son of Edvard Sverdrup and his wife Agnes, née Vollan.\nA greater quantity of water is found in the earth's interior.\nPrincess Ulrike Friederike Wilhelmine of Hesse-Kassel () (31 October 1722, Kassel – 28 February 1787, Eutin) was a member of the House of Hesse-Kassel by birth, and of the House of Holstein-Gottorp through her marriage to Frederick Augustus I, Duke of Oldenburg.\nUlrike was the Duchess consort of Oldenburg from 1774 until her husband's death on 6 July 1785.\nUlrike Folkerts (born 14 May 1961 in Kassel, Hesse, Germany) is a German actress.\nThe episodes are located in the town of Ludwigshafen.\nLake Norman, created between 1959 and 1964 as part of the construction of the Cowans Ford Dam by Duke Energy, is the largest man-made body of fresh water in North Carolina.\nUlrike Mai (born 6 January 1960 in Dresden, East Germany as Ulrike Kunze) is a German television, movie, voice and theater actress.\nIt also contains the deepest and longest bodies of water in England, respectively Wast Water and Windermere."
+      },
+      {
+        "id": "2hop__131130_68117",
+        "question": "Who named the chicken chain associated with the state where Wooldridge-Rose House is located?",
+        "answer": "Don Anderson",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who named the chicken chain associated with the state where Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          0,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "where did the name #1 fried chicken come from",
+            "hop_answer": "Don Anderson",
+            "support_title": "KFC",
+            "best_rank": 13,
+            "iteration": 2,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Don Anderson, a sign painter hired by Harman, coined the name ``Kentucky Fried Chicken ''."
+            ]
+          }
+        ],
+        "retained_context": "He also introduced the ``bucket meal ''in 1957 (14 pieces of chicken, five bread rolls and a pint of gravy in a cardboard bucket).\nBy the late 1930s, Harland Sanders' Corbin, Kentucky gas station was so well known for his fried chicken, that Sanders decided to remove the gas pumps and build a restaurant in its place.\nIt is sometimes associated with the Southern cuisine of the United States.\nDespite the name, the dish contains no chicken, but is so - named because the cooking method is similar to that of pan-fried chicken breast cutlets.\nThe Wooldridge-Rose House, located in Pewee Valley, Kentucky, was placed on the National Register of Historic Places in 2007.\nContributing structures on the property are a carriage barn, smokehouse, corn crib, and chicken house.\nBy the late 1930s, Harland Sanders' Corbin, Kentucky gas station was so well known for his fried chicken, that Sanders decided to remove the gas pumps and build a restaurant and motel in its place.\nAmes Hitchens Chicken Farm was a historic home and farm located near Millsboro, Sussex County, Delaware.\nIt included a two-story, wood frame, gable front dwelling and two long, one-story, flatroofed buildings, used as chicken houses."
+      }
+    ],
+    "cap_with_all_annotated_spans": [
+      {
+        "id": "2hop__158366_370960",
+        "question": "The Battle of Jackson in the state that had the most black voters in 1965 was part of what conflict?",
+        "answer": "American Civil War",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "The Battle of Jackson in the state that had the most black voters in 1965 was part of what conflict?",
+          "In which conflict was the Battle of Jackson in 1965 part of?",
+          "In which state was the Battle of Jackson in 1965 part of the Vicksburg Campaign?",
+          "In which state was the Battle of Jackson in 1965 that had the most black voters in 1965?",
+          "In which state was the Battle of Jackson in 1965 that had the most black voters in 1965?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          3,
+          2,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "Conrad Feger Jackson (September 11, 1813 – December 13, 1862) was a businessman and soldier from the state of Pennsylvania.\nHe served as a brigadier general in the Union Army during the American Civil War and was killed in action during the Battle of Fredericksburg.\nHe took part as a volunteer in the Mississippi Freedom Summer (1964) helping enable black American voter registration, and was on the second abortive march from Selma to Montgomery in 1965.\nSNCC had undertaken an ambitious voter registration program in Selma, Alabama, in 1963, but by 1965 little headway had been made in the face of opposition from Selma's sheriff, Jim Clark.\nJimmie Lee Jackson, a resident of nearby Marion, was killed by police at a later march in February 17, 1965.\nThe Battle of Jackson, fought on May 14, 1863, in Jackson, Mississippi, was part of the Vicksburg Campaign in the American Civil War.\nGen. Ulysses S. Grant and the Army of the Tennessee defeated elements of the Confederate Department of the West, commanded by General Joseph E. Johnston, seizing the city, cutting supply lines, and opening the path to the west and the Siege of Vicksburg.\nJennifer Jackson (born February 6, 1945) is an American model who was chosen as \"Playboy\" magazine's Playmate of the Month for the March 1965 issue.\n\"State of Shock\" is a 1984 single by the Jacksons featuring frontman Michael Jackson and Mick Jagger.\nJournalists like to say that US cities with black majorities, such as Detroit and New Orleans, have not elected white mayors since after the civil rights movement, when the Voting Rights Act of 1965 protected the franchise for minorities, and blacks in the South regained the power to vote for the first time since the turn of the 20th century.\nIn 1965, Mississippi had the highest black voter turnout at 74% and led the nation in the number of black public officials elected.\nIn 1969, Tennessee had a 92.1% turnout among black voters; Arkansas, 77.9%; and Texas, 73.1%."
+      },
+      {
+        "id": "2hop__483813_20122",
+        "question": "What manager of the performer of Immigrant Song tried to sign Queen?",
+        "answer": "Peter Grant",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What manager of the performer of Immigrant Song tried to sign Queen?",
+          "Who was the manager of the performer of Immigrant Song during the time Queen was considering an offer from Led Zeppelin's manager, Peter Grant?",
+          "Who was the manager of the performer of Immigrant Song during the time when Queen was trying to sign them?",
+          "Who was the manager of Led Zeppelin during the time they tried to sign Queen?",
+          "Who was the manager of Led Zeppelin during the time they tried to sign Queen?"
+        ],
+        "new_sentences_per_pass": [
+          10,
+          2,
+          2,
+          2,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "\"Immigrant Song\" is a 1970 song by the English rock band Led Zeppelin.\nSeveral live recordings have also been issued on various Led Zeppelin albums.\nOn 20 August 2010, Queen's manager Jim Beach put out a Newsletter stating that the band had signed a new contract with Universal Music.\nIn 1972, Queen entered discussions with Trident Studios after being spotted at De La Lane Studios by John Anthony and after discussions were offered a management deal by Norman Sheffield under Neptune Productions, a subsidiary of Trident to manage the band and enable them to use the facilities at Trident to record new material whilst the management search for a record label to sign Queen.\nThis suited both parties at the time as Trident were expanding into management and Queen under the deal were able to make use of the hi-tech recording facilities shared by bands at the time such as the Beatles and Elton John to produce new material.\nOn 25 and 26 April, May and Taylor appeared on the eleventh series of American Idol at the Nokia Theatre, Los Angeles, performing a Queen medley with the six finalists on the first show, and the following day performed \"Somebody to Love\" with the 'Queen Extravaganza' band.\nQueen were scheduled to headline Sonisphere at Knebworth on 7 July 2012 with Adam Lambert before the festival was cancelled.\nQueen's final concert with Freddie Mercury was in Knebworth in 1986.\nQueen expressed disappointment at the cancellation and released a statement to the effect that they were looking to find another venue.\nQueen also performed with Lambert on 3 July 2012 at Moscow's Olympic Stadium, and on 7 July 2012 at the Municipal Stadium in Wroclaw, Poland.\nOne of the options they considered was an offer from Led Zeppelin's manager, Peter Grant.\nGrant wanted them to sign with Led Zeppelin's own production company, Swan Song Records.\nThe band found the contract unacceptable and instead contacted Elton John's manager, John Reid, who accepted the position.\nMay was also scathing of Prenter, who was Mercury's manager from the early 1980s to 1984, for being dismissive of the importance of radio stations, such as the US networks, and their vital connection between the artist and the community, and for denying them access to Mercury.\nQueen left Elektra Records, their label in the United States, Canada, Japan, Australia, and New Zealand, and signed onto EMI/Capitol Records.\nThe song was performed in its original show - tune version in the film by American actress and singer Idina Menzel in her vocal role as Queen Elsa."
+      },
+      {
+        "id": "2hop__36651_63835",
+        "question": "The basis of the organization seen as a great power in addition to member counties began with the signing of what?",
+        "answer": "the Treaty on the Functioning of the European Union",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "The basis of the organization seen as a great power in addition to member counties began with the signing of what?",
+          "What was the treaty or agreement that the European powers signed to form the European Coal and Steel Community?",
+          "What was the specific treaty or agreement that the European Coal and Steel Community was formed from?",
+          "What was the specific treaty or agreement that the European Coal and Steel Community was based on, which later evolved into the European Common Market and ultimately into the current European Union?",
+          "What was the specific treaty or agreement that the European Coal and Steel Community was based on, which later evolved into the European Union?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          5,
+          2,
+          2,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "With continuing European integration, the European Union is increasingly being seen as a great power in its own right, with representation at the WTO and at G8 and G-20 summits.\nThis is most notable in areas where the European Union has exclusive competence (i.e. economic affairs).\nThe European Union is a supranational union and not a sovereign state, and has limited scope in the areas of foreign affairs and defence policy.\nThese remain largely with the member states of the European Union, which include the three great powers of France, Germany and the United Kingdom (referred to as the \"EU three\").\nAs a consequence of the war, the Allies created the United Nations, an organization for international cooperation and diplomacy, similar to the League of Nations.\nThe devastated great powers of Western Europe formed the European Coal and Steel Community, which later evolved into the European Common Market and ultimately into the current European Union.\nThis effort primarily began as an attempt to avoid another war between Germany and France by economic cooperation and integration, and a common market for important natural resources.\nShe considers Germany, Japan and Italy to be great powers due to their G7 membership and because of their influence in regional and international organizations.\nMany of the veterans used their shared experiences as a basis for fellowship.\nGroups of men began joining together, first for camaraderie and later for political power.\nEmerging as most influential among the various organizations during the first post-war years was the Grand Army of the Republic, founded on April 6, 1866, on the principles of ``Fraternity, Charity and Loyalty, ''in Decatur, Illinois, by Dr. Benjamin F. Stephenson.\nIn the treaty, the Iroquois agreed to stop marauding and to allow refugees from the Great Lakes to return east.\nThe Iroquois came to see that they held the balance of power between the two European powers and they used that position to their benefit for the decades to come.\nTwo core functional treaties, the Treaty on European Union (originally signed in Maastricht in 1992) and the Treaty on the Functioning of the European Union (originally signed in Rome in 1957 as the Treaty establishing the European Economic Community), lay out how the EU operates, and there are a number of satellite treaties which are interconnected with them.\nThe treaties have been repeatedly amended by other treaties over the 65 years since they were first signed.\nThe consolidated version of the two core treaties is regularly published by the European Commission.\nThe Berlin Conference (German: Kongokonferenz or ``Congo Conference '') of 1884 -- 85 regulated European colonization and trade in Africa during the Imperialism period, and coincided with Germany's sudden emergence as an imperial power.\nThe conference ushered in a period of heightened colonial activity by European powers, while simultaneously eliminating most existing forms of African autonomy and self - governance."
+      },
+      {
+        "id": "2hop__107965_166568",
+        "question": "Who was the spouse of the artist who created Circe Offering the Cup to Ulysses?",
+        "answer": "Esther Kenworthy Waterhouse",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who was the spouse of the artist who created Circe Offering the Cup to Ulysses?",
+          "Who was the spouse of John William Waterhouse?",
+          "Who is Esther Kenworthy?",
+          "Who was the spouse of the artist John William Waterhouse?",
+          "Who is Esther Kenworthy?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          3,
+          4,
+          1,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "Everton regularly take large numbers away from home both domestically and in European fixtures.\nEverton often sell out the full allocation in away grounds and tickets sell particularly well for North West England away matches.\nIn October 2009, Everton took 7,000 travelling fans to Benfica, their largest ever away crowd in Europe since the 1985 European Cup Winners' Cup Final.\nHe was born at his father's farm, Merryweather Farm, in Salem Center, Westchester County, New York.\nCirce Invidiosa is a painting by John William Waterhouse completed in 1892.\nIt is his second depiction, after \"Circe Offering the Cup to Ulysses\" (1891), of the classical mythological character Circe.\nWaterhouse later returned to the subject of Circe a third time with \"The Sorceress\" (1911). \"\nCirce Invidiosa\" is part of the collection of the Art Gallery of South Australia, which also owns Waterhouse's \"The Favourites of the Emperor Honorius\".\nCirce Offering the Cup to Ulysses is an oil painting in the Pre-Raphaelite style by John William Waterhouse that was created in 1891.\nIt tells the story of Flora Belle and a squirrel named Ulysses.\nPortrait of Margaret van Eyck (or Margaret, the Artist's Wife) is a 1439 oil on wood painting by the Early Netherlandish master Jan van Eyck.\nIt is one of the two latest of his surviving paintings, and one of the earliest European artworks to depict a painter's spouse.\nAt issue was whether James Joyce's novel Ulysses was obscene.\nShe married fellow artist John William Waterhouse at the parish church in Ealing, in 1883, and thereafter used the name Esther Kenworthy Waterhouse.\nThe Kentucky Cup Classic Stakes is an American Thoroughbred horse race run annually in late September as part of Kentucky Cup Day at Turfway Park in the Cincinnati, Ohio suburb of Florence, Kentucky."
+      },
+      {
+        "id": "2hop__452247_135703",
+        "question": "Whose name was used to name the country encompassing Gurara?",
+        "answer": "Niger River",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Whose name was used to name the country encompassing Gurara?",
+          "What is the name of the country encompassing Gurara?",
+          "What is the name of the country encompassing Gurara?",
+          "What is the name of the country encompassing Gurara?",
+          "What is the name of the country encompassing Gurara?"
+        ],
+        "new_sentences_per_pass": [
+          5,
+          2,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "The name \"\" was taken from the Niger River running through the country.\nThis name was coined in the late 19th century by British journalist Flora Shaw, who later married Lord Lugard, a British colonial administrator.\nThe origin of the name \"Niger\", which originally applied only to the middle reaches of the Niger River, is uncertain.\nThe word is likely an alteration of the Tuareg name \"egerew n-igerewen\" used by inhabitants along the middle reaches of the river around Timbuktu prior to 19th-century European colonialism.\nShe currently lives in Setagaya, Tokyo with her husband and daughter.\nGurara is a Local Government Area in Niger State, Nigeria, adjoining the Federal Capital Territory.\nIts headquarters are in the town of Gawu."
+      },
+      {
+        "id": "2hop__143262_559402",
+        "question": "Who is the spouse of the person who made Läther?",
+        "answer": "Gail Zappa",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the spouse of the person who made Läther?",
+          "Who is the spouse of Frank Zappa, the person who made Läther?",
+          "Who is Adelaide Gail Zappa's husband?",
+          "Who is the spouse of Frank Zappa?",
+          "Who is the spouse of Frank Zappa?"
+        ],
+        "new_sentences_per_pass": [
+          5,
+          3,
+          2,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "The Kennedy/Marshall Company (KM) is an American film-production company, based in Santa Monica, California, founded in 1992 by spouses Kathleen Kennedy and Frank Marshall.\nAs the spouse of a Governor General, she held the title of Chatelaine of Rideau Hall.\nLouise of the Netherlands (Wilhelmina Frederika Alexandrine Anna Louise; 5 August 1828 – 30 March 1871) was the Queen of Sweden and Norway as spouse of King Charles XV of Sweden and IV of Norway.\n\"Läther\" (, or \"\"Leather\"\") is the sixty-fifth official album by Frank Zappa, released posthumously as a triple album on Rykodisc in 1996.\nJim Adventures of Huckleberry Finn character Jim standing on a raft alongside Huck Created by Mark Twain Information Gender Male Spouse (s) Sadie (wife) Children Elizabeth (daughter) Johnny (son) Nationality African American\nLouise of Mecklenburg-Güstrow (28 August 1667 – 15 March 1721) was Queen consort of Denmark and Norway as the first spouse of the King Frederick IV of Denmark.\nIn 1708–09, she was regent during her husband's trip to Italy.\nMagdalene Sibylle of Prussia (31 December 1586 – 12 February 1659) was an Electress of Saxony as the spouse of John George I, Elector of Saxony.\nAdelaide Gail Zappa ( Sloatman; January 1, 1945 – October 7, 2015) was the wife of musician and composer Frank Zappa and the trustee of the Zappa Family Trust.\nThey met in Los Angeles in 1966 and married while she was pregnant with their first child, Moon, followed by Dweezil, Ahmet and Diva."
+      },
+      {
+        "id": "2hop__95281_568514",
+        "question": "Who is the spouse of actress featured in Fanfan?",
+        "answer": "Christopher Lambert",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the spouse of actress featured in Fanfan?",
+          "Who is the spouse of actress Sophie Marceau in the film Fanfan?",
+          "Who is the spouse of actress Sophie Marceau in the film 'Fanfan'?",
+          "Who is the spouse of actress Sophie Marceau in the film 'Fanfan'?",
+          "Who is the spouse of actress Sophie Marceau in the film 'Fanfan'?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          5,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "Two French exiles in Lisbon fall in love after both have murdered their spouses.\nTrivial () is a 2007 French crime drama film directed by Sophie Marceau and starring Christopher Lambert, Sophie Marceau, and Nicolas Briançon.\nWritten by Marceau, Gianguido Spinelli, and Jacques Deschamps, the film is about a police inspector, struggling with depression following his wife's death, who investigates a suspicious missing person's case at the request of a mysterious woman.\nFilmed on location in Normandy, France, \"Trivial\" is the second feature-length motion picture directed by actress Sophie Marceau.\nWritten by Jean-Charles Tacchella and Danièle Thompson, the film is about two cousins by marriage who meet at a wedding and develop a close friendship.\nAfter their spouses prove unfaithful, the cousins' friendship leads to a passionate love affair. \"\nFanfan (\"Fanfan & Alexandre\") is a 1993 French romantic comedy film written and directed by Alexandre Jardin and starring Sophie Marceau and Vincent Perez.\nThe film stars Louis Jordan and in her credited feature film debut, June Richmond.\nAfter the death of his wife, Dr. Hackenstein (David Muir) concocts the perfect plan: with the help of a few graverobbers and a couple of lost girls, he can use the spare parts to reanimate his dead spouse and build a better woman.\nBlanche of Anjou (1280 – 14 October 1310) was Queen of Aragon as the second spouse of King James II.\nThe film features Shivarajkumar, in his 25th feature film, and Priya Raman, making her Kannada debut, in the lead roles."
+      },
+      {
+        "id": "2hop__127564_50751",
+        "question": "What are the spirits associated with Shintoism called in the language of Lala DX?",
+        "answer": "Kami",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What are the spirits associated with Shintoism called in the language of Lala DX?",
+          "What are the names of the spirits associated with Shintoism in the language of Lala DX?",
+          "What are the names of the spirits associated with Shintoism in the language of Lala DX?",
+          "What are the names of the spirits associated with Shintoism in the language of Lala DX?",
+          "What are the names of the spirits associated with Shintoism in the language of Lala DX?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [],
+        "retained_context": "Of the about seventy occurrences of the word Pneuma in Acts, fifty five refer to the Holy Spirit.\nKami is the Japanese word for a god, deity, divinity, or spirit.\nIt has been used to describe mind (心霊), God (ゴッド), supreme being (至上者), one of the Shinto deities, an effigy, a principle, and anything that is worshipped.\nIt was originally celebrated annually on the last Monday of May, in honour of Lala Sukuna (1888-1958), the national father of modern Fiji, whose death anniversary falls on 30 May.\nLaLa DX is a Japanese shōjo manga magazine published by Hakusensha.\nIt was first published on July 9, 1983 as a supplement magazine to \"LaLa\" in which it later became the sister magazine to LaLa, another of Hakusensha's shōjo manga magazines.\nIt was serialized in Hakusensha's bi-monthly shōjo manga magazine, LaLa DX but has since moved to monthly LaLa and is published in collected volumes by Hakusensha."
+      }
+    ],
+    "all_gold_paragraphs_but_missing_candidate_span": [
+      {
+        "id": "2hop__131130_68117",
+        "question": "Who named the chicken chain associated with the state where Wooldridge-Rose House is located?",
+        "answer": "Don Anderson",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who named the chicken chain associated with the state where Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?",
+          "Who named the chicken chain associated with the state where the Wooldridge-Rose House is located?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          0,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "where did the name #1 fried chicken come from",
+            "hop_answer": "Don Anderson",
+            "support_title": "KFC",
+            "best_rank": 13,
+            "iteration": 2,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "Don Anderson, a sign painter hired by Harman, coined the name ``Kentucky Fried Chicken ''."
+            ]
+          }
+        ],
+        "retained_context": "He also introduced the ``bucket meal ''in 1957 (14 pieces of chicken, five bread rolls and a pint of gravy in a cardboard bucket).\nBy the late 1930s, Harland Sanders' Corbin, Kentucky gas station was so well known for his fried chicken, that Sanders decided to remove the gas pumps and build a restaurant in its place.\nIt is sometimes associated with the Southern cuisine of the United States.\nDespite the name, the dish contains no chicken, but is so - named because the cooking method is similar to that of pan-fried chicken breast cutlets.\nThe Wooldridge-Rose House, located in Pewee Valley, Kentucky, was placed on the National Register of Historic Places in 2007.\nContributing structures on the property are a carriage barn, smokehouse, corn crib, and chicken house.\nBy the late 1930s, Harland Sanders' Corbin, Kentucky gas station was so well known for his fried chicken, that Sanders decided to remove the gas pumps and build a restaurant and motel in its place.\nAmes Hitchens Chicken Farm was a historic home and farm located near Millsboro, Sussex County, Delaware.\nIt included a two-story, wood frame, gable front dwelling and two long, one-story, flatroofed buildings, used as chicken houses."
+      },
+      {
+        "id": "2hop__275076_43463",
+        "question": "Who plays the screenwriter of Christmas Carol: The Movie in the man who invented Christmas?",
+        "answer": "Dan Stevens",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who plays the screenwriter of Christmas Carol: The Movie in the man who invented Christmas?",
+          "Who plays the screenwriter of Christmas Carol: The Movie?",
+          "Who plays the screenwriter of Christmas Carol: The Movie?",
+          "Who plays the screenwriter of Christmas Carol: The Movie?",
+          "Who plays the screenwriter of Christmas Carol: The Movie?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "who plays #1 in the man who invented christmas",
+            "hop_answer": "Dan Stevens",
+            "support_title": "The Man Who Invented Christmas (film)",
+            "best_rank": 23,
+            "iteration": 2,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "It stars Dan Stevens, Christopher Plummer, and Jonathan Pryce."
+            ]
+          }
+        ],
+        "retained_context": "Christmas Carol: The Movie is a 2001 British live action/animated film based on Charles Dickens's classic novella.\nThe Man Who Invented Christmas is a 2017 biographical drama film directed by Bharat Nalluri and written by Susan Coyne based on the book of the same name by Les Standiford.\nThe plot follows Charles Dickens (Stevens) at the time when he wrote A Christmas Carol, and how Dickens' fictional character Ebenezer Scrooge (Plummer) was influenced by his real - life father, John Dickens (Pryce).\nIn A Christmas Carol, Marley is the first character mentioned in the first line of the story.\nThe Story Behind A Christmas Carol\".\nBob Cratchit is a fictional character in the Charles Dickens novel A Christmas Carol.\nThe Muppet Christmas Carol is a 1992 American musical fantasy comedy - drama film and an adaptation of Charles Dickens's 1843 novel A Christmas Carol."
+      },
+      {
+        "id": "2hop__689512_67150",
+        "question": "Who piloted the plane that dropped the bomb on the birthplace of Akinoshu Kenji?",
+        "answer": "Paul Warfield Tibbets Jr.",
+        "stop_reason": "answerable",
+        "queries": [
+          "Who piloted the plane that dropped the bomb on the birthplace of Akinoshu Kenji?"
+        ],
+        "new_sentences_per_pass": [
+          10
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "who piloted the plane that dropped the bomb on #1",
+            "hop_answer": "Paul Warfield Tibbets Jr.",
+            "support_title": "Paul Tibbets",
+            "best_rank": 89,
+            "iteration": 1,
+            "cutoff_at_best_rank": 10,
+            "candidate_sentences": [
+              "Paul Warfield Tibbets Jr. (23 February 1915 -- 1 November 2007) was a brigadier general in the United States Air Force."
+            ]
+          }
+        ],
+        "retained_context": "On 6 August 1945, during the final stages of World War II, it became the first aircraft to drop an atomic bomb.\nThe bomb, code - named ``Little Boy '', was targeted at the city of Hiroshima, Japan, and caused unprecedented destruction.\nOn 6 August 1945, the U.S. dropped an atomic bomb on the Japanese city of Hiroshima in the first nuclear attack in history.\nMore than 140,000–240,000 people died as a direct result of these two bombings.\nHe would later become the first pilot to launch a plane from a battleship.\nKenji Fujimori was born to Japanese Peruvian engineers, Alberto Fujimori, at the time dean of the science faculty of the National Agrarian University in Lima, and later President of Peru, and Susana Higuchi.\nAkinoshū Kenji (born 17 January 1969 as Kenji Imada) is a former sumo wrestler from Hiroshima, Japan.\nHe is best known as the pilot who flew the Enola Gay (named after his mother) when it dropped Little Boy, the first of two atomic bombs used in warfare, on the Japanese city of Hiroshima.\nThe bombs immediately devastated their targets.\nIt crashed in the city and both pilots died from their injuries."
+      },
+      {
+        "id": "2hop__87786_72045",
+        "question": "who was the last republican mayor in the city that shares its name with the band behind will you still love me the same?",
+        "answer": "William Hale Thompson",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "who was the last republican mayor in the city that shares its name with the band behind will you still love me the same?",
+          "Which city is named after the band 'Will You Still Love Me the Same'?",
+          "What is the name of the city that shares its name with the band behind 'Will You Still Love Me the Same'?",
+          "What is the name of the city that shares its name with the band behind 'Will You Still Love Me the Same'?",
+          "What is the name of the city that shares its name with the band behind 'Will You Still Love Me the Same'?"
+        ],
+        "new_sentences_per_pass": [
+          6,
+          4,
+          2,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "who was the last republican mayor in #1",
+            "hop_answer": "William Hale Thompson",
+            "support_title": "William Hale Thompson",
+            "best_rank": 17,
+            "iteration": 1,
+            "cutoff_at_best_rank": 6,
+            "candidate_sentences": [
+              "William Hale Thompson (May 14, 1869 -- March 19, 1944) was an American politician, mayor of Chicago for three terms, from 1915 to 1923 and again from 1927 to 1931."
+            ]
+          }
+        ],
+        "retained_context": "However, as a result of the city's declining population, it now has only four: the 1st district, represented by Bob Brady; the 2nd, represented by Chaka Fattah; the 8th, represented by Mike Fitzpatrick; and the 13th, represented by Brendan Boyle.\nAlthough they are usually swamped by Democrats in city, state and national elections, Republicans still have some support in the area, primarily in the northeast.\nDetroit's last mayor from the Republican Party was Louis Miriani, who served from 1957 to 1962.\nHe was the first and third mayor of Minneapolis.\n``Will You Still Love Me? ''\nis a song written by David Foster, Tom Keane and Richard Baskin for the group Chicago and recorded for their album Chicago 18 (1986).\nKnown as ``Big Bill ''Thompson, he is the last Republican to have served as mayor of Chicago to date.\nShe was defeated for re-election in 2015 by the current mayor, Karen Best.\nIt was also adapted into English as ``If You Love Me (Really Love Me) ''with lyrics by Geoffrey Parsons.\n``I Still Call Australia Home ''is a song written and performed by Peter Allen in 1980.\nIn it, Allen sings of Australian expatriates' longing for home.\nIncumbent Republican Don Guardian lost re-election to a second term to Democratic city councilman Frank Gilliam."
+      },
+      {
+        "id": "2hop__60984_59182",
+        "question": "When was the Golden Gate Bridge built in the city the font apple uses on its website is named after?",
+        "answer": "1937",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "When was the Golden Gate Bridge built in the city the font apple uses on its website is named after?",
+          "In which city was the Golden Gate Bridge built?",
+          "In which city was the Golden Gate Bridge built?",
+          "In which city was the Golden Gate Bridge built?",
+          "In which city was the Golden Gate Bridge built?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          1,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "when was the #1 golden gate bridge built",
+            "hop_answer": "1937",
+            "support_title": "Golden Gate Bridge",
+            "best_rank": 25,
+            "iteration": 2,
+            "cutoff_at_best_rank": 8,
+            "candidate_sentences": [
+              "At the time of its opening in 1937, it was both the longest and the tallest suspension bridge in the world, with a main span of 4,200 feet (1,280 m) and a total height of 746 feet (227 m)."
+            ]
+          }
+        ],
+        "retained_context": "The Frommer's travel guide describes the Golden Gate Bridge as ``possibly the most beautiful, certainly the most photographed, bridge in the world. ''\nThe bridge's design was influenced by the Hell Gate Bridge in New York City.\nThe Golden Gate Bridge construction project was carried out by the McClintic - Marshall Construction Co., a subsidiary of Bethlehem Steel Corporation founded by Howard H. McClintic and Charles D. Marshall, both of Lehigh University.\nApple modified the majority of its website's text to use the San Francisco font on January 24, 2017, and San Francisco became the universal official font for Apple.\nGolden Gate Bridge A view of the Golden Gate Bridge from the Marin Headlands Coordinates 37 ° 49 ′ 11 ''N 122 ° 28 ′ 43'' W ﻿ / ﻿ 37.81972 ° N 122.47861 ° W ﻿ / 37.81972; - 122.47861 Coordinates: 37 ° 49 ′ 11 ''N 122 ° 28 ′ 43'' W ﻿ / ﻿ 37.81972 ° N 122.47861 ° W ﻿ / 37.81972; - 122.47861 Carries 6 lanes of US 101 / SR 1 (see below), pedestrians and bicycles.\nCrosses Golden Gate Locale San Francisco, California and Marin County, California, U.S. Official name Golden Gate Bridge Maintained by Golden Gate Bridge, Highway and Transportation District Characteristics Design Art Deco, Suspension, truss arch & truss causeways Material Steel Total length 8,981 ft (2,737.4 m), about 1.7 mi (2.7 km) Width 90 ft (27.4 m) Height 746 ft (227.4 m) Longest span 4,200 ft (1,280.2 m) Clearance above 14 ft (4.3 m) at toll gates, Trucks can not pass Clearance below 220 ft (67.1 m) at high tide History Architect Irving Morrow Engineering design by Joseph Strauss, and Charles Ellis Construction start January 5, 1933 (1933 - 01 - 05) Construction end April 19, 1937 (1937 - 04 - 20) Opened May 27, 1937; 80 years ago (1937 - 05 - 27) Statistics Daily traffic 110,000 Toll Cars (southbound only) $7.50 (Pay by plate), $6.50 (FasTrak), $4.50 (carpools during peak hours, FasTrak only) California Historical Landmark Designated June 18, 1987 Reference no.\n222 Golden Gate Bridge Bridges in the San Francisco Bay\nThe Golden Gate Bridge's clearance above high water averages 220 feet (67 m) while its towers, at 746 feet (227 m) above the water, were the world's tallest on a suspension bridge until 1993 when it was surpassed by the Mezcala Bridge, in Mexico.\nThe Golden Gate Bridge and Highway District, authorized by an act of the California Legislature, was incorporated in 1928 as the official entity to design, construct, and finance the Golden Gate Bridge."
+      },
+      {
+        "id": "2hop__107338_62309",
+        "question": "When did the US go to war with the country of Salangeul chajaseo?",
+        "answer": "the Battle of Osan",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "When did the US go to war with the country of Salangeul chajaseo?",
+          "What war is the information referring to that the US joined a coalition for, resulting in the most casualties of US troops than any other equivalent period?",
+          "What is the historical timeline of the country of Salangeul chajaseo, and when did it exist, if at all, to have a war with the US?",
+          "What is the historical timeline of the country of Salangeul chajaseo, and when did it exist, if at all, to have a war with the US?",
+          "What is the historical timeline of the country of Salangeul chajaseo, and when did it exist, if at all, to have a war with the US?"
+        ],
+        "new_sentences_per_pass": [
+          9,
+          4,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "when did the us go to war with #1",
+            "hop_answer": "the Battle of Osan",
+            "support_title": "United States in the Korean War",
+            "best_rank": 23,
+            "iteration": 2,
+            "cutoff_at_best_rank": 9,
+            "candidate_sentences": [
+              "The first battle the Americans entered in the Korean War was the Battle of Osan, where about four hundred strong landed in Pusan airport on the first of July."
+            ]
+          }
+        ],
+        "retained_context": "The war is also known under other names, such as the Persian Gulf War, First Gulf War, Gulf War I, Kuwait War, First Iraq War or Iraq War, before the term ``Iraq War ''became identified instead with the 2003 Iraq War (also referred to in the US as`` Operation Iraqi Freedom'').\nAn array of nations joined the coalition, the largest military alliance since World War II.\nThe great majority of the coalition's military forces were from the US, with Saudi Arabia, the United Kingdom and Egypt as leading contributors, in that order.\nThe two weeks of fighting following this resulted in the most casualties of US troops than any other equivalent period of this war.\nHowever, during this time the US pushed supplies and personnel to Korea and by the end of July South Koreans and US troops outnumbered the North Koreans, although the North had pushed back the US and South by an amazing amount the North had suffered over fifty thousand casualties.\nSalangeul chajaseo (사랑을 찾아서) (In Search of Love, or Looking For Love) is a 1929 Korean film written, directed, produced, edited by and starring Na Woon-gyu (1902-1937).\nMore than one thousand extras from Na's hometown Hoeryong were employed in the filming of \"Salangeul chajaseo\", making the film into a symbolic epic national exodus as a protest against the Japanese occupation of Korea.\nAs with the vast majority of Korean films of this era, \"Salangeul chajaseo\" is a lost film.\nThe war is also known under other names, such as the Persian Gulf War, First Gulf War, Gulf War I, Kuwait War, First Iraq War or Iraq War, before the term ``Iraq War ''became identified instead with the 2003 Iraq War (also referred to in the US as`` Operation Iraqi Freedom'').\nAn array of nations joined the coalition, forming the largest military alliance since World War II.\nThe great majority of the coalition's military forces were from the US, with Saudi Arabia, the United Kingdom and Egypt as leading contributors, in that order.\nThe last time the United States declared war on any nation was in 1942, when war was declared against Axis - allied Hungary, Bulgaria, and Romania, because President Franklin Roosevelt thought it was improper to engage in hostilities against a country without a declaration of war.\nSince then, every American president has used military force without a declaration of war."
+      },
+      {
+        "id": "2hop__5371_5418",
+        "question": "Who is the mayor of Oklahoma's largest urbanized area?",
+        "answer": "Mick Cornett",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "Who is the mayor of Oklahoma's largest urbanized area?",
+          "Who is the current mayor of Oklahoma City?",
+          "Who is the current mayor of Oklahoma City?",
+          "Who is the current mayor of Oklahoma City?",
+          "Who is the current mayor of Oklahoma City?"
+        ],
+        "new_sentences_per_pass": [
+          7,
+          2,
+          0,
+          0,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "Who is the mayor of #1 ?",
+            "hop_answer": "Mick Cornett",
+            "support_title": "Oklahoma City",
+            "best_rank": 23,
+            "iteration": 2,
+            "cutoff_at_best_rank": 7,
+            "candidate_sentences": [
+              "Mick Cornett serves as Mayor, having first been elected in 2004, and re-elected in 2006, 2010, and 2014."
+            ]
+          }
+        ],
+        "retained_context": "Oklahoma City is the capital and largest city of the state of Oklahoma.\nAs of 2014, the Oklahoma City metropolitan area had a population of 1,322,429, and the Oklahoma City-Shawnee Combined Statistical Area had a population of 1,459,758 (Chamber of Commerce) residents, making it Oklahoma's largest metropolitan area.\nThe City of Oklahoma City has operated under a council-manager form of city government since 1927.\nOklahoma City is the principal city of the eight-county Oklahoma City Metropolitan Statistical Area in Central Oklahoma and is the state's largest urbanized area.\nIn descending order of population, Oklahoma's largest cities in 2010 were: Oklahoma City (579,999, +14.6%), Tulsa (391,906, −0.3%), Norman (110,925, +15.9%), Broken Arrow (98,850, +32.0%), Lawton (96,867, +4.4%), Edmond (81,405, +19.2%), Moore (55,081, +33.9%), Midwest City (54,371, +0.5%), Enid (49,379, +5.0%), and Stillwater (45,688, +17.0%).\nA Democrat, he served as mayor of Oklahoma City, Oklahoma from 1983 to 1987.\nHe attended the University of Oklahoma and is an attorney.\nHe gained national attention when he was elected on May 13, 2008, as a 19-year-old freshman at the University of Oklahoma, after winning 70 percent of the vote in a runoff election against 70-year-old, three-time former Muskogee mayor Herschel McBride.\nPatience Latting was elected Mayor of Oklahoma City in 1971, becoming the city's first female mayor."
+      },
+      {
+        "id": "2hop__33443_24815",
+        "question": "What did some commentators think about the originator of the term abominable mystery changing the phrasing in his book?",
+        "answer": "some commentators have taken this as a concession to religion that Darwin later regretted",
+        "stop_reason": "max_iterations",
+        "queries": [
+          "What did some commentators think about the originator of the term abominable mystery changing the phrasing in his book?",
+          "What did some commentators think about the change in phrasing in Elbert Hubbard's book regarding the term 'abominable mystery'?",
+          "Who are the commentators referred to in the statement 'Not all reviewers were enthusiastic. Some lamented the use of poor white Southerners, and one-dimensional black victims, and Granville Hicks labeled the book 'melodramatic and contrived'?",
+          "Which book are you referring to in the question about commentators' thoughts on the originator of the term 'abominable mystery' changing the phrasing in his book?",
+          "Who did some commentators think about the originator of the term 'abominable mystery' changing the phrasing in his book?"
+        ],
+        "new_sentences_per_pass": [
+          8,
+          3,
+          3,
+          1,
+          0
+        ],
+        "missing_annotated_hops": [
+          {
+            "hop_question": "What did some commentators think about #1 changing the phrasing in his book?",
+            "hop_answer": "some commentators have taken this as a concession to religion that Darwin later regretted",
+            "support_title": "On the Origin of Species",
+            "best_rank": 15,
+            "iteration": 3,
+            "cutoff_at_best_rank": 8,
+            "candidate_sentences": [
+              "While some commentators have taken this as a concession to religion that Darwin later regretted, Darwin's view at the time was of God creating life through the laws of nature, and even in the first edition there are several references to \"creation\"."
+            ]
+          }
+        ],
+        "retained_context": "The phrase was initially coined by Christian anarchist writer Elbert Hubbard in a 1915 obituary he penned and published for dwarf actor Marshall Pinckney Wilder.\nDuring Darwin's lifetime the book went through six editions, with cumulative changes and revisions to deal with counter-arguments raised.\nThe fifth edition, published on 10 February 1869, incorporated more changes and for the first time included the phrase \"survival of the fittest\", which had been coined by the philosopher Herbert Spencer in his Principles of Biology (1864).\nNatural theology was not a unified doctrine, and while some such as Louis Agassiz were strongly opposed to the ideas in the book, others sought a reconciliation in which evolution was seen as purposeful.\nIn the second edition of January 1860, Darwin quoted Kingsley as \"a celebrated cleric\", and added the phrase \"by the Creator\" to the closing sentence, which from then on read \"life, with its several powers, having been originally breathed by the Creator into a few forms or into one\".\nThat event was studied by sequencing the genome of an ancient flowering plant, Amborella trichopoda, and directly addresses Darwin's \"abominable mystery.\"\nAnd the woman was arrayed in purple and scarlet colour, and decked with gold and precious stones and pearls, having a golden cup in her hand full of abominations and filthiness of her fornication: \"And upon her forehead was a name written a mystery: Babylon the Great, the Mother of Harlots and of all the abominations of the earth: And I saw the woman drunken with the blood of the saints, and with the blood of the martyrs of Jesus.\nNot all reviewers were enthusiastic.\nSome lamented the use of poor white Southerners, and one-dimensional black victims, and Granville Hicks labeled the book \"melodramatic and contrived\".\nWhen the book was first released, Southern writer Flannery O'Connor commented, \"I think for a child's book it does all right.\nIt's interesting that all the folks that are buying it don't know they're reading a child's book.\nLies and the Lying Liars Who Tell Them is a satirical book on American politics by Al Franken, a comedian, political commentator, and politician.\nThe term ``The Great Depression ''is most frequently attributed to British economist Lionel Robbins, whose 1934 book The Great Depression is credited with formalizing the phrase, though Hoover is widely credited with popularizing the term, informally referring to the downturn as a depression, with such uses as`` Economic depression can not be cured by legislative action or executive pronouncement'' (December 1930, Message to Congress), and ``I need not recount to you that the world is passing through a great depression ''(1931).\nThe phrase became part of British popular culture.\nHe played a significant role in the psychological profiling of violent offenders in the 1970s and is often credited with coining the term ``serial killer. ''"
+      }
+    ]
+  },
+  "notes": [
+    "A hop is eligible if its normalized reference sub-answer occurs as a whole phrase in an individual sentence from its annotated supporting paragraph.",
+    "Span coverage and gold paragraph coverage are diagnostics. They do not establish sufficiency, reasoning quality, or entailment, and may miss aliases or evidence elsewhere.",
+    "Repeated controller contexts imply the same user prompt within a sample because the original question and template stay fixed.",
+    "The dense-only replay uses the same initial sentence count and saved first-query scores. It cannot measure a changed compression loop.",
+    "The first/final context lengths in this audit use the saved controller tokenizer, not the reader tokenizer."
+  ]
+}

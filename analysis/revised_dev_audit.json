@@ -1,0 +1,232 @@
+{
+  "n": 2417,
+  "verified_input_sha256": "a151cba43584d189fe09958ffeefeaa3f5189c519b5fd01cfc0c2dd81b1b3c9f",
+  "verified_gold_sha256": "212d768120cf2e57781e85bac7d9ffd7796af49d661a431b3a6b0e4c5eb446db",
+  "verified_same_original_itercomp_context_count": 2417,
+  "verified_raw_context_count": 2417,
+  "verified_oracle_context_count": 2417,
+  "verified_prediction_sha256": {
+    "original_itercomp": "52efdce55af0c50344560b15bf9c8b5ab1812d57d785ed414069c221a6e5afb2",
+    "raw": "f7cb2f78b5ecaa458bb5b4842ce62ea79150adeae84173a1c20373de89d16a45",
+    "oracle": "7b2b6e609db268fe39559657d568b5cdb40be8a684fba3c577a12c892c03fb93",
+    "itercomp": "3e6f29cce9c15e0030e63aa85516ed532d9b9068e424bce16203a3ef66df593b"
+  },
+  "reader_revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+  "prompt_only_config_difference": true,
+  "failed_samples": {
+    "original_itercomp": [
+      "2hop__66149_85990",
+      "2hop__17508_17335"
+    ],
+    "raw": [],
+    "oracle": [],
+    "itercomp": [
+      "2hop__66149_85990",
+      "2hop__17508_17335"
+    ]
+  },
+  "recomputed_scores": {
+    "original_itercomp": {
+      "EM": 12.78444352503103,
+      "F1": 17.80278904177069
+    },
+    "raw": {
+      "EM": 15.142738932561025,
+      "F1": 25.866669912917178
+    },
+    "oracle": {
+      "EM": 40.17376913529168,
+      "F1": 53.97626462204743
+    },
+    "itercomp": {
+      "EM": 20.314439387670667,
+      "F1": 30.332178105363173
+    }
+  },
+  "reader_conditions": [
+    {
+      "EM": 15.142738932561025,
+      "EM_minus_paper_points": 5.452738932561026,
+      "F1": 25.866669912917178,
+      "F1_minus_paper_points": 5.9466699129171765,
+      "context": "raw",
+      "context_ratio_macro": 1.0,
+      "context_ratio_token_weighted": 1.0,
+      "empty_answers_without_error": 0,
+      "inherited_compression_errors": 0,
+      "mean_compression_seconds": 9.472372362384413e-06,
+      "mean_context_tokens": 2267.3930492345885,
+      "mean_reader_input_tokens": 2322.871328092677,
+      "mean_reader_seconds": 3.5714185579743307,
+      "n": 2417,
+      "new_reader_errors": 0,
+      "paper_EM": 9.69,
+      "paper_F1": 19.92,
+      "paper_context_ratio": 1.0
+    },
+    {
+      "EM": 40.17376913529168,
+      "EM_minus_paper_points": 18.643769135291677,
+      "F1": 53.97626462204743,
+      "F1_minus_paper_points": 16.466264622047433,
+      "context": "oracle",
+      "context_ratio_macro": 0.14372257400474162,
+      "context_ratio_token_weighted": 0.1436674233785846,
+      "empty_answers_without_error": 0,
+      "inherited_compression_errors": 0,
+      "mean_compression_seconds": 7.364170873195751e-06,
+      "mean_context_tokens": 325.7505171700455,
+      "mean_reader_input_tokens": 381.23251965246175,
+      "mean_reader_seconds": 1.1706557293140185,
+      "n": 2417,
+      "new_reader_errors": 0,
+      "paper_EM": 21.53,
+      "paper_F1": 37.51,
+      "paper_context_ratio": 0.15
+    },
+    {
+      "EM": 20.314439387670667,
+      "EM_minus_paper_points": 3.6444393876706656,
+      "F1": 30.332178105363173,
+      "F1_minus_paper_points": 2.9721781053631737,
+      "context": "itercomp",
+      "context_ratio_macro": 0.18330444446377153,
+      "context_ratio_token_weighted": 0.18494791059376614,
+      "empty_answers_without_error": 0,
+      "inherited_compression_errors": 2,
+      "mean_compression_seconds": 14.214488855721978,
+      "mean_context_tokens": 419.3496069507654,
+      "mean_reader_input_tokens": 474.44517997517585,
+      "mean_reader_seconds": 1.4026601974869697,
+      "n": 2417,
+      "new_reader_errors": 0,
+      "paper_EM": 16.67,
+      "paper_F1": 27.36,
+      "paper_context_ratio": 0.14
+    }
+  ],
+  "metrics_by_hop": {
+    "original_itercomp": {
+      "2": {
+        "EM": 17.33226837060703,
+        "F1": 23.378505562940678
+      },
+      "3": {
+        "EM": 9.473684210526317,
+        "F1": 13.810578224664912
+      },
+      "4": {
+        "EM": 4.938271604938271,
+        "F1": 8.057809131883205
+      }
+    },
+    "raw": {
+      "2": {
+        "EM": 17.492012779552716,
+        "F1": 29.830838524283436
+      },
+      "3": {
+        "EM": 13.815789473684212,
+        "F1": 23.07140573701533
+      },
+      "4": {
+        "EM": 10.37037037037037,
+        "F1": 18.857439474040273
+      }
+    },
+    "oracle": {
+      "2": {
+        "EM": 46.246006389776355,
+        "F1": 60.108427351919694
+      },
+      "3": {
+        "EM": 36.578947368421055,
+        "F1": 51.432821087753744
+      },
+      "4": {
+        "EM": 28.14814814814815,
+        "F1": 39.792435852326726
+      }
+    },
+    "itercomp": {
+      "2": {
+        "EM": 22.284345047923324,
+        "F1": 32.909059818783234
+      },
+      "3": {
+        "EM": 20.526315789473685,
+        "F1": 29.90876327271318
+      },
+      "4": {
+        "EM": 13.82716049382716,
+        "F1": 23.160670371071987
+      }
+    }
+  },
+  "original_abstention_cohorts": {
+    "previous_sentinel": {
+      "n": 1469,
+      "original": {
+        "EM": 0.0,
+        "F1": 0.0
+      },
+      "revised": {
+        "EM": 12.185159972770593,
+        "F1": 19.793899410381258
+      },
+      "exact_gains": 179,
+      "exact_losses": 0,
+      "whole_split_f1_gain_points": 12.030301296586705
+    },
+    "other_valid_old_predictions": {
+      "n": 946,
+      "original": {
+        "EM": 32.66384778012685,
+        "F1": 45.4855614312471
+      },
+      "revised": {
+        "EM": 32.98097251585624,
+        "F1": 46.76071484863923
+      },
+      "exact_gains": 22,
+      "exact_losses": 19,
+      "whole_split_f1_gain_points": 0.49908776700577634
+    }
+  },
+  "paired": [
+    {
+      "EM_delta_points": 5.17170045510964,
+      "F1_delta_points": 4.46550819244599,
+      "contrast": "revised_itercomp_minus_revised_raw",
+      "exact_matches_gained": 264,
+      "exact_matches_lost": 139,
+      "n": 2417
+    },
+    {
+      "EM_delta_points": 19.859329747621018,
+      "F1_delta_points": 23.644086516684254,
+      "contrast": "revised_oracle_minus_revised_itercomp",
+      "exact_matches_gained": 588,
+      "exact_matches_lost": 108,
+      "n": 2417
+    },
+    {
+      "EM_delta_points": 7.529995862639637,
+      "F1_delta_points": 12.52938906359248,
+      "contrast": "revised_itercomp_minus_archived_itercomp",
+      "exact_matches_gained": 201,
+      "exact_matches_lost": 19,
+      "n": 2417
+    }
+  ],
+  "reader_condition_wall_seconds": {
+    "raw": 8690.617022,
+    "oracle": 2884.011277,
+    "itercomp": 3568.330643
+  },
+  "notes": [
+    "Oracle inputs use gold supporting paragraph IDs to select unchanged source text.",
+    "The archived comparison checks observed contexts and matching reader settings. Hardware and runtime variation were not eliminated by this check.",
+    "These measurements are for the course reproduction configuration on previously examined dev data."
+  ]
+}

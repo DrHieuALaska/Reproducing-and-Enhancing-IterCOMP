@@ -1,0 +1,968 @@
+{
+  "archive_sha256": "c0d1e8107936bc8786aab58ea5e8b584732f50361d60e6d50e318fdb0fddfc09",
+  "dataset_sha256": "a151cba43584d189fe09958ffeefeaa3f5189c519b5fd01cfc0c2dd81b1b3c9f",
+  "predictions_sha256_verified": "52efdce55af0c50344560b15bf9c8b5ab1812d57d785ed414069c221a6e5afb2",
+  "gold_sha256": "212d768120cf2e57781e85bac7d9ffd7796af49d661a431b3a6b0e4c5eb446db",
+  "reported_overall": {
+    "n": 2417,
+    "weighted_compression_ratio": 0.18494791059376614,
+    "weighted_compression_n": 2417,
+    "answer_em": 0.1278444352503103,
+    "answer_f1": 0.1780278904177069,
+    "support_precision": 0.27335799214617146,
+    "support_recall": 0.7756171562543098,
+    "support_f1": 0.39220096522415876,
+    "all_support_recovered": 0.5167563094745552,
+    "support_em": 0.0016549441456350847,
+    "raw_context_tokens": 2267.3930492345885,
+    "compressed_context_tokens": 419.3496069507654,
+    "controller_input_tokens": 2870.6698386429457,
+    "controller_output_tokens": 161.05295821266031,
+    "reader_input_tokens": 487.4344228382292,
+    "reader_output_tokens": 5.298303682250724,
+    "compression_seconds": 14.214488855721978,
+    "reader_seconds": 0.9339232307174554,
+    "total_seconds": 15.148412086439432,
+    "iterations": 4.237070748862226,
+    "llm_calls": 5.237070748862226,
+    "compression_ratio": 0.18330444446377153,
+    "total_llm_tokens": 3524.455523376086,
+    "metric_counts": {
+      "answer_em": 2417,
+      "answer_f1": 2417,
+      "support_precision": 2417,
+      "support_recall": 2417,
+      "support_f1": 2417,
+      "all_support_recovered": 2417,
+      "support_em": 2417,
+      "raw_context_tokens": 2417,
+      "compressed_context_tokens": 2417,
+      "controller_input_tokens": 2417,
+      "controller_output_tokens": 2417,
+      "reader_input_tokens": 2417,
+      "reader_output_tokens": 2417,
+      "compression_seconds": 2417,
+      "reader_seconds": 2417,
+      "total_seconds": 2417,
+      "iterations": 2417,
+      "llm_calls": 2417,
+      "compression_ratio": 2417,
+      "total_llm_tokens": 2417
+    }
+  },
+  "counts": {
+    "samples": 2417,
+    "errors": 2,
+    "abstentions": 1469,
+    "abstentions_with_complete_paragraphs": 610,
+    "normalized_samples": 161,
+    "reader_output_limit_hits": 0,
+    "embedding_truncations": 0,
+    "raw_answer_substring_present": 2417,
+    "compressed_answer_substring_present": 1525,
+    "abstention_compressed_answer_substring_present": 806,
+    "iterations": 10238,
+    "exact_repeated_query_iterations": 3387,
+    "no_new_iterations": 4303,
+    "first_iteration_complete_paragraphs": 802,
+    "max_iterations_with_complete_paragraphs": 978,
+    "answerable_missing_gold_paragraphs": 232
+  },
+  "stop_reasons": {
+    "max_iterations": 1913,
+    "answerable": 502,
+    "error": 2
+  },
+  "trace_violations": {
+    "nonmonotonic_union": 0,
+    "union_mismatch": 0,
+    "initial_query_mismatch": 0,
+    "followup_query_mismatch": 0,
+    "incomplete_ranking": 0,
+    "score_formula": 0,
+    "threshold_selection": 0,
+    "final_selection": 0,
+    "final_provenance": 0
+  },
+  "groups": {
+    "all": {
+      "n": 2417,
+      "em": 0.1278444352503103,
+      "f1": 0.1780278904177069,
+      "complete_paragraphs": 0.5167563094745552,
+      "abstain": 0.6077782374844849,
+      "iterations": 4.237070748862226,
+      "compression_ratio": 0.18330444446377153,
+      "compression_seconds": 14.214488855721978,
+      "reader_seconds": 0.9339232307174554
+    },
+    "hop_2": {
+      "n": 1252,
+      "em": 0.1733226837060703,
+      "f1": 0.23378505562940677,
+      "complete_paragraphs": 0.6269968051118211,
+      "abstain": 0.5047923322683706,
+      "iterations": 3.9936102236421727,
+      "compression_ratio": 0.17279111757599586,
+      "compression_seconds": 12.620270963734024,
+      "reader_seconds": 0.9061566528219435
+    },
+    "stop_max_iterations": {
+      "n": 1913,
+      "em": 0.0982749607945635,
+      "f1": 0.13670465323858513,
+      "complete_paragraphs": 0.5112388917929953,
+      "abstain": 0.6868792472556194,
+      "iterations": 5.0,
+      "compression_ratio": 0.19410511473591005,
+      "compression_seconds": 17.009748720142195,
+      "reader_seconds": 0.9546382497846602
+    },
+    "coverage_True": {
+      "n": 1249,
+      "em": 0.20416333066453163,
+      "f1": 0.2670751672345969,
+      "complete_paragraphs": 1.0,
+      "abstain": 0.48839071257005606,
+      "iterations": 4.22658126501201,
+      "compression_ratio": 0.19118117495602546,
+      "compression_seconds": 14.198908372261807,
+      "reader_seconds": 0.9630168594203635
+    },
+    "abstain_True": {
+      "n": 1469,
+      "em": 0.0,
+      "f1": 0.0,
+      "complete_paragraphs": 0.41524846834581347,
+      "abstain": 1.0,
+      "iterations": 4.620149761742682,
+      "compression_ratio": 0.19115464482027497,
+      "compression_seconds": 15.688115720443172,
+      "reader_seconds": 0.9372186175419069
+    },
+    "normalized_False": {
+      "n": 2256,
+      "em": 0.12145390070921985,
+      "f1": 0.16960896743500503,
+      "complete_paragraphs": 0.5230496453900709,
+      "abstain": 0.6210106382978723,
+      "iterations": 4.447251773049645,
+      "compression_ratio": 0.1869950686719329,
+      "compression_seconds": 14.916760110562958,
+      "reader_seconds": 0.9408009446786483
+    },
+    "coverage_False": {
+      "n": 1168,
+      "em": 0.046232876712328765,
+      "f1": 0.0828052459448511,
+      "complete_paragraphs": 0.0,
+      "abstain": 0.735445205479452,
+      "iterations": 4.248287671232877,
+      "compression_ratio": 0.17488146810690067,
+      "compression_seconds": 14.231149835038547,
+      "reader_seconds": 0.9028119787911436
+    },
+    "abstain_False": {
+      "n": 948,
+      "em": 0.3259493670886076,
+      "f1": 0.45389600331181174,
+      "complete_paragraphs": 0.6740506329113924,
+      "abstain": 0.0,
+      "iterations": 3.6434599156118144,
+      "compression_ratio": 0.1711399462320167,
+      "compression_seconds": 11.930988998891351,
+      "reader_seconds": 0.9288167715981313
+    },
+    "stop_answerable": {
+      "n": 502,
+      "em": 0.2410358565737052,
+      "f1": 0.33620997907208,
+      "complete_paragraphs": 0.5378486055776892,
+      "abstain": 0.30876494023904383,
+      "iterations": 1.340637450199203,
+      "compression_ratio": 0.14216805900852017,
+      "compression_seconds": 3.5759661422589595,
+      "reader_seconds": 0.8586724372530499
+    },
+    "normalized_True": {
+      "n": 161,
+      "em": 0.21739130434782608,
+      "f1": 0.29599739506972816,
+      "complete_paragraphs": 0.42857142857142855,
+      "abstain": 0.422360248447205,
+      "iterations": 1.2919254658385093,
+      "compression_ratio": 0.13158985928605677,
+      "compression_seconds": 4.373967421428471,
+      "reader_seconds": 0.837549797820243
+    },
+    "stop_error": {
+      "n": 2,
+      "em": 0.0,
+      "f1": 0.0,
+      "complete_paragraphs": 0.5,
+      "abstain": 0.0,
+      "iterations": 1.5,
+      "compression_ratio": 0.17769607843137253,
+      "compression_seconds": 10.817629616999739,
+      "reader_seconds": 0.007956652501889039
+    },
+    "hop_3": {
+      "n": 760,
+      "em": 0.09473684210526316,
+      "f1": 0.13810578224664913,
+      "complete_paragraphs": 0.4710526315789474,
+      "abstain": 0.6815789473684211,
+      "iterations": 4.397368421052631,
+      "compression_ratio": 0.19380957069496457,
+      "compression_seconds": 15.70252037420527,
+      "reader_seconds": 0.970277974976278
+    },
+    "hop_4": {
+      "n": 405,
+      "em": 0.04938271604938271,
+      "f1": 0.08057809131883206,
+      "complete_paragraphs": 0.2617283950617284,
+      "abstain": 0.7876543209876543,
+      "iterations": 4.688888888888889,
+      "compression_ratio": 0.19609157860645898,
+      "compression_seconds": 16.350431687133373,
+      "reader_seconds": 0.9515384156272724
+    }
+  },
+  "examples": {
+    "abstain_with_answer_substring": [
+      {
+        "id": "2hop__460946_294723",
+        "question": "Who is the spouse of the Green performer?",
+        "gold_answer": "Miquette Giraudy",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "Grant's First Stand is the debut album by American jazz guitarist Grant Green featuring performances by Green recorded and released on the Blue Note label in 1961.\nEarlier recordings made by Green for Blue Note were released as \"First Session\" in 2001.\nActress / director / singer Phylicia Rashād is the older sister of performer Debbie Allen, who is married to former NBA basketball player, Norm Nixon.\nPhylicia Rashād is the former spouse of both Victor Willis, former lead singer of the group Village People, and former NFL football player turned sportscaster, Ahmad Rashād.\nGreen Lake is a lake in Chisago City, Minnesota, United States.\nMiquette Giraudy (born 9 February 1953, Nice, France) is a keyboard player and vocalist, best known for her work in Gong and with her partner Steve Hillage.\nIn addition to her performances in music, she has also worked as an actress, film editor and writer.\nIn each role, she has used different stage names.\nGreen animals include, especially, amphibians, reptiles, and some fish, birds and insects.\nGooden's Corner is an album by American jazz guitarist Grant Green featuring performances recorded in 1961 and released on the Japanese Blue Note label in 1980.\nGreen is the fourth studio album by British progressive rock musician Steve Hillage.\n\"Little Green\" is a song composed and performed by Joni Mitchell.\nThe Main Attraction is an album by American jazz guitarist Grant Green featuring performances recorded in 1976 and released on the Kudu label.\nThe series' release led to record subscriptions for All Access, and positive reviews from critics who highlighted Martin - Green's performance.\nThe Odd Life of Timothy Green is a 2012 American fantasy comedy-drama film starring Jennifer Garner, Joel Edgerton, Dianne Wiest, CJ Adams, Rosemarie DeWitt, Ron Livingston, David Morse and Common, written and directed by Peter Hedges and produced by Walt Disney Pictures.\nThe Latin Bit is an album by American jazz guitarist Grant Green featuring performances recorded in 1962 and released on the Blue Note label.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the performer Debbie Allen is married to?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the performer with the stage name Green?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Is there any information about the spouse of the jazz guitarist Grant Green in this data?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Is there any information about the spouse of the jazz guitarist Grant Green in this data?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Is there any information about the spouse of the jazz guitarist Grant Green in this data?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__390947_232243",
+        "question": "What is the goal of the group that European Movement Germany is a member of?",
+        "gold_answer": "European integration",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "He is a member of the parliamentary group European Democratic and Social Rally in the French Senate.\nBernd Hüttemann (born December 8, 1970 in Paderborn) is Vice President of the European Movement International and Secretary General of the European Movement Germany.\nSince 3 December 2011 he is president of the European Movement France.\nHe is a member of the Union for a Popular Movement.\nShe is a member of the National Movement Simeon II, part of the Alliance of Liberals and Democrats for Europe, and became an MEP on 1 January 2007 with the accession of Bulgaria to the European Union.\nThe European Movement International is a lobbying association that coordinates the efforts of associations and national councils with the goal of promoting European integration, and disseminating information about it.\nHe is a member of the Union for a Popular Movement.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which specific group or alliance is European Movement Germany a member of, that promotes the goal of European integration?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which specific European Movement or group is European Movement Germany a member of?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which specific European Movement or group is European Movement Germany a member of?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which specific European Movement or group is European Movement Germany a member of?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which specific European Movement or group is European Movement Germany a member of?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__683835_709167",
+        "question": "What award did the author of The Red Tree receive?",
+        "gold_answer": "Academy Award for Best Animated Short Film",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "The Red Ochre Award was established in 1993 by the Australia Council for the Arts.\nThe Nobel Prize in Literature (Swedish: Nobelpriset i litteratur) is a Swedish literature prize that is awarded annually, since 1901, to an author from any country who has, in the words of the will of Swedish industrialist Alfred Nobel, produced ``in the field of literature the most outstanding work in an ideal direction ''(original Swedish:`` den som inom litteraturen har producerat det mest framstående verket i en idealisk riktning'').\nThough individual works are sometimes cited as being particularly noteworthy, the award is based on an author's body of work as a whole.\nIt will not be awarded in 2018, but two names will be awarded in 2019.\nThe award was founded by PEN Member and author Barbaralee Diamonstein and Carl Spielvogel, former \"New York Times\" columnist, \"to preserve the dignity and esteem that the essay form imparts to literature.\"\nThe winner receives a cash award of $10,000.\nPassion Australia produced \"The Lost Thing\", directed by Andrew Ruhemann and Shaun Tan, which won an Academy Award for Best Animated Short Film in 2011.\nHalfway Tree is the second album by Jamaican reggae artist Damian \"Jr. Gong\" Marley.\nThe name \"Halfway Tree\" comes from his mother, Cindy Breakspeare, being from the rich part of town, and his father, Bob Marley, coming from the poor part of town, thus him being \"a tree halfway in between the 'rich' world and 'poor' world.\"\nAdditionally, Halfway Tree is a well-known landmark that marks the cultural center of Half-Way-Tree, the clock tower that stands where the historical eponymous cotton tree once stood is featured prominently behind Marley on the cover of the album.\nChildress has received numerous awards, prizes, and accolades for his writing and poetry, and is regarded as one of the foremost poets of the Korean War by at least two critics.\nHe has received a range of awards including the 1999 and 1996 ASCAP (American Society of Composers, Authors & Publishers) and First Prize for his Piano Quartet in the European Region’s Young Composers’ Competition in 2000.\nIn 2008, she received the Chicago Public Library Foundation's 21st Century Award for achievement in writing by an author with ties to Chicago.\nHe is a four - time All - Star and an American League (AL) Most Valuable Player award winner, who has also received four Gold Glove Awards and a single Silver Slugger award.\nIt follows \"The Summer Tree\".\nThe Red Tree (2001), written and illustrated by Shaun Tan, is a picture book that presents a fragmented journey through a dark world.\nIt is based on the 1938 novel \"Die Kapuzinergruft\" (\"The Emperor's Tomb\") by Austrian author Joseph Roth.\nPenelope Tree is the only child of Ronald, a British journalist, investor and Conservative MP, and Marietta Peabody Tree, a U.S. socialite and political activist.\nShe is the half-sister of both the racehorse trainer Jeremy Tree and the author Frances FitzGerald and a niece of former Massachusetts governor Endicott Peabody.\nThe song was released as the lead single from Red on August 13, 2012, by Big Machine Records.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What awards has the author Shaun Tan received?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the author of The Red Tree?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which author is associated with The Red Tree?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which author is associated with The Red Tree?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which author is associated with The Red Tree?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__197470_271394",
+        "question": "Where was Tyler MacDuff's child educated?",
+        "gold_answer": "Blair High School",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "Ralph W. Tyler (1902–1994) was an American educator who worked in the field of assessment and evaluation.\nTyler chaired the committee that developed the National Assessment of Educational Progress (NAEP).\nHe and his older brother, Brandon R. MacDuff (born 1954), a 1972 graduate of Blair High School, have formed Oakdale Pictures, a production company in Reno.\nTyler was born in Brooklyn, New York.\nTyler completed his Ph.D. studies on reproductive biology and was appointed to the faculty at Caltech.\nHe was born in Pasadena, California, to the actor Tyler MacDuff and the former Beverlie May Anderson (born 1930), who divorced in 1961.\nLike his father, Dana MacDuff served in the United States Navy, having been on active duty from 1974–1977.\nDavid Gardiner Tyler (July 12, 1846 – September 5, 1927), was a U.S. Democratic Party politician and the ninth child and fourth son of John Tyler, the tenth President of the United States.\nHe chooses instead to fight Macduff to the death.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What educational institution or institutions did Tyler MacDuff attend for his child's education?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What schools did Tyler MacDuff attend?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What schools did Tyler MacDuff attend?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What schools did Tyler MacDuff attend?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What schools did Tyler MacDuff attend?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__299142_347613",
+        "question": "Who is the child of Sigrid Eskilsdotter's child?",
+        "gold_answer": "Svante Stensson Sture",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "She was the daughter of Svante Stensson Sture and Märta (\"king Martha\") Erikdotter Leijonhufvud, thereby the niece of queen Margaret Leijonhufvud and the granddaughter of regent Christina Gyllenstierna.\nShe married to Ture Pedersson Bielke and became the mother of Svante Turesson Bielke.\nLoekman is the third child of five siblings.\nLoekman married Rika Nurhayati and have two child.\nA toddler is a child 12 to 36 months old.\nAt age 15 years 9 months HM Revenue and Customs (HMRC) notifies each child of their NI number.\nSigrid Eskilsdotter (Banér) (died 1527), was a Swedish noble, the mother of the Swedish regent Christina Gyllenstierna and the maternal grandmother of King Gustav Vasa of Sweden.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is Sigrid Eskilsdotter's child?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is Sigrid Eskilsdotter's child?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is Sigrid Eskilsdotter's child?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is Sigrid Eskilsdotter's child?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is Sigrid Eskilsdotter's child?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__505860_650613",
+        "question": "Where was the author of Hannibal and Scipio educated at?",
+        "gold_answer": "Exeter College",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "Hannibal is a 1995 historical novel by Scottish writer Ross Leckie.\nThe book relates the exploits of Hannibal's invasion of Rome beginning in 218 BC, narrated by the Carthaginian general in his retirement.\nHannibal is a 2001 American psychological horror film directed by Ridley Scott, adapted from the novel of the same name by Thomas Harris.\nHe was born in humble circumstances in Worcestershire, and educated at Exeter College, Oxford in 1621.\nHannibal and Scipio is a Caroline era stage play, a classical tragedy written by Thomas Nabbes.\nIn 211 BC, both Scipio's father, Publius Scipio, and uncle, Gnaeus Cornelius Scipio Calvus, were killed at the Battle of the Upper Baetis in Spain against Hannibal's brother, Hasdrubal Barca.\nIts theme is the Second Punic War and the conflict between the two great generals Hannibal and Scipio Africanus.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the author of Hannibal and Scipio?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who was the author of Hannibal and Scipio?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who was the author of Hannibal and Scipio?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who was the author of Hannibal and Scipio?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who was the author of Hannibal and Scipio?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__403712_793210",
+        "question": "Who is the father of Edward Baring, 1st Baron Revelstoke's father?",
+        "gold_answer": "Sir Francis Baring, 1st Baronet",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "Edmund of Woodstock, 1st Earl of Kent (5 August 130119 March 1330) was the sixth son of Edward I of England, and a younger half-brother of Edward II.\nHe succeeded his brother and father as Baron Stamp when they were killed during the war by German bombing.\nThomas Baring, known as \"Tom\", was the tenth child (fifth of second marriage) of Henry Baring of Cromer Hall, and younger full brother of Edward Baring, 1st Baron Revelstoke.\nLike his brother, Baring was involved in the family banking business, beginning his career in the Liverpool office of Barings Bank.\nWhen, in 1890, Kidder Peabody split its dual Boston-New York firm, Baring became a partner in the separated New York firm.\nHe and another Kidder-Peabody alumnus, George C. Magoun, formed Baring, Magoun.\nBoth houses continued as North American agents for Barings.\nHe married Elizabeth le Despenser, daughter of Edward le Despencer, 1st Baron le Despencer (Despenser), by Elizabeth Burghersh, daughter and heiress of Bartholomew de Burghersh, 2nd Baron Burghersh.\nWilliam succeeded as Baron in 1254 on his father's death.\nHe was married to Ethana de Vallibus, daughter of John Vaux, Lord of Dirleton, and left one son, Henry Maule, who succeeded him as Baron.\nHe was the grandson of Edward Pellew, 1st Viscount Exmouth.\nA member of the influential Baring family, he was the son of Lieutenant-General Charles Baring, son of Henry Bingham Baring, son of Henry Baring, third son of Sir Francis Baring, 1st Baronet.\nHis mother was Helen Graham, daughter of Sir James Graham, 2nd Baronet.\nYoung Edward, under pressure from his father to enter banking as a career, a prospect he found uncongenial, escaped to Leipzig in 1859.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the father of Thomas Baring, known as 'Tom', who is the tenth child (fifth of second marriage) of Henry Baring of Cromer Hall, and younger full brother of Edward Baring, 1st Baron Revelstoke?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the father of Thomas Baring, known as 'Tom', the tenth child of Henry Baring of Cromer Hall?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the father of Thomas Baring, known as 'Tom', who is the tenth child (fifth of second marriage) of Henry Baring of Cromer Hall, and younger full brother of Edward Baring, 1st Baron Revelstoke?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the father of Thomas Baring, known as 'Tom', who is the tenth child (fifth of second marriage) of Henry Baring of Cromer Hall, and younger full brother of Edward Baring, 1st Baron Revelstoke?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the father of Thomas Baring, known as 'Tom', who is the tenth child (fifth of second marriage) of Henry Baring of Cromer Hall, and younger full brother of Edward Baring, 1st Baron Revelstoke?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__685280_510757",
+        "question": "The Unwinding author volunteered for which organisation?",
+        "gold_answer": "Peace Corps",
+        "predicted_answer": "",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "He represented a portion of the Charente department in the Assembly, and is a member of the Socialist Party.\nThe members are affiliated to the following political parties: Fine Gael (5 members), Fianna Fáil (10 members), Sinn Féin (8 members), Anti-Austerity Alliance (3 members), Workers' Party (1 member), Independents (4 members).\nAfter serving with the Peace Corps in Togo in 1982–1983, George Packer wrote The Village of Waiting about his experiences there.\nThe book chronicles Packer's time as an English teacher in the small village of Lavie (meaning \"wait a little longer\"), as well as his visits to the capital Lomé and several other African countries.\nPacker mixes anecdotes about the people he met in Togo with political observations (notably harsh criticisms of Togolese President Gnassingbe Eyadema) and many of the lessons he learned while serving.\nIn an afterword to the most recent (2001) edition, Packer follows up with many of the characters from the original version and reflects upon the changes Togo has experienced since his time there.\nPacker was an early termination from the Peace Corps, leaving Togo six months prior to the end of his contracted period of service.\nHe chose not to mention this in the book.\nThe Unwinding: An Inner History of the New America is a 2013 non-fiction book by the American journalist George Packer.\nThe Unwinding\" includes lengthy profiles of five subjects: a Youngstown, Ohio factory worker turned community organizer, a biodiesel entrepreneur from North Carolina, a Washington lobbyist and Congressional staffer, the Silicon Valley entrepreneur Peter Thiel, and people involved in the distressed housing market in Tampa, Florida.\nSocialist Resistance of Kazakhstan was established by Kazakh members of the Committee for a Workers International in 2002, during a conference held in neighbouring Russia.\nFrom its inception it came under attack by authorities, with one member detained en route to the conference establishing the organisation, and others reporting being attacked as they gathered for the conference.\nHe was the Chairman of House Urban Affairs and the House Ethics Committee.\nHe also served as a member of the Liquor Control Committees.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which organisation did George Packer volunteer for after his Peace Corps service in Togo?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which organisation was the member of, that was detained en route to the conference establishing the organisation?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which country is George Packer a member of the Socialist Party?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which country is George Packer a member of the Socialist Party?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which country is George Packer a member of the Socialist Party?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      }
+    ],
+    "wrong_with_complete_paragraphs": [
+      {
+        "id": "2hop__701895_752697",
+        "question": "What administrative territorial entity is the owner of Ciudad Deportiva located?",
+        "gold_answer": "Tamaulipas",
+        "predicted_answer": "Municipio de Nuevo Laredo, Mexico.",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "The 1969 Gran Premio de Mexico (Mexican Grand Prix) was a Formula One motor race held at the Ciudad Deportiva Magdalena Mixhuca, Mexico City on October 19, 1969, two weeks after the United States Grand Prix at Watkins Glen.\nThe Municipality of Nuevo Laredo is located in the Mexican state of Tamaulipas.\nIts municipal seat is Nuevo Laredo.\nThe municipality contains more than 60 localities which the most important ones are Nuevo Laredo, El Campanario y Oradel, and Álvarez, the last two being suburbs of the city of Nuevo Laredo.\nThe Nuevo Laredo municipality is the northernmost in Tamaulipas, lying at the extreme northwestern tip of its narrow strip of land along the Río Grande.\nThe city of Nuevo Laredo contains approximately 97.5% of the total population of the municipality.\nThe Buenos Aires Argentina Temple is the 39th operating temple of The Church of Jesus Christ of Latter-day Saints (LDS Church), located in Ciudad Evita, near Buenos Aires, Argentina.\nMexico is an intermediate case, in that municipalities are granted full-autonomy by the federal constitution and their existence as autonomous entities (municipio libre, \"free municipality\") is established by the federal government and cannot be revoked by the states' constitutions.\nClub Sportivo Italiano is an Argentine football club located in Ciudad Evita, La Matanza Partido, Greater Buenos Aires.\nIt is named for the former Ciudad del Niño Presidente Juan Antonio Ríos.\nThe Ciudad Deportiva (\"Sports City\") is a sports complex in Nuevo Laredo, Mexico.\nIt is home to the Tecolotes de Nuevo Laredo Mexican Baseball League team and the Toros de Nuevo Laredo Mexican professional basketball team from the Liga Nacional de Baloncesto Profesional.\nThe Ciudad Deportiva's Estadio Nuevo Laredo (baseball park) can seat up to 12,000 fans at a baseball game and the Nuevo Laredo Multidisciplinary Gymnasium can seat 4,000 fans at a basketball game.\nIt is currently used mostly for football matches and is the home stadium of Asociación Deportiva Tarma of the Copa Perú.\nBy 1881, the Central Mexican Railroad was completed which connected Mexico City to Ciudad Juárez.\nIt is located just outside the capital city Montevideo on the east, and over one of the most important access streets to Montevideo, Giannattasio Avenue, which connects Montevideo with the so call Ciudad de la Costa, the fastest growing area in Uruguay in the recent years.\nIts administrative center is Minsk, although it is a separate administrative territorial entity of Belarus.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which administrative territorial entity is Nuevo Laredo located?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which administrative territorial entity is the Ciudad Deportiva located in Mexico?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which administrative territorial entity is the Ciudad Deportiva located in Mexico?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which administrative territorial entity is the Ciudad Deportiva located in Mexico?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"In which administrative territorial entity is the Ciudad Deportiva located in Mexico?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__481349_302087",
+        "question": "Which company owns the manufacturer of Learjet 60?",
+        "gold_answer": "Bombardier Inc.",
+        "predicted_answer": "Bombardier Aerospace",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "Electrolux owns the brand in home appliances and uses it in Finland.\nProduced by Bombardier Aerospace, aerospace division of the Canadian aerospace and defence company Bombardier Inc. the former CRJ100 and CRJ200 series are no longer in production but still in active airline service, while the more recent CRJ700, CRJ900 and CRJ1000 series are in production and in service.\nThe Learjet 60 is a mid-size cabin, medium-range business jet aircraft manufactured by Bombardier Aerospace in Wichita, Kansas.\nIn July 2012 Bombardier Aerospace announced a temporary \"production pause\" of the latest variant Learjet 60XR to begin in the fourth quarter of 2012.\nAerojet was an American rocket and missile propulsion manufacturer based primarily in Rancho Cordova, California, with divisions in Redmond, Washington, Orange and Gainesville in Virginia, and Camden, Arkansas.\nAerojet was owned by GenCorp.\nIn the 60 seasons the Championship has been awarded, only nine different manufacturers have won it.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"None (The Information directly answers the Question: The Learjet 60 is manufactured by Bombardier Aerospace, which is a division of Bombardier Inc.)\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__698577_851686",
+        "question": "What is a notable work written by the author of The Timothy files?",
+        "gold_answer": "Anderson Tapes",
+        "predicted_answer": "The Timothy Files",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "Martine Blanc (born 16 September 1944 in Clermont-Ferrand, Puy-de-Dôme) is a French author and illustrator of ten books for children including \"The story of Timothy\", the \"Two Hoots\" series in collaboration with Helen Cresswell, and \"All about Jesus\".\nHer most notable work includes research on vinca alkaloids, the development of anti-epileptic drugs, and development of anti-malarial drugs.\nShe also authored a considerable volume of work on medicinal plants of the Indian subcontinent.\nThe Timothy Files is a 1987 best selling work of fiction by Lawrence Sanders.\nIt consists of linked stories featuring Timothy Cone, who works as a hard-boiled type investigator.\nThe stories in the book deal with his successful attempts to find out the truth and put villains behind bars.\nHe is notable for his novel \"The Celestine Prophecy\".\nHer most notable work has revolved around the life and works of the Finnish composer, Jean Sibelius.\nHe is the author of numerous articles and books, including \"A different existence\" and \"The changing nature of man\".\nIt is notable for its use of imagery, irony, symbolism, and the exploration of such themes as survival, solidarity, and the conflict between man and nature.\nEllen Steiber is an American novelist and author of books for young readers, including some based on single episodes of \"The X-Files\" and \"Full House\" series.\nThe book earned Sanders the Mystery Writers of America Edgar Award for best first mystery novel.\nThe township may be named for its Timothy-grass.\nThe Boys on the Bus (1973) is author Timothy Crouse's seminal non-fiction book detailing life on the road for reporters covering the 1972 United States presidential campaign.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which book among Martine Blanc's children's books is a notable work?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which book among the ten books for children written by Martine Blanc is 'The Timothy Files'?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which book among the ten books for children written by Martine Blanc is a notable work?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which book among the ten books for children written by Martine Blanc is a notable work?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which book among the ten books for children written by Martine Blanc is a notable work?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__362107_652514",
+        "question": "In which borough was Callum McManaman born?",
+        "gold_answer": "Knowsley",
+        "predicted_answer": "Whiston, Merseyside",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "This article covers the conflicts from 1820, just before Mexico gained independence from Spain, until 1875, when the last free band of Plains Indians, the Comanches led by Quahadi warrior Quanah Parker, surrendered and moved to the Fort Sill reservation in Oklahoma.\nThe Dunbar Hospital was the first hospital for the black community in Detroit, Michigan.\nCallum Kane is a fictional character from the British Channel 4 soap opera, \"Hollyoaks\", played by Laurie Duncan.\nThe character and Duncan's casting was announced on 25 August 2011.\nCallum was introduced to the show along with five other regular characters.\nWhile appearing in the sixth series of \"Hollyoaks Later\" in October 2013, Callum was killed off.\nDuncan's departure from the show was kept secret to ensure viewers would be surprised.\nThe headquarters is the town of Pangi.\nAs of 2011, the region's population is 1,411,500.\nBorn in Whiston, Merseyside, lived and brought up in Rainhill, Merseyside, McManaman began his youth career at Everton before being released in 2007 and joining Wigan Athletic.\nIn January 2015, he joined West Bromwich Albion for £4.75 million.\nAt the 2001 Census the population was recorded as 13,629, (6,560 males and 7,069 females), increasing to 14,263 at the 2011 Census.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Callum McManaman?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Callum McManaman?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Callum McManaman?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Callum McManaman?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Callum McManaman?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__528263_865831",
+        "question": "In which county is Kimbrough Memorial Stadium located?",
+        "gold_answer": "Randall County",
+        "predicted_answer": "Potter County",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "Kimbrough Memorial Stadium is a stadium in Canyon, Texas.\nIt is owned by Canyon Independent School District, and is primarily primarily used for American football.\nIt is the home stadium for Canyon High School and Randall High School of Canyon Independent School District, and is the former home of West Texas A&M University.\nThe stadium holds 20,000 people and was built in 1959.\nIt was originally called Buffalo Bowl on Canyon Hill but was renamed Kimbrough Memorial Stadium in 1971 in honor of the late West Texas State University football coach and athletic director Frank Kimbrough.\nHistoric Broken Bow Memorial Stadium has served as the home of the Broken Bow Savages, since it was constructed in 1936 by the National Youth Administration, a part of the Works Progress Administration.\nThe headquarters is the town of Kiri.\nIt is part of the Amarillo, Texas, metropolitan statistical area.\nIn 1940, the team moved from Philadelphia Municipal Stadium to Shibe Park.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": null}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__569582_304416",
+        "question": "What record label is the performer of Almost Made Ya signed to?",
+        "gold_answer": "Derrty Entertainment",
+        "predicted_answer": "Derrty Entertainment and Universal Records.",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "label.\nThe album was also released in the UK on the HMV label as CLP3541.\nThe label was formed in 2007 and is owned by Playground Music Scandinavia .\nThe label is mostly active on the Swedish market, but with former signed artists such as Agnes Carlsson and Erik Hassle, they have made an international leap.\nAlmost Made Ya is an R&B song by American duo Ali & Gipp, for the debut album, \"Kinfolk\" (2007).\nThe song was written by LeToya Luckett, Jermaine Dupri, Ali Vaskabi-Waski-Jones, Cameron Gipp, Shelly Peiken and Guy Roche\nThree for Shepp is the debut album by American saxophonist Marion Brown featuring performances recorded in 1966 for the Impulse!\nlabel.\nKinfolk is the debut and only album by American rap duo Ali & Gipp, released on August 14, 2007, through Derrty Entertainment and Universal Records.\nThe fourth and final single is \"Almost Made Ya\" featuring LeToya Luckett.\nlabel.\nAlmost Seventeen\" eventually sold over 400,000 copies and was certified platinum by the Recording Industry Association of Japan.\nlabel.\nLook What I Almost Stepped In... is the eighth studio album by the southern California punk rock band The Vandals, released in 2000 by Nitro Records.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which record label is Almost Made Ya, the R&B song by Ali & Gipp, signed to?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What record label is Ali & Gipp's debut album 'Kinfolk' (2007) released on?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the record label of Ali & Gipp, the American rap duo?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the record label of Ali & Gipp's debut album 'Kinfolk'?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the record label of Ali & Gipp's debut album 'Kinfolk'?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__821197_368148",
+        "question": "In which county is Southern Maryland Electric Cooperative headquartered?",
+        "gold_answer": "Charles County",
+        "predicted_answer": "Charles",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "The Southern Maryland Electric Cooperative (SMECO) is an electric distribution cooperative which is headquartered in Hughesville, Maryland.\nSMECO serves approximately 161,000 customers in Calvert, Charles, Prince George's, and St. Mary's counties of southern Maryland.\nSouthern California Edison (or SCE Corp), the largest subsidiary of Edison International, is the primary electricity supply company for much of Southern California, USA.\nHughesville is a census-designated place (CDP) in Charles County, Maryland, United States.\nThe headquarters is the town of Kiri.\nThis Southern resort and residential community was planned by Cooper, Robertson & Partners, under the direction of The St. Joe Company.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": null}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__702496_430061",
+        "question": "What county was Tim Dubois born in?",
+        "gold_answer": "McDonald County",
+        "predicted_answer": "Southwest City, Missouri",
+        "stop_reason": "max_iterations",
+        "error": null,
+        "context": "Allison DuBois (born January 24, 1972) is an American author and purported medium.\nDuBois has used her psychic abilities to assist U.S. law enforcement officials in solving crimes, forming the basis of the TV series Medium.\nTim DuBois (born May 4, 1948 in Southwest City, Missouri) is a Nashville, Tennessee-based music executive.\nHe then entered into the music business and has taken part in multiple aspects of the industry including songwriting, record labels, management, and production.\nDuBois has been recognized for numerous honors and awards for his contributions to the music industry.\nThe Queen is represented in each state by a governor; and in the Northern Territory, the Administrator.\nThe Dunbar Hospital was the first hospital for the black community in Detroit, Michigan.\nIt stands across the canal from the Palazzo Querini Dubois.\nDubois (also spelled DuBois or Du Bois, from the French \"of the woods/forest\") is a surname.\nIt is part of the Fayetteville–Springdale–Rogers, AR-MO Metropolitan Statistical Area and is located in the southwestern corner of the state of Missouri.\nIt was written by Gill and Tim DuBois.\nIt was the county seat until 1079 Empúries moved to Castelló d'Empúries place less exposed to attack.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which individual is the question about, Tim Dubois or Allison DuBois?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Tim Dubois, who is a Nashville, Tennessee-based music executive?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Tim Dubois, who is a Nashville, Tennessee-based music executive?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Tim Dubois, who is a Nashville, Tennessee-based music executive?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"What is the birthplace of Tim Dubois, who is a Nashville, Tennessee-based music executive?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          }
+        ]
+      }
+    ],
+    "normalized_controller": [
+      {
+        "id": "2hop__481349_302087",
+        "question": "Which company owns the manufacturer of Learjet 60?",
+        "gold_answer": "Bombardier Inc.",
+        "predicted_answer": "Bombardier Aerospace",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "Electrolux owns the brand in home appliances and uses it in Finland.\nProduced by Bombardier Aerospace, aerospace division of the Canadian aerospace and defence company Bombardier Inc. the former CRJ100 and CRJ200 series are no longer in production but still in active airline service, while the more recent CRJ700, CRJ900 and CRJ1000 series are in production and in service.\nThe Learjet 60 is a mid-size cabin, medium-range business jet aircraft manufactured by Bombardier Aerospace in Wichita, Kansas.\nIn July 2012 Bombardier Aerospace announced a temporary \"production pause\" of the latest variant Learjet 60XR to begin in the fourth quarter of 2012.\nAerojet was an American rocket and missile propulsion manufacturer based primarily in Rancho Cordova, California, with divisions in Redmond, Washington, Orange and Gainesville in Virginia, and Camden, Arkansas.\nAerojet was owned by GenCorp.\nIn the 60 seasons the Championship has been awarded, only nine different manufacturers have won it.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"None (The Information directly answers the Question: The Learjet 60 is manufactured by Bombardier Aerospace, which is a division of Bombardier Inc.)\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__635187_861533",
+        "question": "What province shares a border with the province where Lago District is located?",
+        "gold_answer": "Cabo Delgado Province",
+        "predicted_answer": "Mozambique",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "It is located in the south of the district where it borders Abbottabad District.\nLago Verde (Italian for \"green lake\") is a lake which is located in Italy, close to the French border and the Queyras valley.\nIt is located on the northern shore of the autonomous okrug and borders with Iultinsky District in the northeast, Anadyrsky District in the southeast, and with Bilibinsky District in the south and west.\nIt borders on the \"comune\" of Pero to the north and on the districts of Trenno to the west and Lampugnano to the south; to the east, its ideal border is the eponymous street, which in turn is named after Gallarate, the town it leads to.\nLago District is a district of Niassa Province in north-western Mozambique.\nLago District is bordered to the west by Lake Nyasa, on the south by Lichinga, on the east by Sanga District.\nLago shares its northern boundary with Tanzania.\nIt is located in the north and northeast of the krai and borders with the Komi Republic in the north, Krasnovishersky District in the east, Solikamsky District in the south, Kosinsky District in the southwest, and with Gaynsky District in the west.\nIt is located in the south of the krai and borders with Ononsky, Ulyotovsky, and Kyrinsky Districts of Zabaykalsky Krai, as well as with Mongolia.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"Which province in Mozambique is Lago District located in?\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__496732_658428",
+        "question": "The territory containing Bansaan Island is located at which island?",
+        "gold_answer": "Panglao Island",
+        "predicted_answer": "Bohol Island",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "60 islands are dispersed around Hong Kong, the largest of which by area is Lantau Island, located Southwest of the main peninsula.\nLantau Island and the majority of the remaining islands are part of the New Territories, an area that also encompasses the hilly terrain north of Kowloon.\nThe Glénan islands ( or , ) are an archipelago located off the coast of France.\nNughu is an island in the Solomon Islands; it is located in Guadalcanal Province.\nIt is located in the eastern central part of the Island of Sakhalin.\nHuahine is an island located among the Society Islands, in French Polynesia, an overseas territory of France in the Pacific Ocean.\nBansaan is a boomerang-shaped island located in the off the mid-northern coast of Bohol Island, .\nKhong Island or Don Khong is the largest island and the seat of administration in the Si Phan Don riverine archipelago located in the Mekong River, Khong District, Champasak Province, southern Laos.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Which island is Bansaan Island located?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"Which island is Bansaan Island located?\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__497191_129669",
+        "question": "In which district was Alhandra born?",
+        "gold_answer": "Lisbon District",
+        "predicted_answer": "Lisbon",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "Suntrana is an unincorporated community in eastern Denali Borough, Alaska, United States.\nVila Franca de Xira () is a municipality in the Lisbon District in Portugal.\nVila Franca de Xira is said to have been founded by French followers of Portugal's first king, Afonso Henriques, around 1200.\nChirakkalkulam is a small residential area near Kannur town of Kannur District, Kerala state, South India.\nChirakkalkulam is located between Thayatheru and Kannur City.\nLuís Miguel Assunção Joaquim (born 5 March 1979 in Vila Franca de Xira, Lisbon), known as Alhandra, is a Portuguese retired footballer who played mainly as a left back – he could also appear as a midfielder.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"In which district is Vila Franca de Xira located?\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__13731_801817",
+        "question": "Where was Mary's betrothed born?",
+        "gold_answer": "Nazareth",
+        "predicted_answer": "",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "The account of Mary's life presented includes her consecration as a virgin at the temple at age three.\nWhile in the temple, Mary was miraculously fed by an angel, until she was twelve years old.\nMary resided in \"her own house\"[Lk.1:56] in Nazareth in Galilee, possibly with her parents, and during her betrothal — the first stage of a Jewish marriage — the angel Gabriel announced to her that she was to be the mother of the promised Messiah by conceiving him through the Holy Spirit, and she responded, \"I am the handmaid of the Lord.\nAccording to the apocryphal Gospel of James, Mary was the daughter of Saint Joachim and Saint Anne.\nBefore Mary's conception, Anne had been barren and was far advanced in years.\nMary was given to service as a consecrated virgin in the Temple in Jerusalem when she was three years old, much like Hannah took Samuel to the Tabernacle as recorded in the Old Testament.\nSome apocryphal accounts state that at the time of her betrothal to Joseph, Mary was 12–14 years old, and he was thirty years old, but such accounts are unreliable.\nAccording to the movie version, her middle name is Marie.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"In which city was Mary's betrothed born, according to the provided information?\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__827995_159109",
+        "question": "Where is Amílcar Cabral International Airport?",
+        "gold_answer": "central Atlantic Ocean",
+        "predicted_answer": "Cabo Verde.",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "Charlotte Douglas International Airport (IATA: CLT, ICAO: KCLT, FAA LID: CLT) is a joint civil - military public international airport located in Charlotte, North Carolina, United States.\nKuala Lumpur International Airport (KLIA) (Malay: Lapangan Terbang Antarabangsa Kuala Lumpur) (IATA: KUL, ICAO: WMKK) is Malaysia's main international airport and one of the major airports in South East Asia.\nLos Cabos International Airport (IATA: SJD, ICAO: MMSD) is the sixth - busiest airport in Mexico, located at San José del Cabo in Los Cabos Municipality, Baja California Sur state, Mexico.\nIt also has a state owned airport located in Akwa Ibom State.\nAn armed rebellion beginning in 1956 by the African Party for the Independence of Guinea and Cape Verde (PAIGC) under the leadership of Amílcar Cabral gradually consolidated its hold on then Portuguese Guinea.\nCalicut International Airport , also known as Karipur Airport, is an international airport serving the cities of Kozhikode and Malappuram in Kerala, India.\nAmílcar Cabral International Airport , also known as Sal International Airport, is the main international airport of Cabo Verde.\nThe airport is named after the revolutionary leader Amílcar Cabral.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"In which country is Amílcar Cabral International Airport located?\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__159215_779396",
+        "question": "Where was the person who wrote about the rioting being a dividing factor in Birmingham educated?",
+        "gold_answer": "University of Glasgow",
+        "predicted_answer": "",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "He graduated with a BSc degree from Birmingham University in 1965.\nHe was educated at King Edward's School, Birmingham, and Trinity College, Cambridge.\nHe was made Bishop of Birmingham in 1924, the only bishop appointed during Ramsay MacDonald's first term in office.\nOut of the Ashes: Britain After the Riots is a 2011 book by the British Labour Party politician David Lammy about the 2011 England riots.\nLocal Birmingham officials seem to have been involved in the planning of the riots, and they were later reluctant to prosecute any ringleaders.\nIndustrialist James Watt wrote that the riots \"divided [Birmingham] into two parties who hate one another mortally\".\nThose who had been attacked gradually left, leaving Birmingham a more conservative city than it had been throughout the eighteenth century.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"Which of the individuals mentioned in the Information is David Lammy?\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      },
+      {
+        "id": "2hop__478978_124498",
+        "question": "Who is the father of the performer of Je dis aime?",
+        "gold_answer": "Louis Chedid",
+        "predicted_answer": "Louis Chedid",
+        "stop_reason": "answerable",
+        "error": null,
+        "context": "Je Vous Aime (English title \"I Love You All\") is a 1980 French romantic comedy film directed by Claude Berri.\nMatthieu Chedid was born in Boulogne-Billancourt, Hauts-de-Seine, France, the son of French singer Louis Chedid, and the grandson of the Egyptian-born French writer and poet of Lebanese descent Andrée Chedid who has written lyrics for him.\nHis sister is the music video and concert director Émilie Chedid.\n\"Je te dis tout\" is a song by French singer songwriter Mylène Farmer.\nThe music video was directed by François Hanss.\nJe dis aime (1999) is the second studio album by French singer-songwriter Matthieu Chedid, in his persona as -M-, described by reviewers as a \"conceptual icon to rival Bowie's Ziggy Stardust and Aladdin Sane\".",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"answerable\", \"follow_up_question\": \"Who is the father of Matthieu Chedid?\"}",
+            "format_warnings": [
+              "unused_follow_up_ignored_for_answerable"
+            ],
+            "parse_error": null
+          }
+        ]
+      }
+    ],
+    "error": [
+      {
+        "id": "2hop__66149_85990",
+        "question": "Who were the leaders of the opposition party that was created as a result of the kansas-nebraska act?",
+        "gold_answer": "anti-slavery activists, modernizers, ex Whigs and ex Free Soilers",
+        "predicted_answer": "",
+        "stop_reason": "error",
+        "error": {
+          "type": "ValueError",
+          "message": "Controller did not return valid JSON"
+        },
+        "context": "The Antebellum Period is often considered to have begun with the Kansas–Nebraska Act of 1854,[citation needed] although it may have begun as early as 1812.\nSolidarnost (Солидарность, Russian for \"Solidarity\", named after the Polish Solidarność) is a Russian liberal democratic political movement founded on 13 December 2008 by a number of well-known members of the liberal democratic opposition, including Garry Kasparov, Boris Nemtsov and others from the Yabloko and Union of Right Forces (which had just merged with two pro-Kremlin parties, the Democratic Party of Russia and Civilian Power, to form the pro-Kremlin liberal democratic Right Cause) parties, leaders of the Dissenters March events, the Committee 2008, the People's Democratic Union, the United Civil Front, The Other Russia and other politicians and political groups.\nThe current Minority Leader Nancy Pelosi, of the United States House of Representatives serves as floor leader of the opposition party, and is the counterpart to the Majority Leader.\nFounded in the Northern states in 1854 by anti-slavery activists, modernizers, ex Whigs and ex Free Soilers, the Republican Party quickly became the principal opposition to the dominant Democratic Party and the briefly popular Know Nothing Party.\nThe main cause was opposition to the Kansas -- Nebraska Act, which repealed the Missouri Compromise by which slavery was kept out of Kansas.\nThe Northern Republicans saw the expansion of slavery as a great evil.\nThe first public meeting of the general ``anti-Nebraska ''movement where the name`` Republican'' was suggested for a new anti-slavery party was held on March 20, 1854, in a schoolhouse in Ripon, Wisconsin.\nThe Kansas -- Nebraska Act divided the nation and pointed it toward civil war.\nThe turmoil over the act split both the Democratic and Whig parties and gave rise to the Republican Party, which split the United States into two major political camps, the Republican North and the Democratic South.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who were the leaders of the anti-Nebraska movement or the Republican Party that was created as a result of the Kansas-Nebraska Act in the United States?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who were the leaders of the anti-slavery party that was created as a result of the Kansas-Nebraska Act in 1854, specifically in the context of the 'general \"anti-Nebraska\" movement'?\"}",
+            "format_warnings": null,
+            "parse_error": "Controller did not return valid JSON"
+          }
+        ]
+      },
+      {
+        "id": "2hop__17508_17335",
+        "question": "When did the person all of the diadochi painted themselves to look like die?",
+        "gold_answer": "323 BC",
+        "predicted_answer": "",
+        "stop_reason": "error",
+        "error": {
+          "type": "ValueError",
+          "message": "Controller did not return valid JSON"
+        },
+        "context": "The image of Alexander the Great was also an important artistic theme, and all of the diadochi had themselves depicted imitating Alexander's youthful look.\nIn about 1413 a contemporary of Ghiberti, Filippo Brunelleschi, demonstrated the geometrical method of perspective, used today by artists, by painting the outlines of various Florentine buildings onto a mirror.\nHe had the viewer look through a small hole on the back of the painting, facing the Baptistery.\nHe would then set up a mirror, facing the viewer, which reflected his painting.\nTo the viewer, the painting of the Baptistery and the building itself were nearly indistinguishable.\nThe work was probably painted during one of Rachel's tours of London in the 1840s.\nThe painting was bequeathed to the Washington, D.C., National Gallery of Art upon Lichtenstein's death.\nThis nude was painted before 1824, and is currently held and exhibited at the Louvre in Paris.\nHe wrote a history of the Diadochi and their descendants, encompassing the period from the death of Alexander to the war with Pyrrhus (323–272 BC), which is one of the chief authorities used by Diodorus Siculus (xviii.–xx.)\nand also by Plutarch in his life of Pyrrhus.\nIt is one of the best-known examples of Art Deco portrait painting.\nThe work is still in its original frame, which is painted over to look like bronze.\nWhat remains is \"a photo of a painting of a person, and the real person hidden somewhere underneath.\"\nShe takes a classical concept – trompe l'oeil, the art of making a two-dimensional representational painting look like a real three-dimensional space – and does the opposite, making real life appear to be a painting.",
+        "controller_calls": [
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the person referred to in the question and how is he related to the diadochi?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the person referred to in the statement 'What remains is a photo of a painting of a person, and the real person hidden somewhere underneath.'?\"}",
+            "format_warnings": null,
+            "parse_error": null
+          },
+          {
+            "raw_response": "{\"answer\": \"unanswerable\", \"follow_up_question\": \"Who is the person referred to in the statement 'What remains is \"a photo of a painting of a person, and the real person hidden somewhere underneath.\"' and when did this person die?\"}",
+            "format_warnings": null,
+            "parse_error": "Controller did not return valid JSON"
+          }
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Substring presence is a diagnostic heuristic, not entailment.",
+    "Paragraph coverage is not sentence sufficiency.",
+    "Group comparisons are observational, not causal effects.",
+    "No inference performed; predictions and gold used only for offline diagnosis."
+  ]
+}

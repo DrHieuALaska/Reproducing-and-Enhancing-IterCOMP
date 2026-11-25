@@ -1,0 +1,160 @@
+{
+  "upstream_commit": "922ac98f19a201998dbdae6d7f2887a5258dbdeb",
+  "upstream_evaluator": "https://raw.githubusercontent.com/StonyBrookNLP/musique/922ac98f19a201998dbdae6d7f2887a5258dbdeb/evaluate_v1.0.py",
+  "runs": [
+    {
+      "split": "evaluation",
+      "predictions": "evaluation_itercomp_itercomp_llama_mistral_full/reports/scored/official_predictions.jsonl",
+      "n": 2417,
+      "prediction_sha256": "4d8dccdd0a3c26f2615423774e5db2dc7425a5e1a56ed2f24fb1b64a6c1572da",
+      "gold_sha256": "212d768120cf2e57781e85bac7d9ffd7796af49d661a431b3a6b0e4c5eb446db",
+      "official_cli": {
+        "answer_f1": 0.178,
+        "answer_em": 0.128,
+        "support_f1": 0.392
+      },
+      "official_unrounded": {
+        "answer_em": 0.1278444352503103,
+        "answer_f1": 0.17802789041770692,
+        "support_f1": 0.3922009652241573
+      },
+      "local": {
+        "answer_em": 0.1278444352503103,
+        "answer_f1": 0.1780278904177069,
+        "support_f1": 0.39220096522415876
+      }
+    },
+    {
+      "split": "calibration",
+      "predictions": "readers/raw_current/reports/scored/official_predictions.jsonl",
+      "n": 150,
+      "prediction_sha256": "e95c0f4a4c309ce98b7424a22f2733fe5debcd50793d3116d8699dc0dbbfcf25",
+      "gold_sha256": "dc20ff955d00cb5f79b955abe1cb34c3f916297a9aac4fbeea9ab517d81c57f3",
+      "official_cli": {
+        "answer_f1": 0.07,
+        "answer_em": 0.053,
+        "support_f1": 0.259
+      },
+      "official_unrounded": {
+        "answer_em": 0.05333333333333334,
+        "answer_f1": 0.07035497835497835,
+        "support_f1": 0.258673693456302
+      },
+      "local": {
+        "answer_em": 0.05333333333333334,
+        "answer_f1": 0.07035497835497835,
+        "support_f1": 0.25867369345630215
+      }
+    },
+    {
+      "split": "calibration",
+      "predictions": "readers/itercomp_no_abstention_instruction/reports/scored/official_predictions.jsonl",
+      "n": 150,
+      "prediction_sha256": "e988fb3c090c0ae10db2ab5c8b49199736fa401ee7facf31ba22d6450a6e0c9b",
+      "gold_sha256": "dc20ff955d00cb5f79b955abe1cb34c3f916297a9aac4fbeea9ab517d81c57f3",
+      "official_cli": {
+        "answer_f1": 0.268,
+        "answer_em": 0.173,
+        "support_f1": 0.392
+      },
+      "official_unrounded": {
+        "answer_em": 0.17333333333333334,
+        "answer_f1": 0.2675984585836267,
+        "support_f1": 0.39202826361804666
+      },
+      "local": {
+        "answer_em": 0.17333333333333334,
+        "answer_f1": 0.2675984585836267,
+        "support_f1": 0.39202826361804693
+      }
+    },
+    {
+      "split": "calibration",
+      "predictions": "readers/raw_no_abstention_instruction/reports/scored/official_predictions.jsonl",
+      "n": 150,
+      "prediction_sha256": "5c60972050d01d0428faf1f6fd8b1d672ff7b4b4bd40efc490cb4798f964b5f0",
+      "gold_sha256": "dc20ff955d00cb5f79b955abe1cb34c3f916297a9aac4fbeea9ab517d81c57f3",
+      "official_cli": {
+        "answer_f1": 0.269,
+        "answer_em": 0.173,
+        "support_f1": 0.259
+      },
+      "official_unrounded": {
+        "answer_em": 0.17333333333333334,
+        "answer_f1": 0.26926634340815797,
+        "support_f1": 0.258673693456302
+      },
+      "local": {
+        "answer_em": 0.17333333333333334,
+        "answer_f1": 0.26926634340815797,
+        "support_f1": 0.25867369345630215
+      }
+    },
+    {
+      "split": "calibration",
+      "predictions": "readers/oracle_current/reports/scored/official_predictions.jsonl",
+      "n": 150,
+      "prediction_sha256": "f77a1ff390bdb7587304f04b3eb17ebc8e01da119687c94ee4de0e0a09349f91",
+      "gold_sha256": "dc20ff955d00cb5f79b955abe1cb34c3f916297a9aac4fbeea9ab517d81c57f3",
+      "official_cli": {
+        "answer_f1": 0.345,
+        "answer_em": 0.267,
+        "support_f1": 1.0
+      },
+      "official_unrounded": {
+        "answer_em": 0.26666666666666666,
+        "answer_f1": 0.3453404558404557,
+        "support_f1": 1.0
+      },
+      "local": {
+        "answer_em": 0.26666666666666666,
+        "answer_f1": 0.34534045584045586,
+        "support_f1": 1.0
+      }
+    },
+    {
+      "split": "calibration",
+      "predictions": "readers/oracle_no_abstention_instruction/reports/scored/official_predictions.jsonl",
+      "n": 150,
+      "prediction_sha256": "fc6a724c84689a81deee7be9c384bb9ba6d569b2b4bf63cd3c9739e7a4f13a41",
+      "gold_sha256": "dc20ff955d00cb5f79b955abe1cb34c3f916297a9aac4fbeea9ab517d81c57f3",
+      "official_cli": {
+        "answer_f1": 0.528,
+        "answer_em": 0.373,
+        "support_f1": 1.0
+      },
+      "official_unrounded": {
+        "answer_em": 0.37333333333333335,
+        "answer_f1": 0.5279304046639129,
+        "support_f1": 1.0
+      },
+      "local": {
+        "answer_em": 0.37333333333333335,
+        "answer_f1": 0.5279304046639129,
+        "support_f1": 1.0
+      }
+    },
+    {
+      "split": "calibration",
+      "predictions": "readers/itercomp_current/reports/scored/official_predictions.jsonl",
+      "n": 150,
+      "prediction_sha256": "246a06590ed58c68ae2a83087224bde0ce8aa205a9fc748fb5241103fbcd7722",
+      "gold_sha256": "dc20ff955d00cb5f79b955abe1cb34c3f916297a9aac4fbeea9ab517d81c57f3",
+      "official_cli": {
+        "answer_f1": 0.14,
+        "answer_em": 0.1,
+        "support_f1": 0.392
+      },
+      "official_unrounded": {
+        "answer_em": 0.1,
+        "answer_f1": 0.13962962962962963,
+        "support_f1": 0.39202826361804666
+      },
+      "local": {
+        "answer_em": 0.1,
+        "answer_f1": 0.13962962962962963,
+        "support_f1": 0.39202826361804693
+      }
+    }
+  ]
+}
